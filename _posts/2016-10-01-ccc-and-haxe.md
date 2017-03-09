@@ -1,6 +1,7 @@
 ---
-title: Why I wrote Cloud-Compute-Cannon in Haxe
+title: Cloud-Compute-Cannon and Haxe
 layout: post
+date: 2016-10-01 20:37:03.000000000 -08:00
 ---
 
 <style type="text/css">

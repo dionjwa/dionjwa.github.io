@@ -11,6 +11,7 @@ description: Mobile+Cloud Engineer / Bioinformatics Scientist
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars1.githubusercontent.com/u/260221?v=3&s=460
 
+source: ./
 #
 # Flags below are optional
 #
@@ -37,7 +38,7 @@ footer-links:
 disqus:
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics:
+google_analytics: "UA-10431670-1"
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
@@ -63,11 +64,7 @@ kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
   input: GFM
   # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
-  # syntax_highlighter: rouge
-  syntax_highlighter: pygments
-  syntax_highlighter_opts:
-    # Use existing pygments syntax highlighting css
-    css_class: 'highlight'
+  syntax_highlighter: rouge
 
 # Set the Sass partials directory, as we're using @imports
 sass:
@@ -78,6 +75,7 @@ gems:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
 
+include: ['_pages', '_oldposts']
 # Exclude these files from your production _site
 exclude:
   - Gemfile
