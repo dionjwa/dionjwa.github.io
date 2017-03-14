@@ -52,6 +52,7 @@ Senior Software Engineer at [Bionano Research](http://bionano.autodesk.com/), [A
 
  - Designed and built [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon). CCC puts scalable cloud computing into the hands of scientists. CCC can be easily installed locally, or in the cloud (AWS), and provides a simple API for running any scientific compute jobs.
 
+Technology stack: Node.js, Docker, Redis, AWS Cloudformation, Haxe, Python, React
 
 ##### 2012-2014
 
@@ -118,12 +119,12 @@ Wanke, S. Weinl, O. Batistic, C. D'Angelo, E. Bornberg-Bauer, J. Kudla and K. Ha
 - [Evaluating an Evolutionary Approach for Reconstructing Gene Regulatory Networks.](http://dionamago.net/content/courses/alife9.pdf) Whitehead, D. and Skusa, A. and Kennedy, P.J. *Ninth International Conference on the Simulation and
 Synthesis of Living Systems* (2004).
 
-## Open source projects
+## Recent Open source projects
 
-- [Node.js externs for Haxe](https://github.com/dionjwa/nodejs-std)
-- [Catapult](https://github.com/dionjwa/catapult), an asset and code server for hot-reloading of game assets. Allows instantaneous viewing of any code changes in live mobile apps.
-- [All Google Code projects](http://code.google.com/u/dionjw/).
+- [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon)
+
 - [All GitHub projects](http://github.com/dionjwa).
+- [All Google Code projects](http://code.google.com/u/dionjw/).
 
 
 #### Footnotes
