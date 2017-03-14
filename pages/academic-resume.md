@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Academic Resume
+permalink: /resume-academic/
 date: 2010-09-04 18:17:25.000000000 -07:00
 type: page
 published: true

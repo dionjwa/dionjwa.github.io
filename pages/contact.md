@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Contact
+permalink: /contact/
 date: 2010-09-03 17:15:09.000000000 -07:00
 type: page
 published: true

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Resume
+permalink: /resume/
 date: 2010-09-03 12:50:49.000000000 -07:00
 type: page
 published: true
