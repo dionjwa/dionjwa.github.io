@@ -27,7 +27,7 @@ author:
 [academics]: http://dionamago.net/academicresume
 [haxe]: http://haxe.org
 [jedit]: www.jedit.org
-[resume]: http://dionamago.net/resume
+[resume]: http://dionjwa.github.io/resume/
 [blog]: http://dionamago.net
 
 ## Dion Amago Whitehead
@@ -36,9 +36,9 @@ author:
 
 ### Software Engineer, Scientist, Game Developer
 
-I'm passionate about large scale software architecture, evolution, biological networks, game development, UX, in no particular order. I have a broad and deep range of interests and abilities, and a thirst for learning.
+I'm passionate about large scale software architecture, molecular simulation, evolution, biological networks, game development, UX, in no particular order. I have a broad and deep range of interests and abilities, and a thirst for learning.
 
-- Blog: [http://dionamago.net][resume]
+- Blog: [http://dionjwa.github.io/resume/][resume]
 - Twitter: [https://twitter.com/#!/dionamago](https://twitter.com/#!/dionamago)
 - LinkedIn: [http://www.linkedin.com/in/dionwhiteheadamago][LinkedIn]
 - GitHub: [https://github.com/dionjwa][github]
@@ -54,6 +54,7 @@ Senior Software Engineer at [Bionano Research](http://bionano.autodesk.com/), [A
  - Currently working on [molecular simulation applications](http://molecularsimulation.bionano.autodesk.com/).
  - Designed and built [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon). CCC puts scalable cloud computing into the hands of scientists. CCC can be easily installed locally, or in the cloud (AWS), and provides a simple API for running any scientific compute jobs.
  - Integrated [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon) into the [bionano molecular viewer](https://moleculeviewer.bionano.autodesk.com/), and contributed to the backend.
+ - Developer the idea of 'Metapages': [connected webpages as applications](https://dionjwa.github.io/metapage/).
 
 Technology stack: Node.js, Javascript, Docker, Redis, AWS Cloudformation, Haxe, Python, React.
 
@@ -72,15 +73,15 @@ Technology stack: Cross-platform front-end (Cocos2d-x, Objective-C, C++, Java, L
 
 - Prototyped a large number of games, compared to the industry average rate of released games, by building re-usable components at the right level of software abstraction, and building upon appropriate existing software.
 
-Games released:
+<!-- Games released:
 
 - [Biteme](http://dionamago.net/?p=214)
 - [Vampire Whirled](http://dionamago.net/?p=205)
 - [GOBama](http://dionamago.net/?p=82)
-- [Politick](http://dionamago.net/?p=69)
+- [Politick](http://dionamago.net/?p=69) -->
 
 Technology stack: Flash front-end (with the Facebook API), Java backend.
-     
+
 ##### 2005 -- 2008
 
 **[Postdoc](http://www.bornberglab.org/people/whitehead)** at the [Institute of Evolution & Biodiversity][ieb], Münster University, Germany.
@@ -92,7 +93,7 @@ Technology stack: Flash front-end (with the Facebook API), Java backend.
 
 Technology: Java, Python, [Condor](http://research.cs.wisc.edu/htcondor/) (a distributed computing system), R.
 
-##### 2001-2004 
+##### 2001-2004
 
 PhD student, [International NRW Graduate School in Bioinformatics and Genome Research](http://www.cebitec.uni-bielefeld.de/index.php/graduate-programs), Bielefeld university, Germany. Built tools for integrating different kinds of databases and tools for visualization of complex data.
 
@@ -102,34 +103,23 @@ Technology: Java, R.
 ## Education
 
 - PhD in Bioinformatics, [CebiTec Graduate School](http://www.techfak.uni-bielefeld.de/web/Studies/Studyprograms/doctoralProgramBIG), [Bielefeld University](http://www.uni-bielefeld.de/), Germany. Grade: [1.0](http://en.wikipedia.org/wiki/Academic_grading_in_Germany). Link to thesis: [http://pub.uni-bielefeld.de/publication/2306211](http://pub.uni-bielefeld.de/publication/2306211)
-- [Post-graduate Diploma in Genetics](http://www.massey.ac.nz/massey/learning/colleges/college-of-sciences/research/fundamental-sciences-research/genetics-genomics-evolution/genetics-genomics-evolution_home.cfm), [Massey University](http://www.massey.ac.nz/‎), New Zealand. 
+- [Post-graduate Diploma in Genetics](http://www.massey.ac.nz/massey/learning/colleges/college-of-sciences/research/fundamental-sciences-research/genetics-genomics-evolution/genetics-genomics-evolution_home.cfm), [Massey University](http://www.massey.ac.nz/‎), New Zealand.
 - [B.Sc. Immunology & Virology](http://medlab-school.massey.ac.nz/course_bmlsc.html), [Massey University](http://www.massey.ac.nz/‎), New Zealand.
-
-## Publications
-
-- Evolutionary adaption to noise by signalling networks.
-D. Whitehead, L. Wissler.
-*In revision.*
-- [Osmotic and salt stress response in Arabidopsis.](http://dionamago.net/content/courses/Whitehead-Kilian-etal-2007-DRAFT.pdf)
-D. Whitehead, J. Kilian, J. Kudla and E. Bornberg-Bauer. *In revision.*
-- [The look-ahead effect of phenotypic mutations.](http://www.biology-direct.com/content/3/1/18). D. Whitehead, Claus Wilke, D. Vernazobres
-and E. Bornberg-Bauer. *Biology Direct * (2008).
-- [The AtGenExpress global stress expression data set: Protocols, evaluation and model data analysis of UV-B light, drought and cold stress responses.](http://www.blackwell-synergy.com/doi/abs/10.1111/j.1365-313X.2007.03052.x) J. Kilian, D. Whitehead, J. Horak, D.
-Wanke, S. Weinl, O. Batistic, C. D'Angelo, E. Bornberg-Bauer, J. Kudla and K. Harter. *Plant J* (2007).
-- [Chapter 13: Evolution of Regulatory Networks, Systems Biology Applied to Toxicogenomics.](http://www.worldscibooks.com/lifesci/6459.html) Amelie Veron, Dion Whitehead, et. el François Képès (ed.). *World Scientific* (2007).
-- [Reconstructing gene function and gene regulatory networks in prokaryotes.](http://bieson.ub.uni-bielefeld.de/volltexte/2005/792) Dion Whitehead. *PhD Thesis* (2005).
-- [Handbook of Toxicogenomics: Strategies and Applications 13: Systems Biology Applied to Toxicogenomics.](http://www3.interscience.wiley.com/cgi-bin/abstract/110575170/ABSTRACT) Klaus Prank, Matthias Hoechsmann, Bjoern Oleson, Thomas Schmidt, Leila Taher, Dion Whitehead, Jürgen Borlak (ed.). *John Wiley &amp; Sons* (2005).
-- [Evaluating an Evolutionary Approach for Reconstructing Gene Regulatory Networks.](http://dionamago.net/content/courses/alife9.pdf) Whitehead, D. and Skusa, A. and Kennedy, P.J. *Ninth International Conference on the Simulation and
-Synthesis of Living Systems* (2004).
 
 ## Recent Open source projects
 
-- [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon)
+ - [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon)
+ - [Metapage](https://github.com/dionjwa/metapage)
 
-- [All GitHub projects](http://github.com/dionjwa).
-- [All Google Code projects](http://code.google.com/u/dionjw/).
+ - [All GitHub projects](http://github.com/dionjwa).
+ - [All Google Code projects](http://code.google.com/u/dionjw/).
 
 
-#### Footnotes
+## [Publications]({{ site.baseurl }}/publications)
+
+[Academic publications]({{ site.baseurl }}/publications)
+
+
+<!-- #### Footnotes
 <a name="note"></a>
-When I married I changed my name from "Dion John **Whitehead**" to "Dion John **Whitehead Amago**".
+When I married I changed my name from "Dion John **Whitehead**" to "Dion John **Whitehead Amago**". -->
