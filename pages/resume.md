@@ -30,13 +30,11 @@ author:
 [resume]: http://dionjwa.github.io/resume/
 [blog]: http://dionamago.net
 
-## Dion Amago Whitehead
+## Dion Amago Whitehead, PhD Bioinformatics
 
+### Data Scientist, Software Engineer, Game Developer
 
-
-### Software Engineer, Scientist, Game Developer
-
-I'm passionate about large scale software architecture, molecular simulation, evolution, biological networks, game development, UX, in no particular order. I have a broad and deep range of interests and abilities, and a thirst for learning.
+I'm passionate about understanding complex systems using big data and software, large scale data software architecture, molecular simulation, evolution, biological networks, game development, UX, in no particular order. I have a broad and deep range of interests and abilities, and a thirst for learning.
 
 - Blog: [http://dionjwa.github.io/resume/][resume]
 - Twitter: [https://twitter.com/#!/dionamago](https://twitter.com/#!/dionamago)
@@ -45,7 +43,7 @@ I'm passionate about large scale software architecture, molecular simulation, ev
 
 ## Experience
 
-2+ years developing cloud-computing infrastructure for scientific applications, 7+ years developing large scale online/social/mobile games and infrastructure, 3 years as post-doc working in the field of computational biology.
+2+ years developing cloud-computing infrastructure for scientific applications, 7+ years developing large scale online/social/mobile games and infrastructure, 3 years as post-doc working in the field of computational biology and bioinformatics.
 
 ###### 2014-present
 
