@@ -36,7 +36,7 @@ author:
 
 I'm passionate about understanding complex systems using big data and software, large scale data software architecture, molecular simulation, evolution, biological networks, game development, UX, in no particular order. I have a broad and deep range of interests and abilities, and a thirst for learning.
 
-- Blog: [http://dionjwa.github.io/resume/][resume]
+<!-- - Blog: [http://dionjwa.github.io/resume/][resume] -->
 - Twitter: [https://twitter.com/#!/dionamago](https://twitter.com/#!/dionamago)
 - LinkedIn: [http://www.linkedin.com/in/dionwhiteheadamago][LinkedIn]
 - GitHub: [https://github.com/dionjwa][github]
