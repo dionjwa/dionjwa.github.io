@@ -30,7 +30,7 @@ author:
 [resume]: http://dionjwa.github.io/resume/
 [blog]: http://dionamago.net
 
-## Dion Amago Whitehead, PhD Bioinformatics
+## Dion Amago Whitehead
 
 ### Data Scientist, Software Engineer, Game Developer
 
