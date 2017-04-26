@@ -32,7 +32,7 @@ author:
 
 ## Dion Amago Whitehead
 
-### Data Scientist, Software Engineer, Game Developer
+### Software Engineer, Data Scientist, Game Developer
 
 I'm passionate about understanding complex systems using big data and software, large scale data software architecture, molecular simulation, evolution, biological networks, game development, UX, in no particular order. I have a broad and deep range of interests and abilities, and a thirst for learning.
 
