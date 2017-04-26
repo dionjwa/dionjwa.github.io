@@ -49,7 +49,7 @@ I'm passionate about understanding complex systems using big data and software, 
 
 Senior Software Engineer at [Bionano Research](http://bionano.autodesk.com/), [Autodesk](https://autodeskresearch.com/groups/bionano).
 
- - Currently working on [molecular simulation applications](http://molecularsimulation.bionano.autodesk.com/).
+ - Currently working on [molecular simulation applications](http://molecularsimulation.bionano.autodesk.com/) and [Genetic Constructor](geneticconstructor.lifesciences.autodesk.com).
  - Designed and built [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon). CCC puts scalable cloud computing into the hands of scientists. CCC can be easily installed locally, or in the cloud (AWS), and provides a simple API for running any scientific compute jobs.
  - Integrated [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon) into the [bionano molecular viewer](https://moleculeviewer.bionano.autodesk.com/), and contributed to the backend.
  - Developer the idea of 'Metapages': [connected webpages as applications](https://dionjwa.github.io/metapage/).
