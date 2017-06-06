@@ -95,7 +95,7 @@ Technology: Python, Java, [Condor](http://research.cs.wisc.edu/htcondor/) (a dis
 
 PhD student, [International NRW Graduate School in Bioinformatics and Genome Research](http://www.cebitec.uni-bielefeld.de/index.php/graduate-programs), Bielefeld university, Germany. Built tools for integrating different kinds of databases and tools for visualization of complex data.
 
-Technology: Java, R, Python
+Technology: Python, Java, R
 
 
 ## Education
