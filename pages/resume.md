@@ -106,10 +106,10 @@ Technology: Python, Java, R
 
 ## Recent Open source projects
 
- - [Cloud Compute Cannon:](https://github.com/Autodesk/cloud-compute-cannon) https://github.com/Autodesk/cloud-compute-cannon
- - [Metapage:](https://github.com/dionjwa/metapage) https://github.com/dionjwa/metapage
+ - [Cloud Compute Cannon:](https://github.com/Autodesk/cloud-compute-cannon) [https://github.com/Autodesk/cloud-compute-cannon](https://github.com/Autodesk/cloud-compute-cannon)
+ - [Metapage:](https://github.com/dionjwa/metapage) [https://github.com/dionjwa/metapage](https://github.com/dionjwa/metapage)
 
- - [All GitHub projects:](http://github.com/dionjwa) http://github.com/dionjwa
+ - [All GitHub projects:](http://github.com/dionjwa) [http://github.com/dionjwa](http://github.com/dionjwa)
 
 
 ## [Publications]({{ site.baseurl }}/publications)
