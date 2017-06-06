@@ -54,7 +54,7 @@ Senior Software Engineer at [Bionano Research](http://bionano.autodesk.com/), [A
  - Integrated [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon) into the [bionano molecular viewer](https://moleculeviewer.bionano.autodesk.com/), and contributed to the backend.
  - Developer the idea of 'Metapages': [connected webpages as applications](https://dionjwa.github.io/metapage/).
 
-Technology stack: Node.js, Javascript, Docker, Redis, AWS Cloudformation, Haxe, Python, React.
+Technology stack: Node.js, Javascript, Docker, Redis, AWS Cloudformation, Python, Haxe, React.
 
 ##### 2012-2014
 
@@ -89,13 +89,13 @@ Technology stack: Flash front-end (with the Facebook API), Java backend.
 - Developed a Python course for biologists with little coding experience that allowed them to solve real research and coursework problems.
 - Taught Python, bioinformatics and [R](http://www.r-project.org/) courses in German and English, having only learned German at the beginning of my PhD.
 
-Technology: Java, Python, [Condor](http://research.cs.wisc.edu/htcondor/) (a distributed computing system), R.
+Technology: Python, Java, [Condor](http://research.cs.wisc.edu/htcondor/) (a distributed computing system), R.
 
 ##### 2001-2004
 
 PhD student, [International NRW Graduate School in Bioinformatics and Genome Research](http://www.cebitec.uni-bielefeld.de/index.php/graduate-programs), Bielefeld university, Germany. Built tools for integrating different kinds of databases and tools for visualization of complex data.
 
-Technology: Java, R.
+Technology: Java, R, Python
 
 
 ## Education
@@ -106,11 +106,10 @@ Technology: Java, R.
 
 ## Recent Open source projects
 
- - [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon)
- - [Metapage](https://github.com/dionjwa/metapage)
+ - [Cloud Compute Cannon:](https://github.com/Autodesk/cloud-compute-cannon) https://github.com/Autodesk/cloud-compute-cannon
+ - [Metapage:](https://github.com/dionjwa/metapage) https://github.com/dionjwa/metapage
 
- - [All GitHub projects](http://github.com/dionjwa).
- - [All Google Code projects](http://code.google.com/u/dionjw/).
+ - [All GitHub projects:](http://github.com/dionjwa) http://github.com/dionjwa
 
 
 ## [Publications]({{ site.baseurl }}/publications)
