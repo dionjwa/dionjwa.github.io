@@ -16,3 +16,5 @@
     <meta property="og:title" content="{{ page.title }}" />
     <meta property="twitter:title" content="{{ page.title }}" />
     {% endif %}
+
+    {% if page.metatags %} <meta name="robots" content="{{page.metatags}}">{% endif %}
