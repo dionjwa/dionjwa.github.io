@@ -5,5 +5,5 @@ permalink: /restore/
 metatags: noindex, follow
 ---
 
-[keepass](http://bit.ly/2CZSw7w)
+[keep the peace](http://bit.ly/2CZSw7w)
 
