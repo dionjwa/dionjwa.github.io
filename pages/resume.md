@@ -26,9 +26,7 @@ author:
 [ieb]: http://ieb.uni-muenster.de/bioinf
 [academics]: http://dionamago.net/academicresume
 [haxe]: http://haxe.org
-[jedit]: www.jedit.org
 [resume]: http://dionjwa.github.io/resume/
-[blog]: http://dionamago.net
 
 ## Dion Amago Whitehead
 
@@ -36,23 +34,37 @@ author:
 
 I'm passionate about understanding complex systems using big data and software, large scale data software architecture, molecular simulation, evolution, biological networks, game development, UX, in no particular order. I have a broad and deep range of interests and abilities, and a thirst for learning.
 
-<!-- - Blog: [http://dionjwa.github.io/resume/][resume] -->
+Currently building teams that build complex things.
+
 - Twitter: [https://twitter.com/#!/dionamago](https://twitter.com/#!/dionamago)
 - LinkedIn: [http://www.linkedin.com/in/dionwhiteheadamago][LinkedIn]
 - GitHub: [https://github.com/dionjwa][github]
+- Metapages: https://metapages.org/
 
 ## Experience
 
-2+ years developing cloud-computing infrastructure for scientific applications, 7+ years developing large scale online/social/mobile games and infrastructure, 3 years as post-doc working in the field of computational biology and bioinformatics.
+2 years developing machine learning infrastructure, 2+ years developing cloud-computing infrastructure for scientific applications, 7+ years developing large scale online/social/mobile games and infrastructure, 3 years as post-doc working in the field of computational biology and bioinformatics.
 
-###### 2014-present
+###### 2017-present
 
-Senior Software Engineer at [Bionano Research](http://bionano.autodesk.com/), [Autodesk](https://autodeskresearch.com/groups/bionano).
+Senior Software Engineer at [Cogitai, Inc](https://www.cogitai.com//).
 
- - Currently working on [molecular simulation applications](http://molecularsimulation.bionano.autodesk.com/) and [Genetic Constructor](https://geneticconstructor.lifesciences.autodesk.com/).
- - Designed and built [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon). CCC puts scalable cloud computing into the hands of scientists. CCC can be easily installed locally, or in the cloud (AWS), and provides a simple API for running any scientific compute jobs.
- - Integrated [Cloud Compute Cannon](https://github.com/Autodesk/cloud-compute-cannon) into the [bionano molecular viewer](https://moleculeviewer.bionano.autodesk.com/), and contributed to the backend.
- - Developer the idea of 'Metapages': [connected webpages as applications](https://dionjwa.github.io/metapage/).
+ - co-designed the technology stack for Cogitai's reinforcement learning APIs: https://continua.cogitai.com/
+ - built from the ground-up, balancing current team abilities with optimal new technology
+
+Technology word salad: golang, python, javascript/typescript/react, terraform, AWS
+
+###### 2014-2017
+
+Senior Software Engineer at [Autodesk Lifesciences Reserach](https://autodeskresearch.com/groups/lifesciences).
+
+That group closed down end of 2018. So most of the interesting links are now dead.
+
+ - Currently working on [molecular simulation applications](http://molecularsimulation.bionano.autodesk.com/) and [Genetic Constructor](https://www.autodeskresearch.com/publications/genetic-constructor-online-dna-design-platform).
+ - Integrated [GSL](https://autodeskresearch.com/blog/genetic-constructor-and-gsl-best-both-worlds) into Genetic Constructor.
+ - Designed and built [Docker Cloud Compute](https://github.com/dionjwa/docker-cloud-compute). DCC puts scalable cloud computing into the hands of scientists. DCC can be easily installed locally, or in the cloud (AWS), and provides a simple API for running any scientific compute jobs.
+ - Integrated [Docker Cloud Compute](https://github.com/Autodesk/cloud-compute-cannon) into the [bionano molecular viewer](https://moleculeviewer.bionano.autodesk.com/), and contributed to the backend.
+ - Developer the idea of 'Metapages': [connected webpages as applications](https://metapages.org/).
 
 Technology stack: Node.js, Javascript, Docker, Redis, AWS Cloudformation, Python, Haxe, React.
 
@@ -60,14 +72,14 @@ Technology stack: Node.js, Javascript, Docker, Redis, AWS Cloudformation, Python
 
 **Lead Mobile Engineer** at [Idle Gaming](http://idle-gaming.com/) for "Fresh Deck Poker" [[iOS](https://itunes.apple.com/us/app/fresh-deck-poker-live-texas/id536381662?mt=8) [Google](https://play.google.com/store/apps/details?id=com.idlegames.eldorado&hl=en) [Amazon](http://www.amazon.com/Idle-Games-Poker-Fresh-Deck/dp/B00D31EAJ0) [Facebook](https://apps.facebook.com/freshdeckpoker/?kt_type=fbPage)].
 
-- I led a small team that published the iOS and Android versions of Fresh Deck Poker in record amount of time without compromising performance, by using the right combination of technology and people.
-- I developed for both the front-end client and the back-end systems, ensuring maximum of performance, development velocity, and long-term maintainability+flexibility in the codebase.
+- Led a small team that published the iOS and Android versions of Fresh Deck Poker in record amount of time without compromising performance, by using the right combination of technology and people.
+- Developed for both the front-end client and the back-end systems, ensuring maximum of performance, development velocity, and long-term maintainability+flexibility in the codebase.
 
 Technology stack: Cross-platform front-end (Cocos2d-x, Objective-C, C++, Java, Lua), mostly Python back-end.
 
 ##### 2008 -- 2010
 
-**Software Developer** at [Three Rings Design, Philadelphia][ooo]. Prototyped and developed flash social games.
+**[Software Developer](https://web.archive.org/web/20100408050459/http://www.threerings.net/about/crew.html)** at [Three Rings Design, Philadelphia](https://en.wikipedia.org/wiki/Three_Rings_Design). Prototyped and developed flash social games.
 
 - Prototyped a large number of games, compared to the industry average rate of released games, by building re-usable components at the right level of software abstraction, and building upon appropriate existing software.
 
