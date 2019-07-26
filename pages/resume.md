@@ -27,6 +27,7 @@ author:
 [academics]: http://dionamago.net/academicresume
 [haxe]: http://haxe.org
 [resume]: http://dionjwa.github.io/resume/
+[metapages]: https://metapages.org/
 
 ## Dion Amago Whitehead
 
@@ -39,7 +40,7 @@ Currently building teams that build complex things.
 - Twitter: [https://twitter.com/#!/dionamago](https://twitter.com/#!/dionamago)
 - LinkedIn: [http://www.linkedin.com/in/dionwhiteheadamago][LinkedIn]
 - GitHub: [https://github.com/dionjwa][github]
-- Metapages: https://metapages.org/
+- Metapages: [https://metapages.org/][metapages]
 
 ## Experience
 
@@ -60,11 +61,11 @@ Senior Software Engineer at [Autodesk Lifesciences Reserach](https://autodeskres
 
 That group closed down end of 2018. So most of the interesting links are now dead.
 
- - Currently working on [molecular simulation applications](http://molecularsimulation.bionano.autodesk.com/) and [Genetic Constructor](https://www.autodeskresearch.com/publications/genetic-constructor-online-dna-design-platform).
+ - Currently working on [molecular simulation applications](https://github.com/Autodesk/molecular-simulation-tools/) and [Genetic Constructor](https://www.autodeskresearch.com/publications/genetic-constructor-online-dna-design-platform).
  - Integrated [GSL](https://autodeskresearch.com/blog/genetic-constructor-and-gsl-best-both-worlds) into Genetic Constructor.
  - Designed and built [Docker Cloud Compute](https://github.com/dionjwa/docker-cloud-compute). DCC puts scalable cloud computing into the hands of scientists. DCC can be easily installed locally, or in the cloud (AWS), and provides a simple API for running any scientific compute jobs.
- - Integrated [Docker Cloud Compute](https://github.com/Autodesk/cloud-compute-cannon) into the [bionano molecular viewer](https://moleculeviewer.bionano.autodesk.com/), and contributed to the backend.
- - Developer the idea of 'Metapages': [connected webpages as applications](https://metapages.org/).
+ - Integrated [Docker Cloud Compute](https://github.com/Autodesk/cloud-compute-cannon) into the [Autodesk molecule viewer](https://autodeskresearch.com/projects/molecule-viewer), and contributed to the backend.
+ - Developer the idea of 'Metapages': [connected webpages as applications][metapages].
 
 Technology stack: Node.js, Javascript, Docker, Redis, AWS Cloudformation, Python, Haxe, React.
 
@@ -118,10 +119,10 @@ Technology: Python, Java, R
 
 ## Recent Open source projects
 
- - [Cloud Compute Cannon:](https://github.com/Autodesk/cloud-compute-cannon) [https://github.com/Autodesk/cloud-compute-cannon](https://github.com/Autodesk/cloud-compute-cannon)
- - [Metapage:](https://github.com/dionjwa/metapage) [https://github.com/dionjwa/metapage](https://github.com/dionjwa/metapage)
+ - Cloud Compute Cannon:[https://github.com/Autodesk/cloud-compute-cannon](https://github.com/Autodesk/cloud-compute-cannon)
+ - Metapages: [https://metapages.org/][metapages]
 
- - [All GitHub projects:](http://github.com/dionjwa) [http://github.com/dionjwa](http://github.com/dionjwa)
+ - All GitHub projects: [http://github.com/dionjwa](http://github.com/dionjwa)
 
 
 ## [Publications]({{ site.baseurl }}/publications)
