@@ -50,7 +50,7 @@ Currently building teams that build complex things.
 
 Senior Software Engineer at [Cogitai, Inc](https://www.cogitai.com//).
 
- - co-designed the technology stack for Cogitai's reinforcement learning APIs: https://continua.cogitai.com/
+ - co-designed the technology stack for Cogitai's reinforcement learning [APIs](https://continua.cogitai.com/).
  - built from the ground-up, balancing current team abilities with optimal new technology
 
 Technology word salad: golang, python, javascript/typescript/react, terraform, AWS
