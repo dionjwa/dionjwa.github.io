@@ -1,0 +1,43 @@
+name: Create PR if notion changes
+
+on:
+  push:
+    # Review gh actions docs if you want to further define triggers, paths, etc
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+    branches:
+      - test-notion-check
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: extractions/setup-just@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.8.0
+      - name: Install dependencies
+        run: just install --frozen-lockfile
+
+      - name: Generate from Notion
+        run: just generate-from-notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Update from Notion
+          commit-message: Update from Notion
+          base: docusaurus
+          labels: automerge
