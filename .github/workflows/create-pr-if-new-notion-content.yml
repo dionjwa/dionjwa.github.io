@@ -1,18 +1,26 @@
 name: Create PR if notion changes
 
 on:
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '11 * * * *'
+
+
   push:
     # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+
     branches:
       - test-notion-check
 
 jobs:
   deploy:
-    name: Deploy to GitHub Pages
+    name: Create PR if notion changes
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: main
 
       - uses: extractions/setup-just@v1
         env:
@@ -39,5 +47,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: Update from Notion
           commit-message: Update from Notion
-          base: docusaurus
+          base: main
           labels: automerge
