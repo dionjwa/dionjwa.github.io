@@ -3,8 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
-      # - docusaurus
+      # - main
+      - docusaurus
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
@@ -29,10 +29,10 @@ jobs:
       - name: Install dependencies
         run: just install --frozen-lockfile
 
-      - name: Build website
-        run: just build
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      - name: Deploy website
+        run: just deploy
+        # env:
+        #   NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
 
       # # Popular action to deploy to GitHub Pages:
       # # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus

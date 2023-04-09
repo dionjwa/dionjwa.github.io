@@ -9,7 +9,7 @@ set dotenv-load                     := true
 # Repo configuration
 ###########################################################################
 # Required since the entire repo is from notion
-NOTION_TOKEN                        := env_var("NOTION_TOKEN")
+NOTION_TOKEN                        := env_var_or_default("NOTION_TOKEN", "")
 ###########################################################################
 # Formatting output
 ###########################################################################
@@ -40,8 +40,8 @@ _dev:
     pnpm install
     pnpm start
 
-# Bundles your website into static files for production.
-build: generate-from-notion
+# Bundles your website into static files for production. NB: no notion fetch here
+build:
     pnpm install
     pnpm build
 
@@ -50,7 +50,7 @@ serve: generate-from-notion
   pnpm serve
 
 # Publishes the website to GitHub pages.
-deploy: generate-from-notion
+deploy:
     pnpm deploy
 
 # Generate docs from notion. Called automatically by `just [dev|build|serve|deploy]`
@@ -60,12 +60,12 @@ install +args="":
     pnpm i {{args}}
 
 # Build blog from notion https://github.com/sillsdev/docu-notion
-@_docu-notion-blog +args="": && _remove-code-duplicates
+@_docu-notion-blog +args="": _require_NOTION_TOKEN && _remove-code-duplicates
     npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 608a7b08496744579f18698e134fa9db --markdown-output-path $(pwd)/blog {{args}}
     echo -e "✅ generated blog from notion"
 
 # Build main page from notion https://github.com/sillsdev/docu-notion
-@_docu-notion-index +args="": && _remove-code-duplicates _hide-sidebar
+@_docu-notion-index +args="": _require_NOTION_TOKEN && _remove-code-duplicates _hide-sidebar
     npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 35fec21b055e460b85c2014f0280db9b --markdown-output-path $(pwd)/docs {{args}}
     echo -e "✅ generated index from notion"
 
@@ -78,3 +78,6 @@ install +args="":
 @_hide-sidebar:
     sed -i'' 's/^title:/displayed_sidebar: null\ntitle:/g' docs/index.md
     echo -e "✅ added front matter to hide sidebar"
+
+@_require_NOTION_TOKEN:
+	if [ -z "{{NOTION_TOKEN}}" ]; then echo "Missing NOTION_TOKEN env var"; exit 1; fi
