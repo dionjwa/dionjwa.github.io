@@ -61,7 +61,7 @@ install +args="":
 
 # Build blog from notion https://github.com/sillsdev/docu-notion
 @_docu-notion-blog +args="": _require_NOTION_TOKEN && _remove-code-duplicates
-    npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 608a7b08496744579f18698e134fa9db --markdown-output-path $(pwd)/blog {{args}}
+    NOTION_LINK_PREFIX=blog npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 608a7b08496744579f18698e134fa9db --markdown-output-path $(pwd)/blog {{args}}
     echo -e "✅ generated blog from notion"
 
 # Build main page from notion https://github.com/sillsdev/docu-notion

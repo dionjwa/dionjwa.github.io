@@ -13,7 +13,7 @@ import {
   CodeBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
-Log.setLogLevel("verbose");
+// Log.setLogLevel("verbose");
 
 const test = {
   "object": "block",
@@ -98,11 +98,12 @@ const convertHref = (args: {
   slugPrefix?: string;
 }) => {
   const { url, context, slugPrefix } = args;
+
   // Do not convert non-notion links
   if (!url.startsWith("https://www.notion.so/")) {
     return url;
   }
-  const notionId = url.split("-").pop() || "";
+  const notionId = new URL(url).pathname.split("-").pop() || "";
 
   const page = context.pages.find((p) => {
     return p.matchesLinkId(notionId);
@@ -136,7 +137,7 @@ const transformMermaidLinks = (
   // https://mermaid.js.org/syntax/flowchart.html#interaction
   // NB this processing is just for internal link navigation
   const linkRegExp =
-    /\s*click\s+([A-za-z][A-za-z0-9_-]*)\s+"(https:\/\/www\.notion\.so\/\S*)"/g;
+    /\s*click\s+([A-za-z][A-za-z0-9_-]*)\s+"?(https:\/\/www\.notion\.so\/\S*)"?/g;
   let output = pageMarkdown;
   let match: RegExpExecArray | null;
 
