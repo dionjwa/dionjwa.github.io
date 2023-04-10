@@ -1,5 +1,5 @@
 ---
-title: deno is part of the golden three
+title: Deno is part of the golden three
 sidebar_position: 1
 slug: /deno-and-tool-ecosystems
 ---

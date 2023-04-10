@@ -1,5 +1,5 @@
 ---
-title: The golden three for dev ops, scripting, repo management and actually the core of how I now build apps 
+title: The golden trifecta- justfiles, deno, and docker
 sidebar_position: 4
 slug: /the-golden-three-just-deno-docker
 ---
