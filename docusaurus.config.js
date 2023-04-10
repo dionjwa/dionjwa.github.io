@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Resume: Dion Whitehead',
   tagline: 'evolution of complex systems happens right now',
-  favicon: 'img/favicon.ico',
+  favicon: 'favicon.ico',
 
   // Set the production url of your site here
   url: 'https://evolvedeeptimecomplex.systems',
@@ -31,6 +31,12 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  markdown: {
+    mermaid: true,
+  },
+
+  themes: ['@docusaurus/theme-mermaid'],
 
   presets: [
     [
@@ -56,18 +62,28 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      mermaid: {
+        theme: {
+          light: "neutral",
+          dark: "forest",
+        },
+        // config: {
+        //   // Mermaid config
+        // }
+      },
+
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'Resume',
         logo: {
           alt: 'Resume Logo',
-          src: 'img/logo.svg',
+          src: 'logo.svg',
         },
         items: [
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/dionjwa/dionjwa.github.io',
+            href: 'https://github.com/dionjwa',
             label: 'GitHub',
             position: 'right',
           },
@@ -116,7 +132,7 @@ const config = {
           //   ],
           // },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} metapages, LLC. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
