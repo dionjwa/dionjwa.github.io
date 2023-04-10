@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdionjwa_resume_docusaurus=self.webpackChunkdionjwa_resume_docusaurus||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"justfiles to bind them","permalink":"/blog/one-justfile-to-bind-them-all"}]}')}}]);
