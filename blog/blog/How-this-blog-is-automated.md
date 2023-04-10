@@ -5,8 +5,8 @@ slug: /e03a55f0-1333-47cc-85a6-5f39e22a917a
 ---
 
 
-1. I write blog posts in [notion](https://notion.so)
-1. Automatically ~15 minutes later the [docusaurus](https://docusaurus.io/) website has pages generated from notion, and pushed to github pages
+1. I write blog posts in [notion](https://notion.so), structured how I like
+1. Automatically ~15 minutes later the website + blog is generated from notion, using [docusaurus](https://docusaurus.io/) + [docu-notion](https://github.com/sillsdev/docu-notion), and pushed to github pages
 1. ~~There’s nothing I actually needed to do except write~~
 
 That’s it. I just write. The rest is automated.
@@ -24,6 +24,7 @@ flowchart LR
         direction LR
         db[(notion.so)] --> D[docu-notion]
         D --> ds(docusaurus)
+        ds --> deploy[deploy to github pages ]
 
     end
   
