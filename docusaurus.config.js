@@ -50,6 +50,7 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          blogSidebarCount: "ALL",
         },
 
         theme: {
@@ -62,6 +63,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [{name: 'keywords', content: 'metapages, docker, justfile, mermaid, deno, whales, cetaceans, simulations'}],
       mermaid: {
         theme: {
           light: "neutral",
