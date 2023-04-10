@@ -1,12 +1,12 @@
 ---
-title: Justfiles- universal command control
+title: Justfiles - universal command control
 sidebar_position: 0
 slug: /one-justfile-to-bind-them-all
 ---
 
 
 
-# `justfile`s are part of the golden three {#91d4820bc6cc4164b589f63c0590793d}
+# justfiles are part of the golden three {#91d4820bc6cc4164b589f63c0590793d}
 
 
 ```mermaid
