@@ -1,7 +1,7 @@
 ---
 title: How this blog is automated
 sidebar_position: 3
-slug: /e03a55f0-1333-47cc-85a6-5f39e22a917a
+slug: /how-this-blog-is-automated
 ---
 
 
