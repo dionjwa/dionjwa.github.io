@@ -4,7 +4,7 @@
         <title>Resume: Dion Whitehead Blog</title>
         <link>https://evolvedeeptimecomplex.systems/blog</link>
         <description>Resume: Dion Whitehead Blog</description>
-        <lastBuildDate>Mon, 10 Apr 2023 17:59:24 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 10 Apr 2023 18:27:18 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[How this blog is automated]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/e03a55f0-1333-47cc-85a6-5f39e22a917a</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/e03a55f0-1333-47cc-85a6-5f39e22a917a</guid>
-            <pubDate>Mon, 10 Apr 2023 17:59:24 GMT</pubDate>
+            <pubDate>Mon, 10 Apr 2023 18:27:18 GMT</pubDate>
             <description><![CDATA[1. I write blog posts in notion, structured how I like]]></description>
             <content:encoded><![CDATA[<ol><li>I write blog posts in <a href="https://notion.so" target="_blank" rel="noopener noreferrer">notion</a>, structured how I like</li><li>Automatically ~15 minutes later the website + blog is generated from notion, using <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">docusaurus</a> + <a href="https://github.com/sillsdev/docu-notion" target="_blank" rel="noopener noreferrer">docu-notion</a>, and pushed to github pages</li><li><del>There’s nothing I actually needed to do except write</del></li></ol><p>That’s it. I just write. The rest is automated.</p><h3 class="anchor anchorWithStickyNavbar_DZnE" id="1900a1e531c64d3ab4896817eefc7eba">How it works<a href="#1900a1e531c64d3ab4896817eefc7eba" class="hash-link" aria-label="Direct link to How it works" title="Direct link to How it works">​</a></h3><p>Source: <a href="https://github.com/dionjwa/dionjwa.github.io" target="_blank" rel="noopener noreferrer">https://github.com/dionjwa/dionjwa.github.io</a></p><p>A github action runs a few scripts commands:</p><ol><li>Using <a href="https://github.com/sillsdev/docu-notion" target="_blank" rel="noopener noreferrer">docu-notion</a> (and a root notion page) the docusaurus blog markdown is generated from specified notion pages</li><li>The docusaurus website is built</li><li>Then deployed to github pages</li></ol><p>It’s otherwise tricky to find a set of tools for writing/publishing a blog+resume with the following requirements (for me):</p><ul><li>open source, or high data trust</li><li>able to output from notion. I’m too tired to convert to anything, like multiple publishing endpoints. I just want to write, and have everything be automated</li><li>but also look good</li><li>where i just write, and do absolutely nothing else. no saving, no publishing step.</li><li>but also everything is backed up, with full version history</li></ul>]]></content:encoded>
         </item>
@@ -20,19 +20,19 @@
             <title><![CDATA[Deno is part of the golden three]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/deno-and-tool-ecosystems</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/deno-and-tool-ecosystems</guid>
-            <pubDate>Mon, 10 Apr 2023 17:59:24 GMT</pubDate>
+            <pubDate>Mon, 10 Apr 2023 18:27:18 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Docker and wasm]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/docker-wasm-web-containers</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/docker-wasm-web-containers</guid>
-            <pubDate>Mon, 10 Apr 2023 17:59:24 GMT</pubDate>
+            <pubDate>Mon, 10 Apr 2023 18:27:18 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Justfiles- universal command control]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/one-justfile-to-bind-them-all</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/one-justfile-to-bind-them-all</guid>
-            <pubDate>Mon, 10 Apr 2023 17:59:24 GMT</pubDate>
+            <pubDate>Mon, 10 Apr 2023 18:27:18 GMT</pubDate>
             <description><![CDATA[Just Words of Wisdom (To Myself)]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_DZnE" id="a660199f26954368939f6ff59ee255ae">Just Words of Wisdom (To Myself)<a href="#a660199f26954368939f6ff59ee255ae" class="hash-link" aria-label="Direct link to Just Words of Wisdom (To Myself)" title="Direct link to Just Words of Wisdom (To Myself)">​</a></h2><h3 class="anchor anchorWithStickyNavbar_DZnE" id="d2d23cebe20b4d158daa8400e3cdf9ac">Always include the full path of commands<a href="#d2d23cebe20b4d158daa8400e3cdf9ac" class="hash-link" aria-label="Direct link to Always include the full path of commands" title="Direct link to Always include the full path of commands">​</a></h3><p>If you document something with what <!-- -->&lt;<!-- -->command<!-- -->&gt;<!-- --> you should run, e.g.</p><div class="language-bash codeBlockContainer_FztV theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_csCg"><pre tabindex="0" class="prism-code language-bash codeBlock_Qvym thin-scrollbar"><code class="codeBlockLines_GHGP"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># And then you type: 'just &lt;command&gt;'</span><br></span></code></pre><div class="buttonGroup_BQvU"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_quyK" aria-hidden="true"><svg class="copyButtonIcon_NfaR" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_UHcJ" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><p>but you are <code>&lt;/over/here&gt;</code> but you have to be <code>&lt;/somewhere/else&gt;</code> then please include the full path so there is never any doubt and you don’t have to go <code>fd</code>'ing: <code>'&lt;/be/specific&gt; just &lt;command&gt;'</code>. It doesn’t have to be this exact formula, but try to remove this kind of friction.</p>]]></content:encoded>
         </item>
@@ -40,7 +40,7 @@
             <title><![CDATA[The golden trifecta- justfiles, deno, and docker]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/the-golden-three-just-deno-docker</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/the-golden-three-just-deno-docker</guid>
-            <pubDate>Mon, 10 Apr 2023 17:59:24 GMT</pubDate>
+            <pubDate>Mon, 10 Apr 2023 18:27:18 GMT</pubDate>
         </item>
     </channel>
 </rss>
