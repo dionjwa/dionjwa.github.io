@@ -6,7 +6,10 @@ slug: /publications
 
 
 
-## Academic Publications (2004 - 2008) {#2b94a14b8e6742ffb606080907f41a61}
+## Academic Publications (2004 - 2008)
+
+
+## Academic Publications (2004 - 2008)
 
 - [The look-ahead effect of phenotypic mutations.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2423361/). D. Whitehead, Claus Wilke, D. Vernazobres
 and E. Bornberg-Bauer. *Biology Direct * (2008).
