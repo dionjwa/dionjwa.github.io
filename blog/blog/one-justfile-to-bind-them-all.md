@@ -25,7 +25,6 @@ flowchart LR
 ```
 
 
-
 ## Just Words of Wisdom (To Myself) {#a660199f26954368939f6ff59ee255ae}
 
 
