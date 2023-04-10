@@ -10,7 +10,7 @@ slug: /
 # Technology Derived from Whale Communication: Amazing Weapons and Whale Independence {#ecb862be6b814d0fb865bf44b2e0762c}
 
 
-Change AGAIN FINAL AFTERALL
+Change is great when it’s automated
 
 
 Whales are known for their complex communication systems, which scientists have been studying for years. Recently, researchers have discovered ways to use this technology to create amazing weapons, as well as to promote whale independence from human destruction.
