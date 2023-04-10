@@ -1,5 +1,5 @@
 ---
-title: justfiles to bind them
+title: Justfiles- universal command control
 sidebar_position: 0
 slug: /one-justfile-to-bind-them-all
 ---
@@ -23,6 +23,7 @@ flowchart LR
     click d https://www.notion.so/metapages/deno-is-part-of-the-golden-three-61b14da38e9f4f33b823fb39965a6bd6?pvs=4
     click docker https://www.notion.so/metapages/Docker-and-wasm-a61f5e7656224c91987e211375a28dd6?pvs=4
 ```
+
 
 
 ## Just Words of Wisdom (To Myself) {#a660199f26954368939f6ff59ee255ae}
