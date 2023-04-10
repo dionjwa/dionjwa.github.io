@@ -67,9 +67,9 @@ const config = {
           light: "neutral",
           dark: "forest",
         },
-        // config: {
-        //   // Mermaid config
-        // }
+        options: {
+          securityLevel: "loose",
+        }
       },
 
       // Replace with your project's social card
