@@ -53,26 +53,27 @@ serve: generate-from-notion
 @deploy:
     echo -e "👀 deployments occur every half hour, creating a PR if the notion pages have changed. See .github/workflows/deploy.yml"
 
-# Generate docs from notion. Called automatically by `just [dev|build|serve|deploy]`
-generate-from-notion: _docu-notion-blog _docu-notion-index
-
-install +args="":
-    pnpm i {{args}}
+# Calls `generate-from-notion-blog` & `generate-from-notion-index`. Called by `[dev|build|serve|deploy]`
+generate-from-notion: (generate-from-notion-blog "") (generate-from-notion-index "")
 
 # Build blog from notion https://github.com/sillsdev/docu-notion
-@_docu-notion-blog +args="": _require_NOTION_TOKEN && _remove-code-duplicates
+@generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN && _remove-code-duplicates
     NOTION_LINK_PREFIX=blog npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 608a7b08496744579f18698e134fa9db --markdown-output-path $(pwd)/blog {{args}}
     echo -e "✅ generated blog from notion"
 
 # Build main page from notion https://github.com/sillsdev/docu-notion
-@_docu-notion-index +args="": _require_NOTION_TOKEN && _remove-code-duplicates _hide-sidebar _remove-right-navigation
+@generate-from-notion-index +args="--log-level=verbose": _require_NOTION_TOKEN && _remove-code-duplicates _hide-sidebar _remove-right-navigation
     npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 35fec21b055e460b85c2014f0280db9b --markdown-output-path $(pwd)/docs {{args}}
     echo -e "✅ generated index from notion"
+
+install +args="":
+    pnpm i {{args}}
 
 # To work around these issues: https://github.com/souvikinator/notion-to-md/issues/62
 @_remove-code-duplicates:
     # deno run --allow-read=$(pwd) --allow-write=$(pwd) https://github.com/metapages/deno/raw/main/deno/misc-unsorted/remove-duplicate-code-blocks.ts
-    # echo -e "✅ removed mermaid duplicates https://github.com/souvikinator/notion-to-md/issues/62"
+    deno run --allow-read=$(pwd) --allow-write=$(pwd) ./post-processing-scripts/remove-duplicate-code-blocks.ts
+    echo -e "✅ removed mermaid duplicates https://github.com/souvikinator/notion-to-md/issues/62"
 
 @_add-author:
     deno run --allow-read=$(pwd) --allow-write=$(pwd) ./post-processing-scripts/add-author.ts
