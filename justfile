@@ -65,17 +65,20 @@ install +args="":
     echo -e "✅ generated blog from notion"
 
 # Build main page from notion https://github.com/sillsdev/docu-notion
-@_docu-notion-index +args="": _require_NOTION_TOKEN && _remove-code-duplicates _hide-sidebar
+@_docu-notion-index +args="": _require_NOTION_TOKEN && _remove-code-duplicates _hide-sidebar _remove-right-navigation
     npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 35fec21b055e460b85c2014f0280db9b --markdown-output-path $(pwd)/docs {{args}}
     echo -e "✅ generated index from notion"
 
 # To work around these issues: https://github.com/souvikinator/notion-to-md/issues/62
 @_remove-code-duplicates:
-    deno run --allow-read=$(pwd) --allow-write=$(pwd) https://github.com/metapages/deno/raw/main/deno/misc-unsorted/remove-duplicate-code-blocks.ts
-    echo -e "✅ removed mermaid duplicates https://github.com/souvikinator/notion-to-md/issues/62"
+    # deno run --allow-read=$(pwd) --allow-write=$(pwd) https://github.com/metapages/deno/raw/main/deno/misc-unsorted/remove-duplicate-code-blocks.ts
+    # echo -e "✅ removed mermaid duplicates https://github.com/souvikinator/notion-to-md/issues/62"
 
-@_disable-pagination:
-    deno run --allow-read=$(pwd) --allow-write=$(pwd) ./post-processing-scripts/remove-pagination.ts
+@_add-author:
+    deno run --allow-read=$(pwd) --allow-write=$(pwd) ./post-processing-scripts/add-author.ts
+
+@_remove-right-navigation:
+    deno run --allow-read=$(pwd) --allow-write=$(pwd) ./post-processing-scripts/remove-right-navigation.ts
 
 # Add frontmatter that hides the sidebar for the main index
 @_hide-sidebar:

@@ -49,7 +49,7 @@ const config = {
 
         },
         blog: {
-          showReadingTime: true,
+          showReadingTime: false,
           blogSidebarCount: "ALL",
         },
 

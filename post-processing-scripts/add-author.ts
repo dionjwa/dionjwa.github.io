@@ -7,14 +7,18 @@
  */
 import { applyFrontMatterModificationToAll } from "./mod.ts";
 
-const removePagination = async (frontMatter: object) :Promise<object> => {
+const addAuthorToFrontMatter = async (author:string, frontMatter: object) :Promise<object> => {
     if (frontMatter) {
-      frontMatter["pagination_next"] = null;
-      frontMatter["pagination_prev"] = null;
+      if (!frontMatter["authors"]) {
+        frontMatter["authors"] = [];
+      }
+      if (!frontMatter["authors"].includes(author)) {
+        frontMatter["authors"].push(author);
+      }
     }
     return frontMatter;
 };
 
 await applyFrontMatterModificationToAll({ path: "./blog", f: (frontMatter: object) => {
-  return removePagination(frontMatter);
+  return addAuthorToFrontMatter("dion", frontMatter);
 }});
