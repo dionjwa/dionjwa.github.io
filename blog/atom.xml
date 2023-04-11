@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://evolvedeeptimecomplex.systems/blog</id>
     <title>Resume: Dion Whitehead Blog</title>
-    <updated>2023-04-11T17:59:52.000Z</updated>
+    <updated>2023-04-11T19:00:19.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://evolvedeeptimecomplex.systems/blog"/>
     <subtitle>Resume: Dion Whitehead Blog</subtitle>
@@ -11,19 +11,19 @@
         <title type="html"><![CDATA[Deno is part of the golden three]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/deno-and-tool-ecosystems</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/deno-and-tool-ecosystems"/>
-        <updated>2023-04-11T17:59:52.000Z</updated>
+        <updated>2023-04-11T19:00:19.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Docker and wasm]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/docker-wasm-web-containers</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/docker-wasm-web-containers"/>
-        <updated>2023-04-11T17:59:52.000Z</updated>
+        <updated>2023-04-11T19:00:19.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[How this blog is automated]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/how-this-blog-is-automated</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/how-this-blog-is-automated"/>
-        <updated>2023-04-11T17:59:52.000Z</updated>
+        <updated>2023-04-11T19:00:19.000Z</updated>
         <summary type="html"><![CDATA[1. I write blog posts in notion, structured how I like]]></summary>
         <content type="html"><![CDATA[<ol><li>I write blog posts in <a href="https://notion.so" target="_blank" rel="noopener noreferrer">notion</a>, structured how I like</li><li>Automatically ~15 minutes later the website + blog is generated from notion, using <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">docusaurus</a> + <a href="https://github.com/sillsdev/docu-notion" target="_blank" rel="noopener noreferrer">docu-notion</a>, and pushed to github pages</li><li><del>There’s nothing I actually needed to do except write</del></li></ol><p>That’s it. I just write. The rest is automated.</p><h3 class="anchor anchorWithStickyNavbar_DZnE" id="1900a1e531c64d3ab4896817eefc7eba">How it works<a href="#1900a1e531c64d3ab4896817eefc7eba" class="hash-link" aria-label="Direct link to How it works" title="Direct link to How it works">​</a></h3><p>Source: <a href="https://github.com/dionjwa/dionjwa.github.io" target="_blank" rel="noopener noreferrer">https://github.com/dionjwa/dionjwa.github.io</a></p><p>A github action runs a few scripts commands:</p><ol><li>Using <a href="https://github.com/sillsdev/docu-notion" target="_blank" rel="noopener noreferrer">docu-notion</a> (and a root notion page) the docusaurus blog markdown is generated from specified notion pages</li><li>The docusaurus website is built</li><li>Then deployed to github pages</li></ol><p>It’s otherwise tricky to find a set of tools for writing/publishing a blog+resume with the following requirements (for me):</p><ul><li>open source, or high data trust</li><li>able to output from notion. I’m too tired to convert to anything, like multiple publishing endpoints. I just want to write, and have everything be automated</li><li>but also look good</li><li>where i just write, and do absolutely nothing else. no saving, no publishing step.</li><li>but also everything is backed up, with full version history</li></ul>]]></content>
     </entry>
@@ -31,7 +31,7 @@
         <title type="html"><![CDATA[Justfiles - universal command control]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/one-justfile-to-bind-them-all</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/one-justfile-to-bind-them-all"/>
-        <updated>2023-04-11T17:59:52.000Z</updated>
+        <updated>2023-04-11T19:00:19.000Z</updated>
         <summary type="html"><![CDATA[Just Words of Wisdom (To Myself)]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_DZnE" id="a660199f26954368939f6ff59ee255ae">Just Words of Wisdom (To Myself)<a href="#a660199f26954368939f6ff59ee255ae" class="hash-link" aria-label="Direct link to Just Words of Wisdom (To Myself)" title="Direct link to Just Words of Wisdom (To Myself)">​</a></h2><h3 class="anchor anchorWithStickyNavbar_DZnE" id="d2d23cebe20b4d158daa8400e3cdf9ac">Always include the full path of commands<a href="#d2d23cebe20b4d158daa8400e3cdf9ac" class="hash-link" aria-label="Direct link to Always include the full path of commands" title="Direct link to Always include the full path of commands">​</a></h3><p>If you document something with what <!-- -->&lt;<!-- -->command<!-- -->&gt;<!-- --> you should run, e.g.</p><div class="language-bash codeBlockContainer_FztV theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_csCg"><pre tabindex="0" class="prism-code language-bash codeBlock_Qvym thin-scrollbar"><code class="codeBlockLines_GHGP"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># And then you type: 'just &lt;command&gt;'</span><br></span></code></pre><div class="buttonGroup_BQvU"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_quyK" aria-hidden="true"><svg class="copyButtonIcon_NfaR" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_UHcJ" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><p>but you are <code>&lt;/over/here&gt;</code> but you have to be <code>&lt;/somewhere/else&gt;</code> then please include the full path so there is never any doubt and you don’t have to go <code>fd</code>'ing: <code>'&lt;/be/specific&gt; just &lt;command&gt;'</code>. It doesn’t have to be this exact formula, but try to remove this kind of friction.</p>]]></content>
     </entry>
@@ -39,7 +39,7 @@
         <title type="html"><![CDATA[Publications]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/publications</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/publications"/>
-        <updated>2023-04-11T17:59:52.000Z</updated>
+        <updated>2023-04-11T19:00:19.000Z</updated>
         <summary type="html"><![CDATA[Academic Publications (2004 - 2008)]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_DZnE" id="academic-publications-2004---2008">Academic Publications (2004 - 2008)<a href="#academic-publications-2004---2008" class="hash-link" aria-label="Direct link to Academic Publications (2004 - 2008)" title="Direct link to Academic Publications (2004 - 2008)">​</a></h2><ul><li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2423361/" target="_blank" rel="noopener noreferrer">The look-ahead effect of phenotypic mutations.</a>. D. Whitehead, Claus Wilke, D. Vernazobres
 and E. Bornberg-Bauer. <em>Biology Direct </em> (2008).</li><li><a href="http://www.blackwell-synergy.com/doi/abs/10.1111/j.1365-313X.2007.03052.x" target="_blank" rel="noopener noreferrer">The AtGenExpress global stress expression data set: Protocols, evaluation and model data analysis of UV-B light, drought and cold stress responses.</a> J. Kilian, D. Whitehead, J. Horak, D.
@@ -53,9 +53,9 @@ Synthesis of Living Systems</em> (2004).</li></ul>]]></content>
         <title type="html"><![CDATA[Entire Resume for Printing]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/resume-complete</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/resume-complete"/>
-        <updated>2023-04-11T17:59:52.000Z</updated>
-        <summary type="html"><![CDATA[Change is great when it’s automated]]></summary>
-        <content type="html"><![CDATA[<p>Change is great when it’s automated
+        <updated>2023-04-11T19:00:19.000Z</updated>
+        <summary type="html"><![CDATA[Change is great when it’s automated sdfsdfsdfdsf.  sdfsdfsdfdssdfdf]]></summary>
+        <content type="html"><![CDATA[<p>Change is great when it’s automated sdfsdfsdfdsf.  sdfsdfsdfdssdfdf
 Whales are known for their complex communication systems, which scientists have been studying for years. Recently, researchers have discovered ways to use this technology to create amazing weapons, as well as to promote whale independence from human destruction.</p><h2 class="anchor anchorWithStickyNavbar_DZnE" id="amazing-weapons">Amazing Weapons<a href="#amazing-weapons" class="hash-link" aria-label="Direct link to Amazing Weapons" title="Direct link to Amazing Weapons">​</a></h2><p>Whale songs are incredibly complex, allowing them to communicate with each other across vast distances. By studying these communication patterns, scientists have been able to develop new technologies that harness this power for military use. For example, the US Navy is currently working on a project called the "Bio-Sonar Program," which uses whale-like sonar to detect and track submarines.
 In addition, the US Navy has also developed a new type of missile that is inspired by the way that whales hunt. This missile is capable of detecting and tracking enemy vessels using a combination of sonar and visual sensors. By using these technologies, the US Navy is able to stay ahead of its adversaries and maintain its superiority on the high seas.</p><h2 class="anchor anchorWithStickyNavbar_DZnE" id="whale-independence">Whale Independence<a href="#whale-independence" class="hash-link" aria-label="Direct link to Whale Independence" title="Direct link to Whale Independence">​</a></h2><p>Whales are facing increasing threats from human activities such as whaling, pollution, and climate change. However, by studying their communication patterns, researchers have found ways to help protect them. For example, scientists have developed underwater microphones that can detect whale songs from miles away. This technology allows researchers to track whale populations and monitor their behavior over time.
 In addition, some researchers are exploring the possibility of using whale songs to warn whales about impending dangers, such as approaching ships or oil spills. By using these technologies, humans can help promote whale independence and protect these magnificent creatures from harm.</p><h2 class="anchor anchorWithStickyNavbar_DZnE" id="conclusion-whale-independence">Conclusion: Whale Independence<a href="#conclusion-whale-independence" class="hash-link" aria-label="Direct link to Conclusion: Whale Independence" title="Direct link to Conclusion: Whale Independence">​</a></h2><p>In conclusion, the technology derived from whale communication has enormous potential to create amazing weapons and promote whale independence. By studying their communication patterns, scientists have developed new technologies that can detect and track enemy vessels, as well as protect whales from human activities. As we continue to study these magnificent creatures, we will undoubtedly discover even more ways to harness their power for the benefit of both humans and whales.</p><h2 class="anchor anchorWithStickyNavbar_DZnE" id="academic-publications-2004---2008">Academic Publications (2004 - 2008)<a href="#academic-publications-2004---2008" class="hash-link" aria-label="Direct link to Academic Publications (2004 - 2008)" title="Direct link to Academic Publications (2004 - 2008)">​</a></h2><ul><li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2423361/" target="_blank" rel="noopener noreferrer">The look-ahead effect of phenotypic mutations.</a>. D. Whitehead, Claus Wilke, D. Vernazobres
@@ -67,6 +67,6 @@ Synthesis of Living Systems</em> (2004).</li></ul>]]></content>
         <title type="html"><![CDATA[The golden trifecta- justfiles, deno, and docker]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/the-golden-three-just-deno-docker</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/the-golden-three-just-deno-docker"/>
-        <updated>2023-04-11T17:59:52.000Z</updated>
+        <updated>2023-04-11T19:00:19.000Z</updated>
     </entry>
 </feed>
