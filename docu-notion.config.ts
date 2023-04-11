@@ -9,8 +9,6 @@ import { join } from "path";
 import { Client } from "@notionhq/client";
 import { CodeBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
-// Log.setLogLevel("verbose");
-
 /**
  * Replacing synced blocks is returning either the synced block, or
  * the first child of the synced block, and keep going until you reach
@@ -46,11 +44,6 @@ const replaceSyncedBlockWithTargets = async (
     syncedTargets.forEach(target => finalResults.push(target));
   }
   return finalResults;
-
-  // return await replaceSyncedBlockWithTargets(
-  //   children.results[0] as NotionBlock,
-  //   client
-  // );
 };
 
 const convertHref = (args: {
@@ -125,12 +118,6 @@ const transformMermaidLinks = (
   return output;
 };
 
-// The mermaid interactive click syntax:
-// https://mermaid.js.org/syntax/flowchart.html#interaction
-// NB this processing is just for internal link navigation
-// const linkRegExp = /\s*click\s+([A-za-z][A-za-z0-9_-]*)\s+"(https:\/\/www\.notion\.so\/\S*)"/g;
-// const linkNotionRegExp = /.*(https:\/\/www\.notion\.so\/)(.*)/;
-
 let client: Client;
 // This is an example of a plugin that needs customization by the end user.
 // It uses a closure to supply the plugin with the customization parameter.
@@ -187,19 +174,17 @@ function docunotionMermaidLinks(args: { slugPrefix: string }): IPlugin {
             client
           );
 
-          Log.verbose(
-            `synced_block ${block.id} actualContentBlock` +
-              JSON.stringify(actualContentBlocks, null, 2)
-          );
           syncedBlocksAlreadyProcessed.add(block.id);
           let syncedBlockString = "";
+          let previousBlockString = "";
 
           for (const actualContentBlock of actualContentBlocks) {
             const md = await context.notionToMarkdown.blockToMarkdown(actualContentBlock);
             // workaround for duplicated synced blocks
-            if (!syncedBlockString.includes(md)) {
+            if (!syncedBlockString.includes(md) && md !== previousBlockString) {
               syncedBlockString += md + "\n";
             }
+            previousBlockString = md;
           }
 
           return syncedBlockString;
