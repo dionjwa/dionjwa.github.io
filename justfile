@@ -74,6 +74,9 @@ install +args="":
     deno run --allow-read=$(pwd) --allow-write=$(pwd) https://github.com/metapages/deno/raw/main/deno/misc-unsorted/remove-duplicate-code-blocks.ts
     echo -e "✅ removed mermaid duplicates https://github.com/souvikinator/notion-to-md/issues/62"
 
+@_disable-pagination:
+    deno run --allow-read=$(pwd) --allow-write=$(pwd) ./post-processing-scripts/remove-pagination.ts
+
 # Add frontmatter that hides the sidebar for the main index
 @_hide-sidebar:
     sed -i'' 's/^title:/displayed_sidebar: null\ntitle:/g' docs/index.md

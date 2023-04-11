@@ -4,79 +4,29 @@ import {
   IDocuNotionContext,
   Log,
   NotionBlock,
-
 } from "docu-notion";
 import { join } from "path";
 import { Client } from "@notionhq/client";
-import {
-  SyncedBlockBlockObjectResponse,
-  CodeBlockObjectResponse,
-} from "@notionhq/client/build/src/api-endpoints";
+import { CodeBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 // Log.setLogLevel("verbose");
-
-const test = {
-  "object": "block",
-  "id": "ec624857-5966-4104-8f51-64535f4b92c5",
-  "parent": {
-    "type": "block_id",
-    "block_id": "b701a7c4-fccb-42ea-a81b-4687b711810c"
-  },
-  "created_time": "2022-12-26T22:46:00.000Z",
-  "last_edited_time": "2023-04-02T00:52:00.000Z",
-  "created_by": {
-    "object": "user",
-    "id": "38433169-6845-4c23-a787-f24081088d0c"
-  },
-  "last_edited_by": {
-    "object": "user",
-    "id": "38433169-6845-4c23-a787-f24081088d0c"
-  },
-  "has_children": false,
-  "archived": false,
-  "type": "code",
-  "code": {
-    "caption": [],
-    "rich_text": [
-      {
-        "type": "text",
-        "text": {
-          "content": "graph LR\n  A[An internal page] -->|Synced Get money| B(Go shopping)\n\n  click A \"https://www.notion.so/metapages/Introduction-to-docu-notion-779f83504bd94642a9b87b2afc810a97\"\n",
-          "link": null
-        },
-        "annotations": {
-          "bold": false,
-          "italic": false,
-          "strikethrough": false,
-          "underline": false,
-          "code": false,
-          "color": "default"
-        },
-        "plain_text": "graph LR\n  A[An internal page] -->|Synced Get money| B(Go shopping)\n\n  click A \"https://www.notion.so/metapages/Introduction-to-docu-notion-779f83504bd94642a9b87b2afc810a97\"\n",
-        "href": null
-      }
-    ],
-    "language": "mermaid"
-  }
-}
-
 
 /**
  * Replacing synced blocks is returning either the synced block, or
  * the first child of the synced block, and keep going until you reach
  * a non-synced block.
  */
-const replaceSyncedBlockWithTarget = async (
+const replaceSyncedBlockWithTargets = async (
   block: NotionBlock,
   client: Client
-): Promise<NotionBlock> => {
+): Promise<NotionBlock[]> => {
   if (block.type !== "synced_block") {
-    return block;
+    return [block];
   }
   const synced_from = block?.synced_block?.synced_from?.block_id;
   if (synced_from) {
     const syncedBlock = await client.blocks.retrieve({ block_id: synced_from });
-    return await replaceSyncedBlockWithTarget(
+    return await replaceSyncedBlockWithTargets(
       syncedBlock as NotionBlock,
       client
     );
@@ -84,12 +34,23 @@ const replaceSyncedBlockWithTarget = async (
 
   const children = await client.blocks.children.list({ block_id: block.id });
   if (children.results.length === 0) {
-    return block;
+    return [block];
   }
-  return await replaceSyncedBlockWithTarget(
-    children.results[0] as NotionBlock,
-    client
-  );
+
+  const finalResults :NotionBlock[] = [];
+  for (const child of children.results) {
+    const syncedTargets = await replaceSyncedBlockWithTargets(
+      child as NotionBlock,
+      client
+    );
+    syncedTargets.forEach(target => finalResults.push(target));
+  }
+  return finalResults;
+
+  // return await replaceSyncedBlockWithTargets(
+  //   children.results[0] as NotionBlock,
+  //   client
+  // );
 };
 
 const convertHref = (args: {
@@ -186,7 +147,6 @@ function docunotionMermaidLinks(args: { slugPrefix: string }): IPlugin {
           context: IDocuNotionContext,
           block: NotionBlock
         ) => {
-
           const codeBlock = block as CodeBlockObjectResponse;
           let text: string = codeBlock.code.rich_text[0].plain_text;
           let language: string = codeBlock.code.language;
@@ -212,7 +172,6 @@ function docunotionMermaidLinks(args: { slugPrefix: string }): IPlugin {
           context: IDocuNotionContext,
           block: NotionBlock
         ) => {
-
           if (!client) {
             client = new Client({
               auth: context.options.notionToken,
@@ -223,19 +182,25 @@ function docunotionMermaidLinks(args: { slugPrefix: string }): IPlugin {
             return "";
           }
 
-          const actualContentBlock = await replaceSyncedBlockWithTarget(
+          const actualContentBlocks = await replaceSyncedBlockWithTargets(
             block,
             client
           );
 
           Log.verbose(
             `synced_block ${block.id} actualContentBlock` +
-            JSON.stringify(actualContentBlock, null, 2)
-            );
-          syncedBlocksAlreadyProcessed.add(block.id);
-          const syncedBlockString = await context.notionToMarkdown.blockToMarkdown(
-            actualContentBlock
+              JSON.stringify(actualContentBlocks, null, 2)
           );
+          syncedBlocksAlreadyProcessed.add(block.id);
+          let syncedBlockString = "";
+
+          for (const actualContentBlock of actualContentBlocks) {
+            const md = await context.notionToMarkdown.blockToMarkdown(actualContentBlock);
+            // workaround for duplicated synced blocks
+            if (!syncedBlockString.includes(md)) {
+              syncedBlockString += md + "\n";
+            }
+          }
 
           return syncedBlockString;
         },
