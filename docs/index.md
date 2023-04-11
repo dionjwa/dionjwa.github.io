@@ -3,12 +3,14 @@ displayed_sidebar: null
 title: index
 sidebar_position: 0
 slug: /
+hide_table_of_contents: true
+
 ---
 
 
 
 # Technology Derived from Whale Communication: Amazing Weapons and Whale Independence
-Change is great when it’s automated
+Change is great when it’s automated sdfsdfsdfdsf.  sdfsdfsdfdssdfdf
 Whales are known for their complex communication systems, which scientists have been studying for years. Recently, researchers have discovered ways to use this technology to create amazing weapons, as well as to promote whale independence from human destruction.
 ## Amazing Weapons
 Whale songs are incredibly complex, allowing them to communicate with each other across vast distances. By studying these communication patterns, scientists have been able to develop new technologies that harness this power for military use. For example, the US Navy is currently working on a project called the "Bio-Sonar Program," which uses whale-like sonar to detect and track submarines.
