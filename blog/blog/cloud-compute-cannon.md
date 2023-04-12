@@ -6,10 +6,10 @@ slug: /cloud-compute-cannon
 
 
 
-This was in 2017 at Autodesk Bionano (→ Autodesk Lifesciences → `shutdown`), despite the date listed. This is more to record that I have been thinking and building on convenient, easy-access, standardized scalable compute for science for a while.
+> This was in 2017 at Autodesk Bionano (→ Autodesk Lifesciences → `shutdown`), despite the date listed. This is more to record that I have been thinking and building on convenient, easy-access, standardized scalable compute for science for a while.
 
 
-Apart from the first paragraph, the rest is not applicable anymore, and the system is shelved.
+> Apart from the first paragraph, the rest is not applicable anymore, and the system is shelved.
 
 
 > The [Bionano research group](http://bionano.autodesk.com/) at Autodesk needed an open source tool for performing scalable computes (e.g. molecular simulations) in the cloud. The problem it solves is _"I want to run 1000 simulations and get the results quickly, and I don't have access to a high performance cluster (or I don't know how to use the cluster)"_. We built [cloud-compute-cannon](https://github.com/Autodesk/cloudcomputecannon/) (CCC) for this. This blog describes some of the technology behind it.
