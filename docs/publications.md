@@ -1,7 +1,9 @@
 ---
 title: Publications
-sidebar_position: 5
+sidebar_position: 6
 slug: /publications
+hide_table_of_contents: true
+
 ---
 
 

@@ -11,4 +11,4 @@ hide_table_of_contents: true
 
 This is all about me:
 
-- **[Problem Internal Link]**
+- [Resume](/resume)
