@@ -18,7 +18,7 @@ const replaceDuplicateCodeBlocks = async (path: string) => {
     const matchRawText = (matches[0] + "\n\n\n" + matches[0]).trim();
     const matchRawTextIndex = text.indexOf(matchRawText);
     if (matchRawTextIndex >= 0) {
-      console.log(`✅ found doubled mermaid diagram`);
+      console.log(`🔭 found doubled mermaid diagram`);
       text = text.replace(matchRawText, matches[0]);
       modified = true;
     }
