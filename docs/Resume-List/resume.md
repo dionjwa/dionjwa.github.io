@@ -62,7 +62,7 @@ Technology: Python, Java, R
 - Metapages: [https://metapages.org/](https://metapages.org/)
 - All GitHub projects: [http://github.com/dionjwa](http://github.com/dionjwa)
 ## Publications
-[link_to_page](b334a565-1214-4ce9-abce-dd8c3f4433d1)
+- [Publications](/publications)
 :::❕
 
 When I married I changed my name from "Dion John **Whitehead**" to "Dion John **Whitehead Amago**", then I got divorced and reversed it back to "Dion John **Whitehead**" 
@@ -176,9 +176,7 @@ Technology: Python, Java, R
 
 ## Publications
 
-
-[link_to_page](b334a565-1214-4ce9-abce-dd8c3f4433d1)
-
+- [Publications](/publications)
 
 :::❕
 
