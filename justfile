@@ -53,16 +53,16 @@ serve: generate-from-notion
 @deploy:
     echo -e "👀 deployments occur every half hour, creating a PR if the notion pages have changed. See .github/workflows/deploy.yml"
 
-# Calls `generate-from-notion-blog` & `generate-from-notion-index`. Called by `[dev|build|serve|deploy]`
-generate-from-notion: (generate-from-notion-blog "") (generate-from-notion-index "")
+# Calls `generate-from-notion-docs` & `generate-from-notion-blog`. Called by `[dev|build|serve|deploy]`
+generate-from-notion: (generate-from-notion-docs "") (generate-from-notion-blog "")
 
 # Build blog from notion https://github.com/sillsdev/docu-notion
 @generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN && _remove-code-duplicates
-    NOTION_LINK_PREFIX=blog npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 608a7b08496744579f18698e134fa9db --markdown-output-path $(pwd)/blog {{args}}
+    npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 608a7b08496744579f18698e134fa9db --markdown-output-path $(pwd)/blog {{args}}
     echo -e "✅ generated blog from notion"
 
 # Build main page from notion https://github.com/sillsdev/docu-notion
-@generate-from-notion-index +args="--log-level=verbose": _require_NOTION_TOKEN && _remove-code-duplicates _hide-sidebar _remove-right-navigation
+@generate-from-notion-docs +args="--log-level=verbose": _require_NOTION_TOKEN && _remove-code-duplicates (_remove-right-navigation-selected "docs/About.md") (_hide_title "docs/Resume-List/resume.md") _hide-sidebar-selected
     npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 35fec21b055e460b85c2014f0280db9b --markdown-output-path $(pwd)/docs {{args}}
     echo -e "✅ generated index from notion"
 
@@ -71,20 +71,43 @@ install +args="":
 
 # To work around these issues: https://github.com/souvikinator/notion-to-md/issues/62
 @_remove-code-duplicates:
-    # deno run --allow-read=$(pwd) --allow-write=$(pwd) https://github.com/metapages/deno/raw/main/deno/misc-unsorted/remove-duplicate-code-blocks.ts
     deno run --allow-read=$(pwd) --allow-write=$(pwd) ./post-processing-scripts/remove-duplicate-code-blocks.ts
-    echo -e "✅ removed mermaid duplicates https://github.com/souvikinator/notion-to-md/issues/62"
+    echo -e "👍 removed mermaid duplicates https://github.com/souvikinator/notion-to-md/issues/62"
 
-@_add-author:
-    deno run --allow-read=$(pwd) --allow-write=$(pwd) ./post-processing-scripts/add-author.ts
+_add-author:
+    #!/usr/bin/env deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
+    import { applyFrontMatterModificationToAll, addAuthorToFrontMatter } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
+    await applyFrontMatterModificationToAll({ path: "./blog", f: (frontMatter) => {
+        return addAuthorToFrontMatter("dion", frontMatter);
+    }});
+    console.log("👍 added author to blog posts")
 
-@_remove-right-navigation:
-    deno run --allow-read=$(pwd) --allow-write=$(pwd) ./post-processing-scripts/remove-right-navigation.ts
+_remove-right-navigation-selected path:
+    #!/usr/bin/env deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
+    import { applyFrontMatterModificationToAll, hideTableOfContents } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
+    await applyFrontMatterModificationToAll({ path: "{{path}}", f: (frontMatter) => {
+        return hideTableOfContents(frontMatter);
+    }});
+    console.log("👍 removed right navigation from {{path}}")
 
 # Add frontmatter that hides the sidebar for the main index
-@_hide-sidebar:
-    sed -i'' 's/^title:/displayed_sidebar: null\ntitle:/g' docs/index.md
-    echo -e "✅ added front matter to hide sidebar"
+@_hide-sidebar-selected: (_hide-sidebar "docs/Resume-List/resume.md")
+
+_hide-sidebar path:
+    #!/usr/bin/env deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
+    import { applyFrontMatterModificationToAll, removeSidebar } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
+    await applyFrontMatterModificationToAll({ path: "{{path}}", f: (frontMatter) => {
+        return removeSidebar(frontMatter);
+    }});
+    console.log("👍 removed sidebar from {{path}}")
+
+_hide_title path:
+    #!/usr/bin/env deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
+    import { applyFrontMatterModificationToAll, hideTitle } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
+    await applyFrontMatterModificationToAll({ path: "{{path}}", f: (frontMatter) => {
+        return hideTitle(frontMatter);
+    }});
+    console.log("👍 removed title from {{path}}")
 
 @_require_NOTION_TOKEN:
 	if [ -z "{{NOTION_TOKEN}}" ]; then echo "Missing NOTION_TOKEN env var"; exit 1; fi

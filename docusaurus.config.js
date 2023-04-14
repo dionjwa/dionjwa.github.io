@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Resume: Dion Whitehead',
+  title: 'Dion Whitehead',
   tagline: 'evolution of complex systems happens right now',
   favicon: 'favicon.ico',
 
@@ -77,13 +77,14 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Resume',
+        title: 'Idea Sets',
         logo: {
-          alt: 'Resume Logo',
+          alt: 'Logo',
           src: 'logo.svg',
         },
         items: [
           {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/resume', label: 'Resume', position: 'left'},
           {
             href: 'https://github.com/dionjwa',
             label: 'GitHub',
