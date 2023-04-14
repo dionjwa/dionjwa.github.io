@@ -36,17 +36,15 @@ _help:
 dev: generate-from-notion _dev
 
 # Starts the development server, but without refetching notion.
-_dev:
-    pnpm install
+_dev: install
     pnpm start
 
 # Bundles your website into static files for production. NB: no notion fetch here
-build:
-    pnpm install
+build: install
     pnpm build
 
 # Serves the built website locally.
-serve: generate-from-notion
+serve: install generate-from-notion
   pnpm serve
 
 # Publishes the website to GitHub pages.
