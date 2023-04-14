@@ -1,6 +1,6 @@
 ---
 title: Justfiles - universal command control
-sidebar_position: 0
+sidebar_position: 1
 slug: /one-justfile-to-bind-them-all
 ---
 
@@ -18,26 +18,11 @@ flowchart LR
         docker[docker]
         j --> d --> docker --> j
     end
-  click j "/blog/one-justfile-to-bind-them-all"
-  click d "/blog/deno-and-tool-ecosystems"
-  click docker "/blog/docker-wasm-web-containers"
+  click j "/one-justfile-to-bind-them-all"
+  click d "/deno-and-tool-ecosystems"
+  click docker "/docker-wasm-web-containers"
 ```
 
-
-
-```mermaid
-flowchart LR
-    subgraph g [golden three]
-        direction LR
-        j[justfiles]
-        d[deno]
-        docker[docker]
-        j --> d --> docker --> j
-    end
-  click j "/blog/one-justfile-to-bind-them-all"
-  click d "/blog/deno-and-tool-ecosystems"
-  click docker "/blog/docker-wasm-web-containers"
-```
 
 
 ## Just Words of Wisdom (To Myself) {#a660199f26954368939f6ff59ee255ae}

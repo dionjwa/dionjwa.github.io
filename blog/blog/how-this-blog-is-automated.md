@@ -1,6 +1,6 @@
 ---
 title: How this blog is automated
-sidebar_position: 3
+sidebar_position: 5
 slug: /how-this-blog-is-automated
 ---
 
