@@ -33,10 +33,10 @@ _help:
     echo -e ""
 
 # Starts the development server.
-dev: generate-from-notion _dev
+dev: install generate-from-notion _dev
 
 # Starts the development server, but without refetching notion.
-@_dev: install
+@_dev:
     pnpm start
 
 # Bundles your website into static files for production. NB: no notion fetch here
@@ -57,25 +57,20 @@ build: install _build
     echo -e "👀 deployments occur every half hour, creating a PR if the notion pages have changed. See .github/workflows/deploy.yml"
 
 # Calls `generate-from-notion-docs` & `generate-from-notion-blog`. Called by `[dev|build|serve|deploy]`
-generate-from-notion: (generate-from-notion-docs "") (generate-from-notion-blog "")
+generate-from-notion: install (generate-from-notion-docs "") (generate-from-notion-blog "")
 
 # Build blog from notion https://github.com/sillsdev/docu-notion
-@generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN && _remove-code-duplicates
-    npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 608a7b08496744579f18698e134fa9db --markdown-output-path $(pwd)/blog {{args}}
+@generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN
+    npx @sillsdev/docu-notion@0.14.0-alpha.3 --notion-token {{NOTION_TOKEN}} --root-page 608a7b08496744579f18698e134fa9db --markdown-output-path $(pwd)/blog {{args}}
     echo -e "✅ generated blog from notion"
 
 # Build main page from notion https://github.com/sillsdev/docu-notion
-@generate-from-notion-docs +args="--log-level=verbose": _require_NOTION_TOKEN && _remove-code-duplicates (_remove-right-navigation-selected "docs/About.md") (_hide_title "docs/Resume-List/resume.md") _hide-sidebar-selected
-    npx docu-notion@0.11 --notion-token {{NOTION_TOKEN}} --root-page 35fec21b055e460b85c2014f0280db9b --markdown-output-path $(pwd)/docs {{args}}
+@generate-from-notion-docs +args="--log-level=verbose": _require_NOTION_TOKEN && (_remove-right-navigation-selected "docs/About.md") (_hide_title "docs/Resume-List/resume.md") _hide-sidebar-selected
+    npx @sillsdev/docu-notion@0.14.0-alpha.3 --notion-token {{NOTION_TOKEN}} --root-page 35fec21b055e460b85c2014f0280db9b --markdown-output-path $(pwd)/docs {{args}}
     echo -e "✅ generated index from notion"
 
 install +args="":
     pnpm i {{args}}
-
-# To work around these issues: https://github.com/souvikinator/notion-to-md/issues/62
-@_remove-code-duplicates:
-    deno run --allow-read=$(pwd) --allow-write=$(pwd) ./post-processing-scripts/remove-duplicate-code-blocks.ts
-    echo -e "👍 removed mermaid duplicates https://github.com/souvikinator/notion-to-md/issues/62"
 
 _add-author:
     #!/usr/bin/env deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}

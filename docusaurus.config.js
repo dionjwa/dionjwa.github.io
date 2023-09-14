@@ -36,7 +36,7 @@ const config = {
     mermaid: true,
   },
 
-  themes: ['@docusaurus/theme-mermaid'],
+  themes: ['@docusaurus/theme-mermaid', "@docusaurus/theme-live-codeblock"],
 
   presets: [
     [
@@ -54,7 +54,7 @@ const config = {
         },
 
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [require.resolve("./src/css/custom.css"), require.resolve("./src/css/notion-to-markdown-columns.css") ],
         },
       }),
     ],
@@ -63,7 +63,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      metadata: [{name: 'keywords', content: 'metapages, docker, justfile, mermaid, deno, whales, cetaceans, simulations'}],
+      metadata: [{name: 'keywords', content: 'metapages, docker, justfile, mermaid, deno, whales, cetaceans, simulations, evolution, superslides, gestures, hand control, deep time'}],
       mermaid: {
         theme: {
           light: "neutral",

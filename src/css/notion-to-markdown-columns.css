@@ -1,0 +1,30 @@
+.custom-docunotion-row {
+    display: flex;
+    direction: row;
+    min-height: 0;
+    max-height: 100%;
+    align-self: center;
+    
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .custom-docunotion-row-cell {
+    /* Allow shrinkage */
+    flex: 1 1 auto;
+    height: 100%;
+    text-align: center;
+  }
+
+  .borderFatSolidGreen {
+    border: 5px solid green;
+  }
+  
+  .borderFatDashedRed {
+    border: 2px dashed red;
+  }
+  
+  .borderFatDashedBlack {
+    border: 5px dashed black;
+  }

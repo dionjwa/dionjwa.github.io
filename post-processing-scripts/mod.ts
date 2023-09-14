@@ -1,8 +1,8 @@
-import { walk } from "https://deno.land/std@0.182.0/fs/mod.ts";
 import {
   parseAll,
   stringify as yamlStringify,
-} from "https://deno.land/std@0.182.0/encoding/yaml.ts";
+} from 'https://deno.land/std@0.182.0/encoding/yaml.ts';
+import { walk } from 'https://deno.land/std@0.182.0/fs/mod.ts';
 
 export const applyFrontMatterModification = (
   path: string,

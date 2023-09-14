@@ -5,9 +5,9 @@ slug: /how-this-blog-is-automated
 ---
 
 
-1. I write blog posts in [notion](https://notion.so/), structured how I like
-2. Automatically ~15 minutes later the website + blog is generated from notion, using [docusaurus](https://docusaurus.io/) + [docu-notion](https://github.com/sillsdev/docu-notion), and pushed to github pages
-3. ~~There’s nothing I actually needed to do except write~~
+1. I write blog posts in [notion](https://notion.so), structured how I like
+1. Automatically ~15 minutes later the website + blog is generated from notion, using [docusaurus](https://docusaurus.io/) + [docu-notion](https://github.com/sillsdev/docu-notion), and pushed to github pages
+1. ~~There’s nothing I actually needed to do except write~~
 
 That’s it. I just write. The rest is automated.
 
@@ -37,8 +37,8 @@ flowchart LR
 A github action runs a few scripts commands:
 
 1. Using [docu-notion](https://github.com/sillsdev/docu-notion) (and a root notion page) the docusaurus blog markdown is generated from specified notion pages
-2. The docusaurus website is built
-3. Then deployed to github pages
+1. The docusaurus website is built
+1. Then deployed to github pages
 
 It’s otherwise tricky to find a set of tools for writing/publishing a blog+resume with the following requirements (for me):
 
