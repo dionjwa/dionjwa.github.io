@@ -71,6 +71,10 @@ const config = {
         },
         options: {
           securityLevel: "loose",
+          flowchart: {
+            useMaxWidth: false,
+            htmlLabels: false,
+          },
         }
       },
 
