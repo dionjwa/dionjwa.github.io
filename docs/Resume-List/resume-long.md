@@ -109,7 +109,7 @@ Technology: Python, Java, R
 
 ## Publications
 
-- [Publications](/docs/publications)
+- [Publications](/publications)
 
 :::❕
 

@@ -10,4 +10,4 @@ hide_table_of_contents: true
 
 This is all about me:
 
-- [Resume](/docs/resume)
+- [Resume](/resume)

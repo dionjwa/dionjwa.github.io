@@ -1,6 +1,5 @@
 import {
   correctNotionUrlsInMermaid,
-  modifiedStandardInternalLinkConversion,
   notionColumnsUpgraded,
 } from '@metapages/docu-notion-plugins';
 import {
@@ -13,8 +12,8 @@ Log.setLogLevel("verbose");
 const config: IDocuNotionConfig = {
   plugins: [
     notionColumnsUpgraded,
-    correctNotionUrlsInMermaid(),
-    modifiedStandardInternalLinkConversion,
+    correctNotionUrlsInMermaid({slugPrefix:""}),
+    // modifiedStandardInternalLinkConversion,
   ],
 };
 export default config;
