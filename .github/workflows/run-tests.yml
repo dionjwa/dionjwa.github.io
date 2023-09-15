@@ -30,4 +30,4 @@ jobs:
         run: just install --frozen-lockfile
 
       - name: Build website
-        run: just build
+        run: just generate_and_build
