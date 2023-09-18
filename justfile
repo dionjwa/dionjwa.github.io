@@ -24,7 +24,7 @@ grey                               := "\\e[90m"
 # Begin commands
 ###########################################################################
 _help:
-    #!/usr/bin/env bash
+    #!/usr/bin/env -S bash
     echo -e ""
     just --list --unsorted --list-heading $'📚 Commands:\n'
     echo -e ""
@@ -77,7 +77,7 @@ install +args="":
     pnpm i {{args}}
 
 _add-author:
-    #!/usr/bin/env deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
+    #!/usr/bin/env -S deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
     import { applyFrontMatterModificationToAll, addAuthorToFrontMatter } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
     await applyFrontMatterModificationToAll({ path: "./blog", f: (frontMatter) => {
         return addAuthorToFrontMatter("dion", frontMatter);
@@ -85,7 +85,7 @@ _add-author:
     console.log("👍 added author to blog posts")
 
 _remove-right-navigation-selected path:
-    #!/usr/bin/env deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
+    #!/usr/bin/env -S deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
     import { applyFrontMatterModificationToAll, hideTableOfContents } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
     await applyFrontMatterModificationToAll({ path: "{{path}}", f: (frontMatter) => {
         return hideTableOfContents(frontMatter);
@@ -96,7 +96,7 @@ _remove-right-navigation-selected path:
 @_hide-sidebar-selected: (_hide-sidebar "docs/Resume-List/resume.md")
 
 _hide-sidebar path:
-    #!/usr/bin/env deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
+    #!/usr/bin/env -S deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
     import { applyFrontMatterModificationToAll, removeSidebar } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
     await applyFrontMatterModificationToAll({ path: "{{path}}", f: (frontMatter) => {
         return removeSidebar(frontMatter);
@@ -104,7 +104,7 @@ _hide-sidebar path:
     console.log("👍 removed sidebar from {{path}}")
 
 _hide_title path:
-    #!/usr/bin/env deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
+    #!/usr/bin/env -S deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
     import { applyFrontMatterModificationToAll, hideTitle } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
     await applyFrontMatterModificationToAll({ path: "{{path}}", f: (frontMatter) => {
         return hideTitle(frontMatter);
