@@ -17,17 +17,17 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
 
-      - uses: extractions/setup-just@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - uses: extractions/setup-just@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: denoland/setup-deno@v1
-        with:
-          deno-version: v1.x
+      # - uses: denoland/setup-deno@v1
+      #   with:
+      #     deno-version: v1.x
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8.6.7
+      # - uses: pnpm/action-setup@v2
+      #   with:
+      #     version: 8.6.7
   
       - name: Install dependencies
         run: just install --frozen-lockfile
@@ -63,4 +63,3 @@ jobs:
           footer: 'Linked to Repo <{repo_url}|{repo}>'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.ACTION_MONITORING_SLACK }}
-          
