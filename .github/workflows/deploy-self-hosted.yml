@@ -25,9 +25,9 @@ jobs:
       #   with:
       #     deno-version: v1.x
 
-      # - uses: pnpm/action-setup@v2
-      #   with:
-      #     version: 8.6.7
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.7
   
       - name: Install dependencies
         run: just install --frozen-lockfile
