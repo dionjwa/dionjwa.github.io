@@ -1,8 +1,10 @@
-name: Auto Deploy to GitHub Pages
+name: Auto Deploy to GitHub Pages [self-hosted]
 
+# Deploy on pushes to main AND on a schedule, since
+# notion docs get updated out of band
 on:
-  # schedule:
-  #   - cron: "30 * * * *"
+  schedule:
+    - cron: "30 * * * *"
   push:
     branches:
       - main
@@ -10,20 +12,11 @@ on:
 jobs:
   deploy:
     name: Deploy to GitHub Pages
-    # runs-on: ubuntu-latest
     runs-on: [self-hosted]
     steps:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT }}
-
-      # - uses: extractions/setup-just@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # - uses: denoland/setup-deno@v1
-      #   with:
-      #     deno-version: v1.x
 
       - uses: pnpm/action-setup@v2
         with:

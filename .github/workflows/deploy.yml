@@ -1,17 +1,16 @@
 name: Auto Deploy to GitHub Pages
 
 on:
-  # schedule:
-  #   - cron: "30 * * * *"
   push:
     branches:
       - disabled
+      # schedule:
+      #   - cron: "30 * * * *"
 
 jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    # runs-on: [self-hosted]
     steps:
       - uses: actions/checkout@v4
         with:
