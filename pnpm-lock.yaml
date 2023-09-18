@@ -45,8 +45,8 @@ dependencies:
     specifier: ^2.2.3
     version: 2.2.3
   '@sillsdev/docu-notion':
-    specifier: 0.14.0-alpha.3
-    version: 0.14.0-alpha.3(@types/node@20.6.0)(typescript@4.7.4)
+    specifier: 0.13.4
+    version: 0.13.4(@types/node@20.6.0)(typescript@4.7.4)
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
@@ -2998,8 +2998,8 @@ packages:
   /@sideway/pinpoint@2.0.0:
     resolution: {integrity: sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==}
 
-  /@sillsdev/docu-notion@0.14.0-alpha.3(@types/node@20.6.0)(typescript@4.7.4):
-    resolution: {integrity: sha512-TdBEKmefpneo1k9mrEkJitI+yifGbgb+xdhEE3Rew745bqMbvdG9U7kxjUKDcsQ55EenUHgEoFpKZVpvRZgjGg==}
+  /@sillsdev/docu-notion@0.13.4(@types/node@20.6.0)(typescript@4.7.4):
+    resolution: {integrity: sha512-Ng72gIIectLS3NPSN5xbVwi+tOgFasmPHX9XZbF0Ba4nq+431/A+DM/1Dg4BSMa2Qt06f4A0+GJGGP5uK++d+A==}
     hasBin: true
     dependencies:
       '@notionhq/client': 2.2.3
@@ -3013,7 +3013,7 @@ packages:
       markdown-table: 2.0.0
       node-fetch: 2.6.6
       notion-client: 4.19.8
-      notion-to-md: 3.1.1
+      notion-to-md: 2.5.5
       path: 0.12.7
       sanitize-filename: 1.6.3
       ts-node: 10.9.1(@types/node@20.6.0)(typescript@4.7.4)
@@ -3264,7 +3264,7 @@ packages:
   /@types/cacheable-request@6.0.3:
     resolution: {integrity: sha512-IQ3EbTzGxIigb1I3qPZc1rWJnH0BmSKv5QYTalEwweFvyBDLSAe24zP0le/hyi7ecGfZVlIVAg4BZqb8WBwKqw==}
     dependencies:
-      '@types/http-cache-semantics': 4.0.1
+      '@types/http-cache-semantics': 4.0.2
       '@types/keyv': 3.1.4
       '@types/node': 20.6.0
       '@types/responselike': 1.0.0
@@ -3329,8 +3329,8 @@ packages:
     resolution: {integrity: sha512-oh/6byDPnL1zeNXFrDXFLyZjkr1MsBG667IM792caf1L2UPOOMf65NFzjUH/ltyfwjAGfs1rsX1eftK0jC/KIg==}
     dev: false
 
-  /@types/http-cache-semantics@4.0.1:
-    resolution: {integrity: sha512-SZs7ekbP8CN0txVG2xVRH6EgKmEm31BOxA07vkFaETzZz1xh+cbt8BcI0slpymvwhx5dlFnQG2rTlPVQn+iRPQ==}
+  /@types/http-cache-semantics@4.0.2:
+    resolution: {integrity: sha512-FD+nQWA2zJjh4L9+pFXqWOi0Hs1ryBCfI+985NjluQ1p8EYtoLvjLOKidXBtZ4/IcxDX4o8/E8qDS3540tNliw==}
     dev: false
 
   /@types/http-errors@2.0.1:
@@ -3455,7 +3455,7 @@ packages:
   /@types/sax@1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 20.6.0
     dev: false
 
   /@types/scheduler@0.16.3:
@@ -8374,6 +8374,13 @@ packages:
       p-map: 4.0.0
     dev: false
 
+  /notion-to-md@2.5.5:
+    resolution: {integrity: sha512-EdzuNZpJyc+287ItRALOld90RkshWBDiSA0WThf75z98Y8cyynhu6Hg+h377eD5K4UOSQHy5K0SUV4vGdCxCiA==}
+    engines: {node: '>=12'}
+    dependencies:
+      markdown-table: 2.0.0
+    dev: false
+
   /notion-to-md@3.1.1:
     resolution: {integrity: sha512-Zaa2P1B9Rx99bevFYTGuUMYbbfdHn2G1AZMsytYGDWIJjr6Ie1qp/8CorpwVUh1qrquES/V2PkEREqCuTu1zKA==}
     engines: {node: '>=12'}
@@ -8382,6 +8389,7 @@ packages:
       node-fetch: 2.7.0
     transitivePeerDependencies:
       - encoding
+    dev: true
 
   /notion-types@4.19.8:
     resolution: {integrity: sha512-KLszLpe2UtejnX0bCoLe8JFZPeQyUS15F29LW4iRPFwnlNZePWz0h303F0IBhxOXQRiWIwy4mEGzRDu45a+dhA==}
