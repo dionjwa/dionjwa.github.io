@@ -3,10 +3,12 @@ name: Test
 on:
   push:
     branches:
+      # Getting too many 502s from the Notion API
+      - disabled
       # only non-main (and non-master) branches
       # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
-      - "**"
-      - "!main"
+      # - "**"
+      # - "!main"
 
 jobs:
   deploy:
