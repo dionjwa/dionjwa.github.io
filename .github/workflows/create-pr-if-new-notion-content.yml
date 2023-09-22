@@ -34,7 +34,7 @@ jobs:
         run: just install --frozen-lockfile
 
       - name: Generate from Notion
-        run: just generate-from-notion
+        run: just generate
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
 

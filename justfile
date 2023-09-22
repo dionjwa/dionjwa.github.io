@@ -10,6 +10,8 @@ set dotenv-load                     := true
 ###########################################################################
 # Required since the entire repo is from notion
 NOTION_TOKEN                        := env_var_or_default("NOTION_TOKEN", "")
+# This package is patched to reduce the rate limit
+DOCU_NOTION                         := "node node_modules/@sillsdev/docu-notion/dist/index.js"
 ###########################################################################
 # Formatting output
 ###########################################################################
@@ -33,7 +35,7 @@ _help:
     echo -e ""
 
 # Starts the development server.
-dev: install generate-from-notion _dev
+dev: install generate _dev
 
 # Starts the development server, but without refetching notion.
 @_dev:
@@ -46,10 +48,10 @@ build: install _build
     pnpm build
 
 # Bundles your website into static files for production. NB: no notion fetch here
-@generate_and_build: install generate-from-notion _build
+@generate_and_build: install generate _build
 
 # Serves the built website locally.
-@serve: install generate-from-notion
+@serve: install generate
   pnpm serve
 
 # Publishes the website to GitHub pages.
@@ -57,20 +59,20 @@ build: install _build
     echo -e "👀 deployments occur every half hour, creating a PR if the notion pages have changed. See .github/workflows/deploy.yml"
 
 # Calls `generate-from-notion-docs` & `generate-from-notion-blog`. Called by `[dev|build|serve|deploy]`
-generate-from-notion: install (generate-from-notion-docs "") (generate-from-notion-blog "")
+generate: install (generate-from-notion-docs "") (generate-from-notion-blog "")
 
 # Build blog from notion https://github.com/sillsdev/docu-notion
 @generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN
     mkdir -p blog
     rm -rf blog/*
-    npx @sillsdev/docu-notion@0.14.0-alpha.4 --notion-token {{NOTION_TOKEN}} --root-page b617023dad3d4fe6a4ffafabc77f54a7 --markdown-output-path $(pwd)/blog {{args}}
+    {{DOCU_NOTION}} --notion-token {{NOTION_TOKEN}} --root-page b617023dad3d4fe6a4ffafabc77f54a7 --markdown-output-path $(pwd)/blog {{args}}
     echo -e "✅ generated blog from notion"
 
 # Build main page from notion https://github.com/sillsdev/docu-notion
 @generate-from-notion-docs +args="--log-level=verbose": _require_NOTION_TOKEN && (_remove-right-navigation-selected "docs/Who-I-am.md") (_hide_title "docs/Resume-List/resume.md") _hide-sidebar-selected
     mkdir -p docs
     rm -rf docs/*
-    npx @sillsdev/docu-notion@0.14.0-alpha.4 --notion-token {{NOTION_TOKEN}} --root-page 41e74151aa404755b9b9220cf841dd75 --markdown-output-path $(pwd)/docs {{args}}
+    {{DOCU_NOTION}} --notion-token {{NOTION_TOKEN}} --root-page 41e74151aa404755b9b9220cf841dd75 --markdown-output-path $(pwd)/docs {{args}}
     echo -e "✅ generated index from notion"
 
 install +args="":
