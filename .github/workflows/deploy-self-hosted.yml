@@ -4,7 +4,8 @@ name: Auto Deploy to GitHub Pages [self-hosted]
 # notion docs get updated out of band
 on:
   schedule:
-    - cron: "30 14,18,22 * * *"
+    # Every 2 hours, at minute 30
+    - cron: "30 0/2 * * *"
   push:
     branches:
       - main
