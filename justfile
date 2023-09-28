@@ -65,14 +65,14 @@ generate: install (generate-from-notion-docs "") (generate-from-notion-blog "")
 @generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN
     mkdir -p blog
     rm -rf blog/*
-    {{DOCU_NOTION}} --notion-token {{NOTION_TOKEN}} --root-page b617023dad3d4fe6a4ffafabc77f54a7 --markdown-output-path $(pwd)/blog {{args}}
+    {{DOCU_NOTION}} --notion-token {{NOTION_TOKEN}} --root-page b617023dad3d4fe6a4ffafabc77f54a7 --status-tag '*' --markdown-output-path $(pwd)/blog {{args}}
     echo -e "✅ generated blog from notion"
 
 # Build main page from notion https://github.com/sillsdev/docu-notion
 @generate-from-notion-docs +args="--log-level=verbose": _require_NOTION_TOKEN && (_remove-right-navigation-selected "docs/Who-I-am.md") (_hide_title "docs/Resume-List/resume.md") _hide-sidebar-selected
     mkdir -p docs
     rm -rf docs/*
-    {{DOCU_NOTION}} --notion-token {{NOTION_TOKEN}} --root-page 41e74151aa404755b9b9220cf841dd75 --markdown-output-path $(pwd)/docs {{args}}
+    {{DOCU_NOTION}} --notion-token {{NOTION_TOKEN}} --root-page 41e74151aa404755b9b9220cf841dd75 --status-tag '*' --markdown-output-path $(pwd)/docs {{args}}
     echo -e "✅ generated index from notion"
 
 install +args="":
