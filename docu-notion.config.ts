@@ -2,22 +2,17 @@ import {
   correctNotionUrlsInMermaid,
   notionColumnsUpgraded,
 } from '@metapages/docu-notion-plugins';
-import {
-  IDocuNotionConfig,
-  Log,
-} from '@sillsdev/docu-notion';
+import { IDocuNotionConfig } from '@sillsdev/docu-notion';
 
-// import {
-//   correctNotionUrlsInMermaid,
-// } from './src/tmp/correctNotionUrlsInMermaid';
+import { embedToIframe } from './src/docu-notion-plugins/embed';
 
-Log.setLogLevel("verbose");
+// Log.setLogLevel("verbose");
 
 const config: IDocuNotionConfig = {
   plugins: [
     notionColumnsUpgraded,
     correctNotionUrlsInMermaid({slugPrefix:""}),
-    // modifiedStandardInternalLinkConversion,
+    embedToIframe, 
   ],
 };
 export default config;

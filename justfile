@@ -11,7 +11,7 @@ set dotenv-load                     := true
 # Required since the entire repo is from notion
 NOTION_TOKEN                        := env_var_or_default("NOTION_TOKEN", "")
 # This package is patched to reduce the rate limit
-DOCU_NOTION                         := "node node_modules/@sillsdev/docu-notion/dist/index.js"
+DOCU_NOTION                         := "node --max-http-header-size 500000 node_modules/@sillsdev/docu-notion/dist/index.js"
 ###########################################################################
 # Formatting output
 ###########################################################################
