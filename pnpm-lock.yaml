@@ -44,8 +44,8 @@ dependencies:
     specifier: ^0.4.11
     version: 0.4.11(react@17.0.2)
   '@metapages/metapage':
-    specifier: ^0.13.9
-    version: 0.13.9
+    specifier: ^0.13.11
+    version: 0.13.11
   '@metapages/metapage-grid-react':
     specifier: 0.1.13
     version: 0.1.13(@babel/core@7.22.19)(@chakra-ui/system@2.6.1)
@@ -4068,13 +4068,13 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@metapages/metaframe-hook@1.0.12(@metapages/metapage@0.13.9)(react@18.2.0):
+  /@metapages/metaframe-hook@1.0.12(@metapages/metapage@0.13.11)(react@18.2.0):
     resolution: {integrity: sha512-pYAZ9HYFL2jz+xJRQS797tdTPvx6lSAXqwgGwehcZotBYAfqCPFHDzEq3Zgx0C3US1pBqZN/FV/wQ+V5o+t1LQ==}
     peerDependencies:
       '@metapages/metapage': ^0.13
       react: x
     dependencies:
-      '@metapages/metapage': 0.13.9
+      '@metapages/metapage': 0.13.11
       fast-json-stable-stringify: 2.1.0
       react: 18.2.0
     dev: false
@@ -4088,8 +4088,8 @@ packages:
       '@emotion/react': 11.10.5(@babel/core@7.22.19)(react@18.2.0)
       '@emotion/styled': 11.11.0(@emotion/react@11.10.5)(react@18.2.0)
       '@metapages/hash-query': 0.4.11(react@18.2.0)
-      '@metapages/metaframe-hook': 1.0.12(@metapages/metapage@0.13.9)(react@18.2.0)
-      '@metapages/metapage': 0.13.9
+      '@metapages/metaframe-hook': 1.0.12(@metapages/metapage@0.13.11)(react@18.2.0)
+      '@metapages/metapage': 0.13.11
       formik: 2.4.5(react@18.2.0)
       framer-motion: 7.10.3(react-dom@17.0.2)(react@17.0.2)
       object-hash: 3.0.0
@@ -4115,8 +4115,8 @@ packages:
       object-hash: 3.0.0
     dev: false
 
-  /@metapages/metapage@0.13.9:
-    resolution: {integrity: sha512-Ne8roZhxVqCtYzMe+3dRQqn3JhYinFfLhLLi/VrFeRia1I0fazo5MUcX5kIGeixmwpdrv4cbtHYXejfD/d3heA==}
+  /@metapages/metapage@0.13.11:
+    resolution: {integrity: sha512-dG+zY6TB2HmmzTJXz5cnIKzfqQbZd/WCKuuhrCFBUKqCFnKhYjxIzeCiy2llPevAHacjbW6FQ+9zYvipuV/K4g==}
     dependencies:
       base64-arraybuffer: 1.0.2
       compare-versions: 4.1.4
