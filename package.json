@@ -32,7 +32,7 @@
     "@metapages/docu-notion-plugins": "^0.1.4",
     "@metapages/hash-query": "^0.4.11",
     "@metapages/metapage": "^0.13.11",
-    "@metapages/metapage-grid-react": "0.1.13",
+    "@metapages/metapage-grid-react": "0.1.14",
     "@notionhq/client": "^2.2.3",
     "@sillsdev/docu-notion": "0.14.0-alpha.4",
     "clsx": "^1.2.1",

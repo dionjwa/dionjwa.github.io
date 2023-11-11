@@ -47,8 +47,8 @@ dependencies:
     specifier: ^0.13.11
     version: 0.13.11
   '@metapages/metapage-grid-react':
-    specifier: 0.1.13
-    version: 0.1.13(@babel/core@7.22.19)(@chakra-ui/system@2.6.1)
+    specifier: 0.1.14
+    version: 0.1.14(@babel/core@7.22.19)(@chakra-ui/system@2.6.1)
   '@notionhq/client':
     specifier: ^2.2.3
     version: 2.2.3
@@ -4079,8 +4079,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@metapages/metapage-grid-react@0.1.13(@babel/core@7.22.19)(@chakra-ui/system@2.6.1):
-    resolution: {integrity: sha512-2OeSba0sIlH/n9Half0rUVdXdnshTWg2iujOtspan0mpt5q7yTSGW40DydHjY6x72IKLHNU1J03tSgxV2kBH/w==}
+  /@metapages/metapage-grid-react@0.1.14(@babel/core@7.22.19)(@chakra-ui/system@2.6.1):
+    resolution: {integrity: sha512-kWSyHaLHxM7NLZ4HK+7QprMmrPojv5ptKKObkrsRuD+4Sze9/7B5MD53F7lCLsna5MGCtHfTiTLCLITLfdzvcQ==}
     requiresBuild: true
     dependencies:
       '@chakra-ui/icons': 2.1.1(@chakra-ui/system@2.6.1)(react@18.2.0)
