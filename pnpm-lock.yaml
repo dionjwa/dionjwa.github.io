@@ -38,17 +38,17 @@ dependencies:
     specifier: ^1.6.22
     version: 1.6.22(react@17.0.2)
   '@metapages/docu-notion-plugins':
-    specifier: ^0.1.4
-    version: 0.1.4(react@17.0.2)
+    specifier: ^0.1.5
+    version: 0.1.5(react@17.0.2)
   '@metapages/hash-query':
     specifier: ^0.4.11
     version: 0.4.11(react@17.0.2)
   '@metapages/metapage':
-    specifier: ^0.13.11
-    version: 0.13.11
+    specifier: ^0.13.12
+    version: 0.13.12
   '@metapages/metapage-grid-react':
-    specifier: 0.1.14
-    version: 0.1.14(@babel/core@7.22.19)(@chakra-ui/system@2.6.1)
+    specifier: 0.1.17
+    version: 0.1.17(@babel/core@7.22.19)(@chakra-ui/system@2.6.1)
   '@notionhq/client':
     specifier: ^2.2.3
     version: 2.2.3
@@ -4036,8 +4036,8 @@ packages:
     resolution: {integrity: sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==}
     dev: false
 
-  /@metapages/docu-notion-plugins@0.1.4(react@17.0.2):
-    resolution: {integrity: sha512-krvCbuHdxAKcMcJIaQkFBvix3noaH/A/ulSYFljJU1QqpFIh0xuDnUWit0ZfZ9jVWUaap+DFdPOoiBLE6QDcYg==}
+  /@metapages/docu-notion-plugins@0.1.5(react@17.0.2):
+    resolution: {integrity: sha512-wX1m96ZtQDAn1agL+FFPZ4GFtGbo/koYpJPUfBu6cvxHD/8+BvAL1/lXFdyQJ7U/PCVjkrGnIvW4GQdDxgin5g==}
     engines: {node: '>=16.14'}
     dependencies:
       '@metapages/hash-query': 0.4.11(react@17.0.2)
@@ -4068,19 +4068,19 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@metapages/metaframe-hook@1.0.12(@metapages/metapage@0.13.11)(react@18.2.0):
+  /@metapages/metaframe-hook@1.0.12(@metapages/metapage@0.13.12)(react@18.2.0):
     resolution: {integrity: sha512-pYAZ9HYFL2jz+xJRQS797tdTPvx6lSAXqwgGwehcZotBYAfqCPFHDzEq3Zgx0C3US1pBqZN/FV/wQ+V5o+t1LQ==}
     peerDependencies:
       '@metapages/metapage': ^0.13
       react: x
     dependencies:
-      '@metapages/metapage': 0.13.11
+      '@metapages/metapage': 0.13.12
       fast-json-stable-stringify: 2.1.0
       react: 18.2.0
     dev: false
 
-  /@metapages/metapage-grid-react@0.1.14(@babel/core@7.22.19)(@chakra-ui/system@2.6.1):
-    resolution: {integrity: sha512-kWSyHaLHxM7NLZ4HK+7QprMmrPojv5ptKKObkrsRuD+4Sze9/7B5MD53F7lCLsna5MGCtHfTiTLCLITLfdzvcQ==}
+  /@metapages/metapage-grid-react@0.1.17(@babel/core@7.22.19)(@chakra-ui/system@2.6.1):
+    resolution: {integrity: sha512-2To4iiOGhhP4l55m0O2kbYyi9y1+wZ+YF19JM3+Y/BeZLzgzVkbFa4Cyy/Mj23dIjeLaD22J1z8dRkdST9ZIdQ==}
     requiresBuild: true
     dependencies:
       '@chakra-ui/icons': 2.1.1(@chakra-ui/system@2.6.1)(react@18.2.0)
@@ -4088,8 +4088,8 @@ packages:
       '@emotion/react': 11.10.5(@babel/core@7.22.19)(react@18.2.0)
       '@emotion/styled': 11.11.0(@emotion/react@11.10.5)(react@18.2.0)
       '@metapages/hash-query': 0.4.11(react@18.2.0)
-      '@metapages/metaframe-hook': 1.0.12(@metapages/metapage@0.13.11)(react@18.2.0)
-      '@metapages/metapage': 0.13.11
+      '@metapages/metaframe-hook': 1.0.12(@metapages/metapage@0.13.12)(react@18.2.0)
+      '@metapages/metapage': 0.13.12
       formik: 2.4.5(react@18.2.0)
       framer-motion: 7.10.3(react-dom@17.0.2)(react@17.0.2)
       object-hash: 3.0.0
@@ -4115,8 +4115,8 @@ packages:
       object-hash: 3.0.0
     dev: false
 
-  /@metapages/metapage@0.13.11:
-    resolution: {integrity: sha512-dG+zY6TB2HmmzTJXz5cnIKzfqQbZd/WCKuuhrCFBUKqCFnKhYjxIzeCiy2llPevAHacjbW6FQ+9zYvipuV/K4g==}
+  /@metapages/metapage@0.13.12:
+    resolution: {integrity: sha512-v7AfD0WnHXGk65l1WxUm+/rwYu8v66+EuyzTfxk1Ces6WSv2oUmpsw2xy1XzRt9mIt8FifeHNUyY+rVMpmLHWA==}
     dependencies:
       base64-arraybuffer: 1.0.2
       compare-versions: 4.1.4
