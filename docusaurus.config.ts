@@ -1,11 +1,11 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+import type * as Preset from '@docusaurus/preset-classic';
+import type { Config } from '@docusaurus/types';
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const { themes } = require('prism-react-renderer');
+const lightTheme = themes.github;
+const darkTheme = themes.dracula;
 
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config :Config = {
   title: 'Dion Whitehead',
   tagline: 'evolution of complex systems happens right now',
   favicon: 'favicon.ico',
@@ -41,7 +41,6 @@ const config = {
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
           // sidebarPath: require.resolve('./sidebars.js'),
@@ -61,7 +60,6 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       metadata: [{name: 'keywords', content: 'metapages, docker, justfile, mermaid, deno, whales, cetaceans, simulations, evolution, superslides, gestures, hand control, deep time'}],
       mermaid: {
@@ -140,12 +138,13 @@ const config = {
           // },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} metapages, LLC. Built with Docusaurus.`,
-      },
+      } satisfies Preset.ThemeConfig,
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        additionalLanguages: ['bash', 'json', 'python', 'typescript', 'javascript', 'yaml', 'markdown', 'mermaid'],
       },
     }),
 };
 
-module.exports = config;
+export default config;
