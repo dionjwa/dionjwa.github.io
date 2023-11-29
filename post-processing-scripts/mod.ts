@@ -76,3 +76,53 @@ export const hideTitle = (frontMatter: Record<string, unknown>) :Record<string, 
   }
   return frontMatter;
 };
+
+export const highlightSelfInMermaidDiagramsAll = async (args: {
+  path: string;
+  mermaidClass?: string;
+}) => {
+
+  const { path, mermaidClass } = args;
+
+  const st = await Deno.stat(path);
+  if (st.isFile) {
+    await highlightSelfInMermaidDiagrams({path, mermaidClass});
+    return;
+  }
+
+  for await (const e of walk(path, {
+    includeDirs: false,
+    exts: [".md", ".mdx"],
+  })) {
+    if (e.isFile) {
+      highlightSelfInMermaidDiagrams({path:e.path, mermaidClass});
+    }
+  }
+
+}
+
+export const highlightSelfInMermaidDiagrams = async (args: {
+  path: string;
+  mermaidClass?: string;
+}) => {
+
+  let { path, mermaidClass } = args;
+  mermaidClass = mermaidClass || "fill:#fff,stroke:#999999,stroke-width:2px,color:#000";
+
+  const text: string = Deno.readTextFileSync(path);
+
+  const re = /slug:\s+(\S+)/;
+  const match = re.exec(text);
+  if (!match || !match[1]) {
+    return;
+  }
+  const slug = match[1];
+  const mermaidRegex = new RegExp(`\\s*click\\s+([A-za-z][A-za-z0-9_-]*)\\s+"?${slug.replace("/", "\/")}"`, 'gm');
+  const mermaidMatch = mermaidRegex.exec(text);
+  if (!mermaidMatch || !mermaidMatch[1]) {
+    return;
+  }
+  const nodeId = mermaidMatch[1];
+  const output = text.replace(mermaidMatch[0], `${mermaidMatch[0]}\n  style ${nodeId} ${mermaidClass}`);
+  Deno.writeTextFileSync(path, output);
+}

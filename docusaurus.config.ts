@@ -79,13 +79,13 @@ const config :Config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Idea Sets',
+        title: '',
         logo: {
           alt: 'Logo',
           src: 'logo.svg',
         },
         items: [
-          {to: '/blog', label: 'Blog', position: 'left'},
+          // {to: '/blog', label: 'Blog', position: 'left'},
           {to: '/resume', label: 'Resume', position: 'left'},
           {
             href: 'https://github.com/dionjwa',

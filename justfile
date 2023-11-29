@@ -59,7 +59,7 @@ build: install _build
     echo -e "👀 deployments occur every half hour, creating a PR if the notion pages have changed. See .github/workflows/deploy.yml"
 
 # Calls `generate-from-notion-docs` & `generate-from-notion-blog`. Called by `[dev|build|serve|deploy]`
-generate: install (generate-from-notion-docs "") (generate-from-notion-blog "")
+generate: install (generate-from-notion-docs "")
 
 # Build blog from notion https://github.com/sillsdev/docu-notion
 @generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN
@@ -69,7 +69,7 @@ generate: install (generate-from-notion-docs "") (generate-from-notion-blog "")
     echo -e "✅ generated blog from notion"
 
 # Build main page from notion https://github.com/sillsdev/docu-notion
-@generate-from-notion-docs +args="--log-level=verbose": _require_NOTION_TOKEN && (_remove-right-navigation-selected "docs/Who-I-am.md") (_hide_title "docs/Resume-List/resume.md") _hide-sidebar-selected
+@generate-from-notion-docs +args="--log-level=verbose": _require_NOTION_TOKEN && (_remove-right-navigation-selected "docs/Who-I-am.md") (_hide_title "docs/Resume-List/resume.md") _hide-sidebar-selected (_highlight_self_in_mermaid "docs")
     mkdir -p docs
     rm -rf docs/*
     {{DOCU_NOTION}} --notion-token {{NOTION_TOKEN}} --root-page 41e74151aa404755b9b9220cf841dd75 --status-tag '*' --markdown-output-path $(pwd)/docs {{args}}
@@ -112,6 +112,13 @@ _hide_title path:
         return hideTitle(frontMatter);
     }});
     console.log("👍 removed title from {{path}}")
+
+# If the document is linked in a mermaid diagram, apply a class to the element
+_highlight_self_in_mermaid path:
+    #!/usr/bin/env -S deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
+    import { highlightSelfInMermaidDiagramsAll } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
+    await highlightSelfInMermaidDiagramsAll({ path: "{{path}}"});
+    console.log("👍 highlighted mermaid self {{path}}")
 
 @_require_NOTION_TOKEN:
 	if [ -z "{{NOTION_TOKEN}}" ]; then echo "Missing NOTION_TOKEN env var"; exit 1; fi

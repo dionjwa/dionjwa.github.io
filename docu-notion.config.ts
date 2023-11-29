@@ -9,8 +9,6 @@ import {
   IPlugin,
 } from '@sillsdev/docu-notion';
 
-// Log.setLogLevel("verbose");
-
 const modifiedStandardInternalLinkConversion: IPlugin = {
   name: "modified standard internal link conversion",
   regexMarkdownModifications: [
