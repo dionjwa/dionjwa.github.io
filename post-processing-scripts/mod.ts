@@ -113,7 +113,6 @@ export const highlightSelfInMermaidDiagrams = async (args: {
 
   const re = /slug:(\s+.*(\/\S+))/;
   const match = re.exec(text);
-  console.log('match', match);
   if (!match || !match[2]) {
     return;
   }
@@ -125,7 +124,6 @@ export const highlightSelfInMermaidDiagrams = async (args: {
   }
   const nodeId = mermaidMatch[1];
   const output = text.replace(mermaidMatch[0], `${mermaidMatch[0]}\n  style ${nodeId} ${mermaidClass}`);
-  // console.log(output);
   Deno.writeTextFileSync(path, output);
 }
 
