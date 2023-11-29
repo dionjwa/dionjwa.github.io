@@ -1,11 +1,12 @@
 name: Auto Deploy to GitHub Pages
 
 on:
+  schedule:
+    # Every hour, at minute 30
+    - cron: "30 * * * *"
   push:
     branches:
-      - disabled
-      # schedule:
-      #   - cron: "30 * * * *"
+      - main
 
 jobs:
   deploy:
@@ -19,6 +20,10 @@ jobs:
       - uses: extractions/setup-just@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - uses: denoland/setup-deno@v1
         with:
