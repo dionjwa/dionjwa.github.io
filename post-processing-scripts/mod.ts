@@ -111,18 +111,21 @@ export const highlightSelfInMermaidDiagrams = async (args: {
 
   const text: string = Deno.readTextFileSync(path);
 
-  const re = /slug:\s+(\S+)/;
+  const re = /slug:(\s+.*(\/\S+))/;
   const match = re.exec(text);
-  if (!match || !match[1]) {
+  console.log('match', match);
+  if (!match || !match[2]) {
     return;
   }
-  const slug = match[1];
-  const mermaidRegex = new RegExp(`\\s*click\\s+([A-za-z][A-za-z0-9_-]*)\\s+"?${slug.replace("/", "\/")}"`, 'gm');
+  const slug = match[2];
+  const mermaidRegex = new RegExp(`\\s*click\\s+([A-za-z][A-za-z0-9_-]*)\\s+"?.*${slug.replace("/", "\/")}"`, 'gm');
   const mermaidMatch = mermaidRegex.exec(text);
   if (!mermaidMatch || !mermaidMatch[1]) {
     return;
   }
   const nodeId = mermaidMatch[1];
   const output = text.replace(mermaidMatch[0], `${mermaidMatch[0]}\n  style ${nodeId} ${mermaidClass}`);
+  // console.log(output);
   Deno.writeTextFileSync(path, output);
 }
+
