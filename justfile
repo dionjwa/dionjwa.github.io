@@ -59,7 +59,8 @@ build: install _build
     echo -e "👀 deployments occur every half hour, creating a PR if the notion pages have changed. See .github/workflows/deploy.yml"
 
 # Calls `generate-from-notion-docs` & `generate-from-notion-blog`. Called by `[dev|build|serve|deploy]`
-generate: install (generate-from-notion-docs "")
+generate: install (generate-from-notion-docs "") (generate-from-notion-blog "") _add-author
+    echo -e "✅ generated from notion"
 
 # Build blog from notion https://github.com/sillsdev/docu-notion
 @generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN
@@ -78,13 +79,16 @@ generate: install (generate-from-notion-docs "")
 install +args="":
     pnpm i {{args}}
 
-_add-author:
+_add-author: _cp-authors-yml
     #!/usr/bin/env -S deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
     import { applyFrontMatterModificationToAll, addAuthorToFrontMatter } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
     await applyFrontMatterModificationToAll({ path: "./blog", f: (frontMatter) => {
         return addAuthorToFrontMatter("dion", frontMatter);
     }});
     console.log("👍 added author to blog posts")
+    
+@_cp-authors-yml:
+    cp src/authors.yml blog/
 
 _remove-right-navigation-selected path:
     #!/usr/bin/env -S deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
