@@ -37,6 +37,10 @@ _help:
 # Starts the development server.
 dev: install generate _dev
 
+# Open the the locally running stack in your browser
+open:
+    open http://localhost:3000
+
 # Starts the development server, but without refetching notion.
 @_dev:
     pnpm start
