@@ -6,7 +6,7 @@ import { walk } from 'https://deno.land/std@0.182.0/fs/mod.ts';
 
 export const applyFrontMatterModification = (
   path: string,
-  f: (frontMatter: Record<string, unknown>) => Record<string, unknown>
+  f: (frontMatter: Record<string, unknown>) => Record<string, unknown>,
 ): void => {
   const text: string = Deno.readTextFileSync(path);
 
@@ -32,10 +32,12 @@ export const applyFrontMatterModificationToAll = async (args: {
     return;
   }
 
-  for await (const e of walk(path, {
-    includeDirs: false,
-    exts: [".md", ".mdx"],
-  })) {
+  for await (
+    const e of walk(path, {
+      includeDirs: false,
+      exts: [".md", ".mdx"],
+    })
+  ) {
     if (e.isFile) {
       applyFrontMatterModification(e.path, f);
     }
@@ -43,7 +45,7 @@ export const applyFrontMatterModificationToAll = async (args: {
 };
 
 export const removeSidebar = (
-  frontMatter: Record<string, unknown>
+  frontMatter: Record<string, unknown>,
 ): Record<string, unknown> => {
   if (frontMatter) {
     frontMatter["displayed_sidebar"] = null;
@@ -51,7 +53,10 @@ export const removeSidebar = (
   return frontMatter;
 };
 
-export const addAuthorToFrontMatter = (author:string, frontMatter: Record<string, string[]>) :Record<string, string[]> => {
+export const addAuthorToFrontMatter = (
+  author: string,
+  frontMatter: Record<string, string[]>,
+): Record<string, string[]> => {
   if (frontMatter) {
     if (!frontMatter["authors"]) {
       frontMatter["authors"] = [];
@@ -63,14 +68,18 @@ export const addAuthorToFrontMatter = (author:string, frontMatter: Record<string
   return frontMatter;
 };
 
-export const hideTableOfContents = (frontMatter: Record<string, unknown>) :Record<string, unknown> => {
+export const hideTableOfContents = (
+  frontMatter: Record<string, unknown>,
+): Record<string, unknown> => {
   if (frontMatter) {
     frontMatter["hide_table_of_contents"] = true;
   }
   return frontMatter;
 };
 
-export const hideTitle = (frontMatter: Record<string, unknown>) :Record<string, unknown> => {
+export const hideTitle = (
+  frontMatter: Record<string, unknown>,
+): Record<string, unknown> => {
   if (frontMatter) {
     frontMatter["hide_title"] = true;
   }
@@ -81,49 +90,57 @@ export const highlightSelfInMermaidDiagramsAll = async (args: {
   path: string;
   mermaidClass?: string;
 }) => {
-
   const { path, mermaidClass } = args;
 
   const st = await Deno.stat(path);
   if (st.isFile) {
-    await highlightSelfInMermaidDiagrams({path, mermaidClass});
+    await highlightSelfInMermaidDiagrams({ path, mermaidClass });
     return;
   }
 
-  for await (const e of walk(path, {
-    includeDirs: false,
-    exts: [".md", ".mdx"],
-  })) {
+  for await (
+    const e of walk(path, {
+      includeDirs: false,
+      exts: [".md", ".mdx"],
+    })
+  ) {
     if (e.isFile) {
-      highlightSelfInMermaidDiagrams({path:e.path, mermaidClass});
+      highlightSelfInMermaidDiagrams({ path: e.path, mermaidClass });
     }
   }
-
-}
+};
 
 export const highlightSelfInMermaidDiagrams = async (args: {
   path: string;
   mermaidClass?: string;
 }) => {
-
   let { path, mermaidClass } = args;
-  mermaidClass = mermaidClass || "fill:#fff,stroke:#999999,stroke-width:2px,color:#000";
+  mermaidClass = mermaidClass ||
+    "fill:#fff,stroke:#999999,stroke-width:2px,color:#000";
 
-  const text: string = Deno.readTextFileSync(path);
+  let output: string = Deno.readTextFileSync(path);
 
-  const re = /slug:(\s+.*(\/\S+))/;
-  const match = re.exec(text);
+  const re = /slug:(\s+.*(\/\S+))/g;
+  const match = re.exec(output);
   if (!match || !match[2]) {
     return;
   }
   const slug = match[2];
-  const mermaidRegex = new RegExp(`\\s*click\\s+([A-za-z][A-za-z0-9_-]*)\\s+"?.*${slug.replace("/", "\/")}"`, 'gm');
-  const mermaidMatch = mermaidRegex.exec(text);
-  if (!mermaidMatch || !mermaidMatch[1]) {
-    return;
-  }
-  const nodeId = mermaidMatch[1];
-  const output = text.replace(mermaidMatch[0], `${mermaidMatch[0]}\n  style ${nodeId} ${mermaidClass}`);
-  Deno.writeTextFileSync(path, output);
-}
+  const mermaidRegex = new RegExp(
+    `\\s*click\\s+([A-za-z][A-za-z0-9_-]*)\\s+"?.*${slug.replace("/", "\/")}"`,
+    "g",
+  );
 
+  let mermaidMatch: RegExpExecArray | null;
+  while ((mermaidMatch = mermaidRegex.exec(output)) !== null) {
+    if (!mermaidMatch || !mermaidMatch[1]) {
+      return;
+    }
+    const nodeId = mermaidMatch[1];
+    output = output.replace(
+      mermaidMatch[0],
+      `${mermaidMatch[0]}\n  style ${nodeId} ${mermaidClass}`,
+    );
+  }
+  Deno.writeTextFileSync(path, output);
+};
