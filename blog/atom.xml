@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://evolvedeeptimecomplex.systems/blog</id>
     <title>Dion Whitehead Blog</title>
-    <updated>2023-12-18T18:36:15.045Z</updated>
+    <updated>2023-12-18T19:34:50.447Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://evolvedeeptimecomplex.systems/blog"/>
     <subtitle>Dion Whitehead Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Tools / Software matched to job-  Data room]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/tools-for-the-job</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/tools-for-the-job"/>
-        <updated>2023-12-18T18:36:15.045Z</updated>
+        <updated>2023-12-18T19:34:50.447Z</updated>
         <summary type="html"><![CDATA[See disk space usage]]></summary>
         <content type="html"><![CDATA[<p><strong>See disk space usage</strong></p>
 <p>GrandPerspective</p>
@@ -32,7 +32,7 @@
         <title type="html"><![CDATA[Blob storage is a solved problem- what about compute?]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/blob-storage-is-solved-but-what-about-compute</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/blob-storage-is-solved-but-what-about-compute"/>
-        <updated>2023-12-18T18:36:14.045Z</updated>
+        <updated>2023-12-18T19:34:50.183Z</updated>
         <summary type="html"><![CDATA[2023-11-26]]></summary>
         <content type="html"><![CDATA[<p>2023-11-26</p>
 <!-- -->
@@ -74,7 +74,7 @@
         <title type="html"><![CDATA[A New Kind of Scientific Publishing]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/a-new-kind-of-scientific-publishing</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/a-new-kind-of-scientific-publishing"/>
-        <updated>2023-12-18T18:36:13.645Z</updated>
+        <updated>2023-12-18T19:34:49.295Z</updated>
         <summary type="html"><![CDATA[Scientific papers are static artifacts. You read them, but that is about the limit of your interaction.]]></summary>
         <content type="html"><![CDATA[<p>Scientific papers are static artifacts. You read them, but that is about the limit of your interaction.</p>
 <p>You can embed code via links into e.g. PDFs, but code, like knowledge, fades into an insurmountable complexity barrier over time:</p>
@@ -121,7 +121,7 @@
         <title type="html"><![CDATA[Metapages- publish, embed, edit, share composable complete applications]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/metapages-scientific-embed</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/metapages-scientific-embed"/>
-        <updated>2023-12-18T18:36:10.565Z</updated>
+        <updated>2023-12-18T19:34:46.663Z</updated>
         <summary type="html"><![CDATA[This is a deeper dive into an example metapage, that runs python, creates plots using matplotlib.]]></summary>
         <content type="html"><![CDATA[<p>This is a deeper dive into an example <a href="https://docs.metapage.io/docs" target="_blank" rel="noopener noreferrer">metapage</a>, that runs python, creates plots using <a href="https://matplotlib.org/" target="_blank" rel="noopener noreferrer">matplotlib</a>.</p>
 <p>Concepts:</p>
@@ -170,15 +170,17 @@
         <title type="html"><![CDATA[How this blog is automated]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/how-this-blog-is-automated</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/how-this-blog-is-automated"/>
-        <updated>2023-12-18T18:36:08.697Z</updated>
-        <summary type="html"><![CDATA[1. I write blog posts in notion, structured how I like]]></summary>
-        <content type="html"><![CDATA[<ol>
+        <updated>2023-12-18T19:34:44.183Z</updated>
+        <summary type="html"><![CDATA[Steps (actually, there is only one step: writing)]]></summary>
+        <content type="html"><![CDATA[
+<h3 class="anchor anchorWithStickyNavbar_IQQo" id="25ebe3c7689f477ca278e5b101e0a8fd">Steps (actually, there is only one step: writing)<a href="https://evolvedeeptimecomplex.systems/blog/how-this-blog-is-automated#25ebe3c7689f477ca278e5b101e0a8fd" class="hash-link" aria-label="Direct link to Steps (actually, there is only one step: writing)" title="Direct link to Steps (actually, there is only one step: writing)">​</a></h3>
+<ol>
 <li>I write blog posts in <a href="https://notion.so/" target="_blank" rel="noopener noreferrer">notion</a>, structured how I like</li>
-<li>Automatically ~15 minutes later the website + blog is generated from notion, using <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">docusaurus</a> + <a href="https://github.com/sillsdev/docu-notion" target="_blank" rel="noopener noreferrer">docu-notion</a>, and pushed to github pages</li>
+<li><strong>Automatically</strong> ~15 minutes later the website + blog is generated from notion, using <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">docusaurus</a> + <a href="https://github.com/sillsdev/docu-notion" target="_blank" rel="noopener noreferrer">docu-notion</a>, and pushed to github pages</li>
 <li><del>There’s nothing I actually needed to do except write</del></li>
 </ol>
 <p>That’s it. I just write. The rest is automated.</p>
-<!-- -->
+<p><img loading="lazy" src="https://evolvedeeptimecomplex.systems/assets/images/1555530775-a63260f98858e105c8f1ea7e47308fab.png" width="1634" height="1372" class="img_rmWR"></p>
 <hr>
 <h3 class="anchor anchorWithStickyNavbar_IQQo" id="1900a1e531c64d3ab4896817eefc7eba">How it works<a href="https://evolvedeeptimecomplex.systems/blog/how-this-blog-is-automated#1900a1e531c64d3ab4896817eefc7eba" class="hash-link" aria-label="Direct link to How it works" title="Direct link to How it works">​</a></h3>
 <p>Source: <a href="https://github.com/dionjwa/dionjwa.github.io" target="_blank" rel="noopener noreferrer">https://github.com/dionjwa/dionjwa.github.io</a></p>
@@ -200,7 +202,11 @@
 <li>but also look good</li>
 <li>where i just write, and do absolutely nothing else. no saving, no publishing step.</li>
 <li>but also everything is backed up, with full version history</li>
-</ul>]]></content>
+</ul>
+<hr>
+<h1>Published examples in the wild</h1>
+<div class="custom-docunotion-row"><div class="custom-docunotion-row-cell"><p><img src="https://evolvedeeptimecomplex.systems/assets/images/880052731-9b4b532030f34fe6f4a2cea892aead94.png"></p></div><div class="custom-docunotion-row-cell"><p><img src="https://evolvedeeptimecomplex.systems/assets/images/1377012718-19ad213c9b14cde64df94128193293ba.png"></p></div></div>
+<p><img loading="lazy" src="https://evolvedeeptimecomplex.systems/assets/images/1470369498-5e7c3439fbbda36bbb8505c30af3b41a.png" width="1894" height="842" class="img_rmWR"></p>]]></content>
         <author>
             <name>Dion Whitehead</name>
             <uri>https://evolvedeeptimecomplex.systems/</uri>
@@ -210,7 +216,7 @@
         <title type="html"><![CDATA[The golden trifecta- justfiles, deno, and docker]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/the-golden-three-just-deno-docker</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/the-golden-three-just-deno-docker"/>
-        <updated>2023-12-18T18:36:06.793Z</updated>
+        <updated>2023-12-18T19:34:39.815Z</updated>
         <author>
             <name>Dion Whitehead</name>
             <uri>https://evolvedeeptimecomplex.systems/</uri>
@@ -220,7 +226,7 @@
         <title type="html"><![CDATA[Docker and wasm]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/docker-wasm-web-containers</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/docker-wasm-web-containers"/>
-        <updated>2023-12-18T18:36:06.345Z</updated>
+        <updated>2023-12-18T19:34:38.475Z</updated>
         <summary type="html"><![CDATA[For building any project, you just need:]]></summary>
         <content type="html"><![CDATA[
 <p>For building any project, you just need:</p>
@@ -242,7 +248,7 @@
         <title type="html"><![CDATA[Deno is part of the golden three]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/deno-and-tool-ecosystems</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/deno-and-tool-ecosystems"/>
-        <updated>2023-12-18T18:36:03.597Z</updated>
+        <updated>2023-12-18T19:34:37.127Z</updated>
         <summary type="html"><![CDATA[479dc190b1644ccdac96e631b4b44a0d}]]></summary>
         <content type="html"><![CDATA[
 <p><strong>Problem:</strong> scripts and utilities written for one repository, and you want to share them with other repositories</p>
@@ -272,7 +278,7 @@
         <title type="html"><![CDATA[Justfiles - universal command control]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/one-justfile-to-bind-them-all</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/one-justfile-to-bind-them-all"/>
-        <updated>2023-12-18T18:36:02.325Z</updated>
+        <updated>2023-12-18T19:34:36.375Z</updated>
         <summary type="html"><![CDATA[b19d4c49d3a343cfa8398d2677e39bb7}]]></summary>
         <content type="html"><![CDATA[
 <h1><a href="https://just.systems/man/en/" target="_blank" rel="noopener noreferrer"><code>just</code></a> solves a set of complex problems:</h1>
@@ -338,7 +344,7 @@
         <title type="html"><![CDATA[URL Configured Websites]]></title>
         <id>https://evolvedeeptimecomplex.systems/blog/url-configured-websites</id>
         <link href="https://evolvedeeptimecomplex.systems/blog/url-configured-websites"/>
-        <updated>2023-12-18T18:35:59.765Z</updated>
+        <updated>2023-12-18T19:34:35.079Z</updated>
         <summary type="html"><![CDATA[2023-12-05]]></summary>
         <content type="html"><![CDATA[<p>2023-12-05</p>
 <!-- -->

@@ -4,7 +4,7 @@
         <title>Dion Whitehead Blog</title>
         <link>https://evolvedeeptimecomplex.systems/blog</link>
         <description>Dion Whitehead Blog</description>
-        <lastBuildDate>Mon, 18 Dec 2023 18:36:15 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 18 Dec 2023 19:34:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Tools / Software matched to job-  Data room]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/tools-for-the-job</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/tools-for-the-job</guid>
-            <pubDate>Mon, 18 Dec 2023 18:36:15 GMT</pubDate>
+            <pubDate>Mon, 18 Dec 2023 19:34:50 GMT</pubDate>
             <description><![CDATA[See disk space usage]]></description>
             <content:encoded><![CDATA[<p><strong>See disk space usage</strong></p>
 <p>GrandPerspective</p>
@@ -29,7 +29,7 @@
             <title><![CDATA[Blob storage is a solved problem- what about compute?]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/blob-storage-is-solved-but-what-about-compute</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/blob-storage-is-solved-but-what-about-compute</guid>
-            <pubDate>Mon, 18 Dec 2023 18:36:14 GMT</pubDate>
+            <pubDate>Mon, 18 Dec 2023 19:34:50 GMT</pubDate>
             <description><![CDATA[2023-11-26]]></description>
             <content:encoded><![CDATA[<p>2023-11-26</p>
 <!-- -->
@@ -67,7 +67,7 @@
             <title><![CDATA[A New Kind of Scientific Publishing]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/a-new-kind-of-scientific-publishing</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/a-new-kind-of-scientific-publishing</guid>
-            <pubDate>Mon, 18 Dec 2023 18:36:13 GMT</pubDate>
+            <pubDate>Mon, 18 Dec 2023 19:34:49 GMT</pubDate>
             <description><![CDATA[Scientific papers are static artifacts. You read them, but that is about the limit of your interaction.]]></description>
             <content:encoded><![CDATA[<p>Scientific papers are static artifacts. You read them, but that is about the limit of your interaction.</p>
 <p>You can embed code via links into e.g. PDFs, but code, like knowledge, fades into an insurmountable complexity barrier over time:</p>
@@ -110,7 +110,7 @@
             <title><![CDATA[Metapages- publish, embed, edit, share composable complete applications]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/metapages-scientific-embed</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/metapages-scientific-embed</guid>
-            <pubDate>Mon, 18 Dec 2023 18:36:10 GMT</pubDate>
+            <pubDate>Mon, 18 Dec 2023 19:34:46 GMT</pubDate>
             <description><![CDATA[This is a deeper dive into an example metapage, that runs python, creates plots using matplotlib.]]></description>
             <content:encoded><![CDATA[<p>This is a deeper dive into an example <a href="https://docs.metapage.io/docs" target="_blank" rel="noopener noreferrer">metapage</a>, that runs python, creates plots using <a href="https://matplotlib.org/" target="_blank" rel="noopener noreferrer">matplotlib</a>.</p>
 <p>Concepts:</p>
@@ -155,15 +155,17 @@
             <title><![CDATA[How this blog is automated]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/how-this-blog-is-automated</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/how-this-blog-is-automated</guid>
-            <pubDate>Mon, 18 Dec 2023 18:36:08 GMT</pubDate>
-            <description><![CDATA[1. I write blog posts in notion, structured how I like]]></description>
-            <content:encoded><![CDATA[<ol>
+            <pubDate>Mon, 18 Dec 2023 19:34:44 GMT</pubDate>
+            <description><![CDATA[Steps (actually, there is only one step: writing)]]></description>
+            <content:encoded><![CDATA[
+<h3 class="anchor anchorWithStickyNavbar_IQQo" id="25ebe3c7689f477ca278e5b101e0a8fd">Steps (actually, there is only one step: writing)<a href="https://evolvedeeptimecomplex.systems/blog/how-this-blog-is-automated#25ebe3c7689f477ca278e5b101e0a8fd" class="hash-link" aria-label="Direct link to Steps (actually, there is only one step: writing)" title="Direct link to Steps (actually, there is only one step: writing)">​</a></h3>
+<ol>
 <li>I write blog posts in <a href="https://notion.so/" target="_blank" rel="noopener noreferrer">notion</a>, structured how I like</li>
-<li>Automatically ~15 minutes later the website + blog is generated from notion, using <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">docusaurus</a> + <a href="https://github.com/sillsdev/docu-notion" target="_blank" rel="noopener noreferrer">docu-notion</a>, and pushed to github pages</li>
+<li><strong>Automatically</strong> ~15 minutes later the website + blog is generated from notion, using <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">docusaurus</a> + <a href="https://github.com/sillsdev/docu-notion" target="_blank" rel="noopener noreferrer">docu-notion</a>, and pushed to github pages</li>
 <li><del>There’s nothing I actually needed to do except write</del></li>
 </ol>
 <p>That’s it. I just write. The rest is automated.</p>
-<!-- -->
+<p><img loading="lazy" src="https://evolvedeeptimecomplex.systems/assets/images/1555530775-a63260f98858e105c8f1ea7e47308fab.png" width="1634" height="1372" class="img_rmWR"></p>
 <hr>
 <h3 class="anchor anchorWithStickyNavbar_IQQo" id="1900a1e531c64d3ab4896817eefc7eba">How it works<a href="https://evolvedeeptimecomplex.systems/blog/how-this-blog-is-automated#1900a1e531c64d3ab4896817eefc7eba" class="hash-link" aria-label="Direct link to How it works" title="Direct link to How it works">​</a></h3>
 <p>Source: <a href="https://github.com/dionjwa/dionjwa.github.io" target="_blank" rel="noopener noreferrer">https://github.com/dionjwa/dionjwa.github.io</a></p>
@@ -185,19 +187,23 @@
 <li>but also look good</li>
 <li>where i just write, and do absolutely nothing else. no saving, no publishing step.</li>
 <li>but also everything is backed up, with full version history</li>
-</ul>]]></content:encoded>
+</ul>
+<hr>
+<h1>Published examples in the wild</h1>
+<div class="custom-docunotion-row"><div class="custom-docunotion-row-cell"><p><img src="https://evolvedeeptimecomplex.systems/assets/images/880052731-9b4b532030f34fe6f4a2cea892aead94.png"></p></div><div class="custom-docunotion-row-cell"><p><img src="https://evolvedeeptimecomplex.systems/assets/images/1377012718-19ad213c9b14cde64df94128193293ba.png"></p></div></div>
+<p><img loading="lazy" src="https://evolvedeeptimecomplex.systems/assets/images/1470369498-5e7c3439fbbda36bbb8505c30af3b41a.png" width="1894" height="842" class="img_rmWR"></p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[The golden trifecta- justfiles, deno, and docker]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/the-golden-three-just-deno-docker</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/the-golden-three-just-deno-docker</guid>
-            <pubDate>Mon, 18 Dec 2023 18:36:06 GMT</pubDate>
+            <pubDate>Mon, 18 Dec 2023 19:34:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Docker and wasm]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/docker-wasm-web-containers</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/docker-wasm-web-containers</guid>
-            <pubDate>Mon, 18 Dec 2023 18:36:06 GMT</pubDate>
+            <pubDate>Mon, 18 Dec 2023 19:34:38 GMT</pubDate>
             <description><![CDATA[For building any project, you just need:]]></description>
             <content:encoded><![CDATA[
 <p>For building any project, you just need:</p>
@@ -215,7 +221,7 @@
             <title><![CDATA[Deno is part of the golden three]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/deno-and-tool-ecosystems</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/deno-and-tool-ecosystems</guid>
-            <pubDate>Mon, 18 Dec 2023 18:36:03 GMT</pubDate>
+            <pubDate>Mon, 18 Dec 2023 19:34:37 GMT</pubDate>
             <description><![CDATA[479dc190b1644ccdac96e631b4b44a0d}]]></description>
             <content:encoded><![CDATA[
 <p><strong>Problem:</strong> scripts and utilities written for one repository, and you want to share them with other repositories</p>
@@ -241,7 +247,7 @@
             <title><![CDATA[Justfiles - universal command control]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/one-justfile-to-bind-them-all</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/one-justfile-to-bind-them-all</guid>
-            <pubDate>Mon, 18 Dec 2023 18:36:02 GMT</pubDate>
+            <pubDate>Mon, 18 Dec 2023 19:34:36 GMT</pubDate>
             <description><![CDATA[b19d4c49d3a343cfa8398d2677e39bb7}]]></description>
             <content:encoded><![CDATA[
 <h1><a href="https://just.systems/man/en/" target="_blank" rel="noopener noreferrer"><code>just</code></a> solves a set of complex problems:</h1>
@@ -303,7 +309,7 @@
             <title><![CDATA[URL Configured Websites]]></title>
             <link>https://evolvedeeptimecomplex.systems/blog/url-configured-websites</link>
             <guid>https://evolvedeeptimecomplex.systems/blog/url-configured-websites</guid>
-            <pubDate>Mon, 18 Dec 2023 18:35:59 GMT</pubDate>
+            <pubDate>Mon, 18 Dec 2023 19:34:35 GMT</pubDate>
             <description><![CDATA[2023-12-05]]></description>
             <content:encoded><![CDATA[<p>2023-12-05</p>
 <!-- -->
