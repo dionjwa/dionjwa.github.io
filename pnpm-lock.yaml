@@ -47,8 +47,8 @@ dependencies:
     specifier: ^0.13.12
     version: 0.13.12
   '@metapages/metapage-grid-react':
-    specifier: 0.1.17
-    version: 0.1.17(@babel/core@7.22.19)(@chakra-ui/system@2.6.1)(@types/react@18.2.21)
+    specifier: 0.1.19
+    version: 0.1.19(@babel/core@7.22.19)(@chakra-ui/system@2.6.1)(@types/react@18.2.21)
   '@notionhq/client':
     specifier: ^2.2.3
     version: 2.2.3
@@ -3913,8 +3913,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@metapages/metapage-grid-react@0.1.17(@babel/core@7.22.19)(@chakra-ui/system@2.6.1)(@types/react@18.2.21):
-    resolution: {integrity: sha512-2To4iiOGhhP4l55m0O2kbYyi9y1+wZ+YF19JM3+Y/BeZLzgzVkbFa4Cyy/Mj23dIjeLaD22J1z8dRkdST9ZIdQ==}
+  /@metapages/metapage-grid-react@0.1.19(@babel/core@7.22.19)(@chakra-ui/system@2.6.1)(@types/react@18.2.21):
+    resolution: {integrity: sha512-hLGWaMsaqe6UOf2HU3vXe49ynIWFFSQhpkQpjKqC1T3LTS6zE/iV26RzKX6RrSX+HI/2+vHeNPJCHPcFGZk1qg==}
     requiresBuild: true
     dependencies:
       '@chakra-ui/icons': 2.1.1(@chakra-ui/system@2.6.1)(react@18.2.0)
@@ -7755,6 +7755,7 @@ packages:
 
   /figgy-pudding@3.5.2:
     resolution: {integrity: sha512-0btnI/H8f2pavGMN8w40mlSKOfTK2SVJmBfBeVIj3kNw0swwgzyRq0d5TJVOwodFmtvpPeWPN/MCcfuWF0Ezbw==}
+    deprecated: This module is no longer supported.
     dev: false
 
   /file-loader@6.2.0(webpack@5.88.2):
@@ -8832,6 +8833,7 @@ packages:
   /is-accessor-descriptor@0.1.6:
     resolution: {integrity: sha512-e1BM1qnDbMRG3ll2U9dSK0UMHuWOs3pY3AtcFsmvwPtKL3MML/Q86i+GilLfvqEs4GW+ExB91tQ3Ig9noDIZ+A==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v0.1.7
     dependencies:
       kind-of: 3.2.2
     dev: false
@@ -8839,6 +8841,7 @@ packages:
   /is-accessor-descriptor@1.0.0:
     resolution: {integrity: sha512-m5hnHTkcVsPfqx3AKlyttIPb7J+XykHvJP2B9bZDjlhLIoEq4XoK64Vg7boZlVWYK6LUY94dYPEE7Lh0ZkZKcQ==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v1.0.1
     dependencies:
       kind-of: 6.0.3
     dev: false
@@ -8893,6 +8896,7 @@ packages:
   /is-data-descriptor@0.1.4:
     resolution: {integrity: sha512-+w9D5ulSoBNlmw9OHn3U2v51SyoCd0he+bB3xMl62oijhrspxowjU+AIcDY0N3iEJbUEkB15IlMASQsxYigvXg==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v0.1.5
     dependencies:
       kind-of: 3.2.2
     dev: false
@@ -8900,6 +8904,7 @@ packages:
   /is-data-descriptor@1.0.0:
     resolution: {integrity: sha512-jbRXy1FmtAoCjQkVmIVYwuuqDFUbaOeDjmed1tOGPrsMhtJA4rD9tkgA0F1qJ3gRFRXcHYVkdeaP50Q5rE/jLQ==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v1.0.1
     dependencies:
       kind-of: 6.0.3
     dev: false
