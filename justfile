@@ -35,7 +35,7 @@ _help:
     echo -e ""
 
 # Starts the development server.
-dev: install generate _dev
+dev: install _dev
 
 # Open the the locally running stack in your browser
 open:
