@@ -132,15 +132,30 @@ export const highlightSelfInMermaidDiagrams = async (args: {
   );
 
   let mermaidMatch: RegExpExecArray | null;
-  while ((mermaidMatch = mermaidRegex.exec(output)) !== null) {
+  const lines = output.split("\n");
+  lines.forEach((line, i) => {
+    mermaidMatch = mermaidRegex.exec(line);
     if (!mermaidMatch || !mermaidMatch[1]) {
       return;
     }
     const nodeId = mermaidMatch[1];
-    output = output.replace(
+    lines[i] = line.replace(
       mermaidMatch[0],
       `${mermaidMatch[0]}\n  style ${nodeId} ${mermaidClass}`,
     );
-  }
-  Deno.writeTextFileSync(path, output);
+
+  });
+  // while ((mermaidMatch = mermaidRegex.exec(output)) !== null) {
+  //   if (!mermaidMatch || !mermaidMatch[1]) {
+  //     return;
+  //   }
+  //   console.log('mermaidMatch', mermaidMatch);
+  //   const nodeId = mermaidMatch[1];
+  //   output = output.replace(
+  //     mermaidMatch[0],
+  //     `${mermaidMatch[0]}\n  style ${nodeId} ${mermaidClass}`,
+  //   );
+  //   console.log('output', output);
+  // }
+  Deno.writeTextFileSync(path, lines.join("\n"));
 };
