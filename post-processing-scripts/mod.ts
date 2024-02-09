@@ -145,17 +145,5 @@ export const highlightSelfInMermaidDiagrams = async (args: {
     );
 
   });
-  // while ((mermaidMatch = mermaidRegex.exec(output)) !== null) {
-  //   if (!mermaidMatch || !mermaidMatch[1]) {
-  //     return;
-  //   }
-  //   console.log('mermaidMatch', mermaidMatch);
-  //   const nodeId = mermaidMatch[1];
-  //   output = output.replace(
-  //     mermaidMatch[0],
-  //     `${mermaidMatch[0]}\n  style ${nodeId} ${mermaidClass}`,
-  //   );
-  //   console.log('output', output);
-  // }
   Deno.writeTextFileSync(path, lines.join("\n"));
 };
