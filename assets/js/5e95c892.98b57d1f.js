@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdionjwa_resume_docusaurus=self.webpackChunkdionjwa_resume_docusaurus||[]).push([[9661],{5279:(e,s,u)=>{u.r(s),u.d(s,{default:()=>t});u(959);var r=u(5341),a=u(7878),c=u(738),d=u(3797),n=u(307),o=u(1527);function t(e){return(0,o.jsx)(a.FG,{className:(0,r.Z)(c.k.wrapper.docsPages),children:(0,o.jsx)(n.Z,{children:(0,d.H)(e.route.routes)})})}}}]);
