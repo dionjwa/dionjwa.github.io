@@ -67,7 +67,7 @@ generate: install (generate-from-notion-docs "") (generate-from-notion-blog "") 
     echo -e "✅ generated from notion"
 
 # Build blog from notion https://github.com/sillsdev/docu-notion
-@generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN (_truncate_after_END_PAGE "blog") (_highlight_self_in_mermaid "blog") (_replace_img_with_markdown "blog")
+@generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN && (_truncate_after_END_PAGE "blog") (_highlight_self_in_mermaid "blog") (_replace_img_with_markdown "blog")
     mkdir -p blog
     rm -rf blog/*
     {{DOCU_NOTION}} --notion-token {{NOTION_TOKEN}} --root-page b617023dad3d4fe6a4ffafabc77f54a7 --status-tag '*' --markdown-output-path $(pwd)/blog {{args}}
