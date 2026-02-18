@@ -4,7 +4,7 @@
         <title>Dion Whitehead Blog</title>
         <link>https://evolvedeeptimecomplex.systems/</link>
         <description>Dion Whitehead Blog</description>
-        <lastBuildDate>Wed, 18 Feb 2026 18:33:30 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 18 Feb 2026 18:44:42 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,70 +12,70 @@
             <title><![CDATA[Resume-OMSF]]></title>
             <link>https://evolvedeeptimecomplex.systems/resume-omsf</link>
             <guid>https://evolvedeeptimecomplex.systems/resume-omsf</guid>
-            <pubDate>Wed, 18 Feb 2026 18:33:30 GMT</pubDate>
+            <pubDate>Wed, 18 Feb 2026 18:44:42 GMT</pubDate>
             <description><![CDATA[I'm passionate about understanding deep time, complex systems using big data and software, advanced collaboration and team structures particularly in scienti...]]></description>
         </item>
         <item>
             <title><![CDATA[Question- can we get whales into space, if they would be better in space than we are?]]></title>
             <link>https://evolvedeeptimecomplex.systems/feasibility-whales-in-space</link>
             <guid>https://evolvedeeptimecomplex.systems/feasibility-whales-in-space</guid>
-            <pubDate>Wed, 18 Feb 2026 18:33:28 GMT</pubDate>
+            <pubDate>Wed, 18 Feb 2026 18:44:38 GMT</pubDate>
             <description><![CDATA[What are the logistical challenges in having whales be the spacefaring race. This makes senes because whales have evolved for low-gravity, which is very harm...]]></description>
         </item>
         <item>
             <title><![CDATA[Data room- Tools / Software matched to job]]></title>
             <link>https://evolvedeeptimecomplex.systems/tools-for-the-job</link>
             <guid>https://evolvedeeptimecomplex.systems/tools-for-the-job</guid>
-            <pubDate>Wed, 18 Feb 2026 18:33:27 GMT</pubDate>
+            <pubDate>Wed, 18 Feb 2026 18:44:37 GMT</pubDate>
             <description><![CDATA[See disk space usage]]></description>
         </item>
         <item>
             <title><![CDATA[A New Kind of Scientific Publishing]]></title>
             <link>https://evolvedeeptimecomplex.systems/a-new-kind-of-scientific-publishing</link>
             <guid>https://evolvedeeptimecomplex.systems/a-new-kind-of-scientific-publishing</guid>
-            <pubDate>Wed, 18 Feb 2026 18:33:23 GMT</pubDate>
+            <pubDate>Wed, 18 Feb 2026 18:44:35 GMT</pubDate>
             <description><![CDATA[Scientific papers are static artifacts. You read them, but that is about the limit of your interaction.]]></description>
         </item>
         <item>
             <title><![CDATA[Metapages- publish, embed, edit, share composable complete applications]]></title>
             <link>https://evolvedeeptimecomplex.systems/metapages-scientific-embed</link>
             <guid>https://evolvedeeptimecomplex.systems/metapages-scientific-embed</guid>
-            <pubDate>Wed, 18 Feb 2026 18:33:21 GMT</pubDate>
+            <pubDate>Wed, 18 Feb 2026 18:44:34 GMT</pubDate>
             <description><![CDATA[This is a deeper dive into an example metapage, that runs python, creates plots using matplotlib.]]></description>
         </item>
         <item>
             <title><![CDATA[How this blog is automated]]></title>
             <link>https://evolvedeeptimecomplex.systems/how-this-blog-is-automated</link>
             <guid>https://evolvedeeptimecomplex.systems/how-this-blog-is-automated</guid>
-            <pubDate>Wed, 18 Feb 2026 18:33:18 GMT</pubDate>
+            <pubDate>Wed, 18 Feb 2026 18:44:29 GMT</pubDate>
             <description><![CDATA[flowchart LR]]></description>
         </item>
         <item>
             <title><![CDATA[The golden trifecta- justfiles, deno, and docker]]></title>
             <link>https://evolvedeeptimecomplex.systems/the-golden-three-just-deno-docker</link>
             <guid>https://evolvedeeptimecomplex.systems/the-golden-three-just-deno-docker</guid>
-            <pubDate>Wed, 18 Feb 2026 18:33:14 GMT</pubDate>
+            <pubDate>Wed, 18 Feb 2026 18:44:20 GMT</pubDate>
             <description><![CDATA[flowchart LR]]></description>
         </item>
         <item>
             <title><![CDATA[Docker and wasm]]></title>
             <link>https://evolvedeeptimecomplex.systems/docker-wasm-web-containers</link>
             <guid>https://evolvedeeptimecomplex.systems/docker-wasm-web-containers</guid>
-            <pubDate>Wed, 18 Feb 2026 18:33:13 GMT</pubDate>
+            <pubDate>Wed, 18 Feb 2026 18:44:19 GMT</pubDate>
             <description><![CDATA[flowchart LR]]></description>
         </item>
         <item>
             <title><![CDATA[Deno is part of the golden three]]></title>
             <link>https://evolvedeeptimecomplex.systems/deno-and-tool-ecosystems</link>
             <guid>https://evolvedeeptimecomplex.systems/deno-and-tool-ecosystems</guid>
-            <pubDate>Wed, 18 Feb 2026 18:33:13 GMT</pubDate>
+            <pubDate>Wed, 18 Feb 2026 18:44:18 GMT</pubDate>
             <description><![CDATA[flowchart LR]]></description>
         </item>
         <item>
             <title><![CDATA[Justfiles - universal command control]]></title>
             <link>https://evolvedeeptimecomplex.systems/one-justfile-to-bind-them-all</link>
             <guid>https://evolvedeeptimecomplex.systems/one-justfile-to-bind-them-all</guid>
-            <pubDate>Wed, 18 Feb 2026 18:33:10 GMT</pubDate>
+            <pubDate>Wed, 18 Feb 2026 18:44:16 GMT</pubDate>
             <description><![CDATA[flowchart LR]]></description>
         </item>
         <item>
