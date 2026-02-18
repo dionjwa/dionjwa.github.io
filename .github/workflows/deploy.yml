@@ -31,7 +31,7 @@ jobs:
 
       - uses: pnpm/action-setup@v4
         with:
-          version: '9.4.0'
+          version: '10.13.1'
 
       - name: Install dependencies
         run: just install --frozen-lockfile
