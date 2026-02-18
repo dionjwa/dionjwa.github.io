@@ -86,6 +86,83 @@ export const hideTitle = (
   return frontMatter;
 };
 
+export const extractOgDataToFrontMatterAll = async (args: {
+  path: string;
+}) => {
+  const { path } = args;
+  const st = await Deno.stat(path);
+  if (st.isFile) {
+    applyFrontMatterModification(path, (fm) =>
+      extractOgDataToFrontMatter(fm, path)
+    );
+    return;
+  }
+  for await (
+    const e of walk(path, {
+      includeDirs: false,
+      exts: ['.md', '.mdx'],
+    })
+  ) {
+    if (e.isFile) {
+      applyFrontMatterModification(e.path, (fm) =>
+        extractOgDataToFrontMatter(fm, e.path)
+      );
+    }
+  }
+};
+
+export const extractOgDataToFrontMatter = (
+  frontMatter: Record<string, unknown>,
+  filePath: string,
+): Record<string, unknown> => {
+  if (!frontMatter) return frontMatter;
+
+  const text = Deno.readTextFileSync(filePath);
+  // Strip frontmatter to get body content
+  const body = text.replace(/^---\n[\s\S]*?\n---\n/, '');
+
+  // Extract first image if not already set
+  if (!frontMatter['image']) {
+    // Match ![alt](url) or [![alt](url)](link)
+    const imgMatch = /!\[[^\]]*\]\(([^)]+)\)/.exec(body);
+    if (imgMatch?.[1]) {
+      frontMatter['image'] = imgMatch[1];
+    }
+  }
+
+  // Extract description if not already set
+  if (!frontMatter['description']) {
+    // Find first non-empty paragraph (skip headings, images, blank lines)
+    const lines = body.split('\n');
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (
+        trimmed &&
+        !trimmed.startsWith('#') &&
+        !trimmed.startsWith('!') &&
+        !trimmed.startsWith('[!') &&
+        !trimmed.startsWith('[![') &&
+        !trimmed.startsWith('```') &&
+        !trimmed.startsWith('---')
+      ) {
+        // Strip markdown formatting for a clean description
+        const cleaned = trimmed
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // links
+          .replace(/[*_~`]/g, '') // bold/italic/strikethrough/code
+          .trim();
+        if (cleaned.length > 10) {
+          frontMatter['description'] = cleaned.length > 160
+            ? cleaned.substring(0, 157) + '...'
+            : cleaned;
+          break;
+        }
+      }
+    }
+  }
+
+  return frontMatter;
+};
+
 export const highlightSelfInMermaidDiagramsAll = async (args: {
   path: string;
   mermaidClass?: string;

@@ -33,3 +33,11 @@
 .pagination-nav {
   display: none;
 }
+
+/* Hide doc sidebar chrome */
+.theme-doc-sidebar-container {
+  display: none !important;
+}
+.doc-wrapper .docMainContainer {
+  max-width: 100% !important;
+}

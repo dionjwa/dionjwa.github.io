@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git ls-tree:*)",
+      "Bash(ls:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docusaurus.io)",
+      "Bash(npx docusaurus:*)",
+      "Bash(pnpm exec docusaurus:*)",
+      "Bash(python3:*)",
+      "Bash(pnpm swizzle:*)",
+      "Bash(pnpm install:*)",
+      "Bash(grep:*)",
+      "Bash(pnpm build:*)"
+    ]
+  }
+}
