@@ -63,7 +63,7 @@ build: install _build
     echo -e "👀 deployments occur every half hour, creating a PR if the notion pages have changed. See .github/workflows/deploy.yml"
 
 # Calls `generate-from-notion-blog`. Called by `[dev|build|serve|deploy]`
-generate: install (generate-from-notion-blog "") _add-author _extract-og-data
+generate: install (generate-from-notion-blog "") _add-author _extract-og-data _mark-unlisted
     echo -e "✅ generated from notion"
 
 # Build blog from notion https://github.com/sillsdev/docu-notion
@@ -90,6 +90,14 @@ _extract-og-data:
     import { extractOgDataToFrontMatterAll } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
     await extractOgDataToFrontMatterAll({ path: "./blog" });
     console.log("👍 extracted OG data (image/description) for blog posts")
+
+_mark-unlisted:
+    #!/usr/bin/env -S deno run --allow-read={{justfile_directory()}} --allow-write={{justfile_directory()}}
+    import { markPostsAsUnlistedAll } from "{{justfile_directory()}}/post-processing-scripts/mod.ts";
+    await markPostsAsUnlistedAll({
+        path: "./blog",
+        configPath: "{{justfile_directory()}}/unlisted-posts.json"
+    });
 
 @_cp-authors-yml:
     cp src/authors.yml blog/

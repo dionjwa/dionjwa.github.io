@@ -12,7 +12,10 @@
       "Bash(pnpm swizzle:*)",
       "Bash(pnpm install:*)",
       "Bash(grep:*)",
-      "Bash(pnpm build:*)"
+      "Bash(pnpm build:*)",
+      "Bash(head:*)",
+      "Bash(deno run:*)",
+      "Bash(just _mark-unlisted:*)"
     ]
   }
 }

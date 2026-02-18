@@ -8,11 +8,16 @@ import styles from '@site/src/components/BlogCard/styles.module.css';
 export default function BlogListPage(props: Props): React.JSX.Element {
   const {metadata, items} = props;
 
+  // Filter out unlisted posts
+  const listedItems = items.filter(({content: BlogPostContent}) => {
+    return !BlogPostContent.frontMatter.unlisted;
+  });
+
   return (
     <Layout title={metadata.blogTitle} description={metadata.blogDescription}>
       <main>
         <div className={styles.cardGrid}>
-          {items.map(({content: BlogPostContent}) => {
+          {listedItems.map(({content: BlogPostContent}) => {
             const {metadata: postMetadata, frontMatter, assets} = BlogPostContent;
             const image = assets?.image ?? frontMatter.image;
 

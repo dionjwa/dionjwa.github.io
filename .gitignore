@@ -9,6 +9,7 @@
 .cache-loader
 /docs
 /blog
+unlisted-posts.json
 
 # Misc
 .DS_Store

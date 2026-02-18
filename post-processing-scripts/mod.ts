@@ -224,3 +224,77 @@ export const highlightSelfInMermaidDiagrams = async (args: {
   });
   Deno.writeTextFileSync(path, lines.join("\n"));
 };
+
+export const markPostsAsUnlistedAll = async (args: {
+  path: string;
+  configPath: string;
+}) => {
+  const { path, configPath } = args;
+
+  let unlistedSlugs: string[] = [];
+  try {
+    const configText = await Deno.readTextFile(configPath);
+    const config = JSON.parse(configText);
+    unlistedSlugs = config.unlistedSlugs || [];
+  } catch (error) {
+    if (error instanceof Deno.errors.NotFound) {
+      console.log(`⚠️  Config file not found at ${configPath}. No posts will be marked as unlisted.`);
+      return;
+    }
+    throw error;
+  }
+
+  if (unlistedSlugs.length === 0) {
+    console.log('ℹ️  No unlisted slugs configured.');
+    return;
+  }
+
+  const st = await Deno.stat(path);
+  if (st.isFile) {
+    applyFrontMatterModification(path, (fm) =>
+      markAsUnlistedIfMatch(fm, unlistedSlugs)
+    );
+    return;
+  }
+
+  let markedCount = 0;
+  for await (
+    const e of walk(path, {
+      includeDirs: false,
+      exts: ['.md', '.mdx'],
+    })
+  ) {
+    if (e.isFile) {
+      const beforeText = Deno.readTextFileSync(e.path);
+      applyFrontMatterModification(e.path, (fm) =>
+        markAsUnlistedIfMatch(fm, unlistedSlugs)
+      );
+      const afterText = Deno.readTextFileSync(e.path);
+      if (beforeText !== afterText) {
+        markedCount++;
+      }
+    }
+  }
+
+  if (markedCount > 0) {
+    console.log(`✅ Marked ${markedCount} post(s) as unlisted`);
+  } else {
+    console.log('ℹ️  No posts matched the unlisted slugs');
+  }
+};
+
+export const markAsUnlistedIfMatch = (
+  frontMatter: Record<string, unknown>,
+  unlistedSlugs: string[],
+): Record<string, unknown> => {
+  if (!frontMatter || !frontMatter['slug']) {
+    return frontMatter;
+  }
+
+  const slug = frontMatter['slug'] as string;
+  if (unlistedSlugs.includes(slug)) {
+    frontMatter['unlisted'] = true;
+  }
+
+  return frontMatter;
+};
