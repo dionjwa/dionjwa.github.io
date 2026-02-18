@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application — UX Developer for Open Molecular Software</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0a0b0d;
+        --surface: #12141a;
+        --surface-hover: #1a1d26;
+        --border: #232730;
+        --text: #e8eaf0;
+        --text-muted: #8b90a0;
+        --accent: #4fd1c5;
+        --accent-dim: #2a7a72;
+        --accent-glow: rgba(79, 209, 197, 0.12);
+        --warm: #f6ad55;
+        --rose: #f687b3;
+        --blue: #63b3ed;
+        --serif: 'DM Serif Display', Georgia, serif;
+        --sans: 'Instrument Sans', system-ui, sans-serif;
+        --mono: 'JetBrains Mono', monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      /* --- GRAIN OVERLAY --- */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        pointer-events: none;
+        opacity: 0.025;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      /* --- NAV --- */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(20px);
+        background: rgba(10, 11, 13, 0.75);
+        border-bottom: 1px solid var(--border);
+      }
+
+      nav .logo {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: var(--accent);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      nav .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      nav .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: color 0.3s;
+        letter-spacing: 0.02em;
+      }
+
+      nav .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      /* --- HERO --- */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 8rem 3rem 6rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: -40%;
+        right: -20%;
+        width: 80vw;
+        height: 80vw;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(79, 209, 197, 0.06) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .hero::after {
+        content: '';
+        position: absolute;
+        bottom: -30%;
+        left: -10%;
+        width: 60vw;
+        height: 60vw;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(246, 173, 85, 0.04) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .hero-tag {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--accent);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards 0.2s;
+      }
+
+      .hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(2.8rem, 6vw, 5.5rem);
+        line-height: 1.1;
+        font-weight: 400;
+        max-width: 900px;
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards 0.4s;
+      }
+
+      .hero h1 em {
+        color: var(--accent);
+        font-style: italic;
+      }
+
+      .hero-sub {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+        max-width: 640px;
+        margin-bottom: 3rem;
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards 0.6s;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards 0.8s;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: all 0.3s;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: var(--bg);
+      }
+
+      .btn-primary:hover {
+        background: #5ee8db;
+        box-shadow: 0 0 30px rgba(79, 209, 197, 0.3);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* --- SECTIONS --- */
+      section {
+        padding: 7rem 3rem;
+        position: relative;
+      }
+
+      .section-tag {
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        color: var(--accent);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      .section-title {
+        font-family: var(--serif);
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        margin-bottom: 1.5rem;
+        max-width: 700px;
+      }
+
+      .section-desc {
+        color: var(--text-muted);
+        max-width: 600px;
+        margin-bottom: 3rem;
+        font-size: 1.05rem;
+      }
+
+      /* --- WHY SECTION --- */
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        max-width: 1100px;
+      }
+
+      .why-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 2rem;
+        transition: all 0.4s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .why-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent), transparent);
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+
+      .why-card:hover {
+        border-color: var(--accent-dim);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .why-card:hover::before {
+        opacity: 1;
+      }
+
+      .why-card .icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: var(--accent-glow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+        font-size: 1.3rem;
+      }
+
+      .why-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .why-card p {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      /* --- DEMOS SECTION --- */
+      .demos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+      }
+
+      .demo-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        transition: all 0.4s;
+        position: relative;
+      }
+
+      .demo-card:hover {
+        border-color: var(--accent-dim);
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .demo-preview {
+        width: 100%;
+        aspect-ratio: 16/10;
+        border: none;
+        display: block;
+        background: var(--bg);
+        position: relative;
+      }
+
+      .demo-preview-placeholder {
+        width: 100%;
+        aspect-ratio: 16/10;
+        background: linear-gradient(135deg, var(--surface) 0%, #1a1d2a 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .demo-preview-placeholder::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 30% 40%, rgba(79, 209, 197, 0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(246, 173, 85, 0.06) 0%, transparent 50%);
+      }
+
+      .demo-preview-placeholder .mol-icon {
+        font-size: 2.5rem;
+        opacity: 0.6;
+        position: relative;
+        z-index: 1;
+      }
+
+      .demo-preview-placeholder span {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-family: var(--mono);
+        position: relative;
+        z-index: 1;
+      }
+
+      .demo-info {
+        padding: 1.5rem;
+      }
+
+      .demo-badge {
+        display: inline-block;
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.7rem;
+        border-radius: 4px;
+        margin-bottom: 0.75rem;
+      }
+
+      .badge-3d {
+        background: rgba(79, 209, 197, 0.15);
+        color: var(--accent);
+      }
+
+      .badge-data {
+        background: rgba(246, 173, 85, 0.15);
+        color: var(--warm);
+      }
+
+      .badge-workflow {
+        background: rgba(246, 135, 179, 0.15);
+        color: var(--rose);
+      }
+
+      .badge-interactive {
+        background: rgba(99, 179, 237, 0.15);
+        color: var(--blue);
+      }
+
+      .demo-info h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .demo-info p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.55;
+        margin-bottom: 1rem;
+      }
+
+      .demo-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: gap 0.3s;
+      }
+
+      .demo-link:hover {
+        gap: 0.7rem;
+      }
+
+      .demo-tech {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-top: 0.75rem;
+      }
+
+      .demo-tech span {
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 0.2rem 0.5rem;
+        border-radius: 3px;
+        border: 1px solid var(--border);
+      }
+
+      /* --- ARCHITECTURE SECTION --- */
+      .arch-container {
+        max-width: 900px;
+      }
+
+      .arch-diagram {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .arch-diagram::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 20% 30%, rgba(79, 209, 197, 0.05) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(246, 173, 85, 0.04) 0%, transparent 40%);
+        pointer-events: none;
+      }
+
+      .arch-layers {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .arch-layer {
+        display: flex;
+        align-items: stretch;
+        gap: 1rem;
+      }
+
+      .arch-label {
+        flex-shrink: 0;
+        width: 120px;
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding-top: 0.8rem;
+        text-align: right;
+      }
+
+      .arch-nodes {
+        flex: 1;
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .arch-node {
+        padding: 0.7rem 1.2rem;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: 1px solid;
+        flex: 1;
+        min-width: 140px;
+        text-align: center;
+      }
+
+      .arch-node.viewer {
+        background: rgba(79, 209, 197, 0.08);
+        border-color: var(--accent-dim);
+        color: var(--accent);
+      }
+
+      .arch-node.compute {
+        background: rgba(246, 173, 85, 0.08);
+        border-color: rgba(246, 173, 85, 0.3);
+        color: var(--warm);
+      }
+
+      .arch-node.data {
+        background: rgba(99, 179, 237, 0.08);
+        border-color: rgba(99, 179, 237, 0.3);
+        color: var(--blue);
+      }
+
+      .arch-node.core {
+        background: rgba(246, 135, 179, 0.08);
+        border-color: rgba(246, 135, 179, 0.3);
+        color: var(--rose);
+      }
+
+      .arch-connector {
+        display: flex;
+        justify-content: center;
+        padding-left: 120px;
+      }
+
+      .arch-connector .line {
+        width: 1px;
+        height: 20px;
+        background: var(--border);
+        position: relative;
+      }
+
+      .arch-connector .line::after {
+        content: '↕';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        background: var(--surface);
+        padding: 0 0.3rem;
+      }
+
+      /* --- FIT SECTION --- */
+      .fit-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        max-width: 900px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--surface);
+      }
+
+      .fit-header {
+        padding: 1.25rem 1.5rem;
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--border);
+        font-weight: 600;
+      }
+
+      .fit-header:first-child {
+        border-right: 1px solid var(--border);
+      }
+
+      .fit-header.omsf {
+        color: var(--warm);
+      }
+
+      .fit-header.mine {
+        color: var(--accent);
+      }
+
+      .fit-row {
+        display: contents;
+      }
+
+      .fit-cell {
+        padding: 1rem 1.5rem;
+        font-size: 0.88rem;
+        border-bottom: 1px solid var(--border);
+        line-height: 1.5;
+      }
+
+      .fit-cell:nth-child(odd) {
+        border-right: 1px solid var(--border);
+        color: var(--text-muted);
+      }
+
+      .fit-row:last-child .fit-cell {
+        border-bottom: none;
+      }
+
+      /* --- CODE SECTION --- */
+      .code-block {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        max-width: 800px;
+      }
+
+      .code-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        border-bottom: 1px solid var(--border);
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+      }
+
+      .code-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      .code-dot.r {
+        background: #f56565;
+      }
+
+      .code-dot.y {
+        background: #ecc94b;
+      }
+
+      .code-dot.g {
+        background: #48bb78;
+      }
+
+      .code-body {
+        padding: 1.5rem;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        line-height: 1.8;
+        overflow-x: auto;
+        color: var(--text-muted);
+      }
+
+      .code-body .kw {
+        color: var(--rose);
+      }
+
+      .code-body .fn {
+        color: var(--blue);
+      }
+
+      .code-body .str {
+        color: var(--accent);
+      }
+
+      .code-body .cmt {
+        color: #555;
+        font-style: italic;
+      }
+
+      /* --- CONTACT / FOOTER --- */
+      .contact {
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        text-align: center;
+      }
+
+      .contact .section-title {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .contact-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 0.7rem 1.5rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        transition: all 0.3s;
+      }
+
+      .contact-link:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-glow);
+      }
+
+      footer {
+        padding: 2rem 3rem;
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        border-top: 1px solid var(--border);
+      }
+
+      /* --- ANIMATIONS --- */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- DIVIDER --- */
+      .divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--border), transparent);
+        margin: 0 3rem;
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 768px) {
+        section {
+          padding: 4rem 1.5rem;
+        }
+
+        .hero {
+          padding: 6rem 1.5rem 4rem;
+        }
+
+        .fit-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .fit-header:first-child {
+          border-right: none;
+        }
+
+        .fit-cell:nth-child(odd) {
+          border-right: none;
+        }
+
+        .arch-label {
+          width: 80px;
+          font-size: 0.6rem;
+        }
+
+        nav .nav-links {
+          gap: 1rem;
+        }
+
+        .demos-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- LIVE EMBED SECTION --- */
+      .live-embed-container {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .embed-frame {
+        width: 100%;
+        height: 500px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+
+      .embed-frame iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* --- DEMO MODAL (native dialog) --- */
+      dialog {
+        margin: auto;
+        padding: 0;
+        max-width: calc(100vw - 4rem);
+        max-height: calc(100vh - 4rem);
+        width: min(1200px, calc(100vw - 4rem));
+        height: min(90vh, calc(100vh - 4rem));
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+      }
+
+      dialog::backdrop {
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+      }
+
+      .demo-modal-inner {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 1.25rem 1.5rem;
+        gap: 1rem;
+      }
+
+      .demo-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .demo-modal-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text);
+        font-family: var(--sans);
+      }
+
+      .demo-modal-close {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: 1.25rem;
+        line-height: 1;
+        transition: background 0.2s, color 0.2s;
+      }
+
+      .demo-modal-close:hover {
+        background: var(--surface-hover);
+        color: var(--text);
+      }
+
+      .demo-modal-iframe-wrap {
+        flex: 1;
+        min-height: 0;
+        background: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+
+      .demo-modal-iframe-wrap iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+        color-scheme: light;
+      }
+
+      .demo-modal-info {
+        flex-shrink: 0;
+        max-height: 40vh;
+        overflow-y: auto;
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--border);
+        color: var(--text);
+      }
+
+      .demo-modal-info .demo-info {
+        padding: 0;
+      }
+
+      .demo-modal-info .demo-info h3 {
+        color: var(--text);
+      }
+
+      .demo-modal-info .demo-info p {
+        color: var(--text-muted);
+      }
+
+      .demo-modal-info .demo-link {
+        color: var(--accent);
+      }
+
+      .demo-modal-info .demo-tech span {
+        color: var(--text-muted);
+      }
+
+      .demo-card[data-iframe-src] {
+        cursor: pointer;
+      }
+
+      .embed-caption {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-family: var(--mono);
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- NAV -->
+    <nav>
+      <div class="logo">Application → OMSF</div>
+      <ul class="nav-links">
+        <li>
+          <a href="#why">Why Me</a>
+        </li>
+        <li>
+          <a href="#demos">Demos</a>
+        </li>
+        <li>
+          <a href="#architecture">Architecture</a>
+        </li>
+        <li>
+          <a href="#fit">Fit</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-tag">Application for UX Developer — Open Molecular Software Foundation</div>
+
+      <h1>I build
+        <em>interactive molecular workflows</em>
+        that run entirely in the browser</h1>
+
+      <p class="hero-sub">
+        I built metapages: an open-source framework where molecular simulations, visualization libraries, and Python containers snap together like building blocks in the browser. Everything you publish is a live, editable workflow. Readers don't just read your results, they can also tinker with parameters, swap in their own data, and build on your work directly. That's what open science should actually feel like. I'd love to build it for OMSF.
+      </p>
+
+      <ul>
+        <li>Readers can edit, fork, and build on published work directly</li>
+        <li>Any molecular visualization library</li>
+        <li>Python and Docker containers wired to the browser — no installs</li>
+      </ul>
+      <br/>
+
+      <div class="hero-cta">
+        <a href="#demos" class="btn btn-primary">See Live Demos ↓</a>
+        <a href="https://docs.metapage.io" target="_blank" class="btn btn-ghost">Metapage Docs →</a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- WHY ME -->
+    <section id="why">
+      <div class="section-tag reveal">What I Bring</div>
+      <h2 class="section-title reveal">Built for exactly this kind of work</h2>
+      <p class="section-desc reveal">
+        I've spent years solving the exact problems OMSF faces: making complex scientific tools accessible, shareable, and interactive in the browser without needing installation steps.
+      </p>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="icon">🧬</div>
+          <h3>Browser-Native Molecular Viz</h3>
+          <p>Metaframes can incorporate with 3Dmol.js, NGL Viewer, Plotly, and WebGL to render protein structures, molecular surfaces, and ADMET data interactively — all shareable via URL.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon">🔗</div>
+          <h3>Composable Workflows</h3>
+          <p>Each metaframe is an isolated iframe with typed data pipes. Scientists can wire together Python notebooks, molecular viewers, data transforms, and UI controls into one cohesive application.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon">🐳</div>
+          <h3>Docker + Browser Bridge</h3>
+          <p>Heavy computation stays in Docker containers running Python, RDKit, or OpenMM. Results stream back to the browser for interactive exploration — bridging compute and UX.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon">🌍</div>
+          <h3>Open Source, URL-Portable</h3>
+          <p>Everything is open source and encoded in the URL. No accounts, no databases. Researchers share complete workflows by sharing a link — aligned with OMSF's open science values.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon">⚡</div>
+          <h3>AI-Assisted Creation</h3>
+          <p>The metaframe JS editor accepts natural language from LLMs to generate visualization code. Scientists describe what they need, and the system generates working interactive components.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon">📐</div>
+          <h3>UX-First Engineering</h3>
+          <p>Every technical decision is guided by user experience. From the iframe isolation model (security + simplicity) to URL-state persistence (shareability), architecture serves the scientist.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- LIVE DEMOS -->
+    <section id="demos">
+      <div class="section-tag reveal">Live Demonstrations</div>
+      <h2 class="section-title reveal">What I can build for OMSF projects</h2>
+      <p class="section-desc reveal">
+        These examples demonstrate the kinds of interactive molecular science tools I can create — each runs entirely in the browser, is shareable via URL, is editable in the browser, and directly integrates with AI tools.
+      </p>
+
+      <div class="demos-grid">
+
+        <!-- Demo 1: 3D Molecular Viewer -->
+        <div class="demo-card reveal" data-iframe-src="https://js.mtfm.io/j/ee5bd26428bc97bb7cae98bc3eea3a0f7b5e9803048c7d062bb650db63660eb7" data-modal-title="Interactive Protein Structure Viewer">
+          <div class="demo-preview-placeholder">
+            <span>NGL Viewer</span>
+            <img src="./img01.png"></img>
+          </div>
+          <div class="demo-info">
+            <span class="demo-badge badge-3d">3D Visualization</span>
+            <h3>NGL Interactive Protein Structure Viewer</h3>
+            <p>This molecule viewer is embedded directly in this page, but readers can directly take the working page code and run it independently. We can embed any visualization library</p>
+            <a href="https://js.mtfm.io/j/ee5bd26428bc97bb7cae98bc3eea3a0f7b5e9803048c7d062bb650db63660eb7" target="_blank" class="demo-link">Open in separate browser tab →</a>
+            <div class="demo-tech">
+              <span>NGL Viewer</span>
+              <span>WebGL</span>
+              <span>PDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 4: Mol* Molecule Viewer -->
+        <div class="demo-card reveal" data-iframe-src="https://metapage.io/m/6307f6f4ceca41789ab5bfa4fc0b8b95/embed?height=400px" data-modal-title="Mol* Molecule Viewer in a workflow">
+          <div class="demo-preview-placeholder">
+            <img src="https://molstar.org/img/cytochromes.png"></img>
+          </div>
+          <div class="demo-info">
+            <span class="demo-badge badge-interactive">Interactive</span>
+            <h3>Mol* Molecule Visualization in a workflow</h3>
+            <p>Mol* is a modern web-based open-source toolkit for visualisation and analysis of large-scale molecular data. This implementation of Mol* is a component as part of a browser-based workflow.</p>
+            <a href="https://metapage.io/m/6307f6f4ceca41789ab5bfa4fc0b8b95" target="_blank" class="demo-link">Open in separate browser tab →</a>
+            <div class="demo-tech">
+              <span>Mol*</span>
+              <span>Workflow</span>
+              <span>PDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 4: Mol* Molecule Viewer -->
+        <div class="demo-card reveal" data-iframe-src="https://js.mtfm.io/j/de760c84d5bfb20ec30dd6c0dcedf7375d10f7a5cc455d2b7383ff36e4920008" data-modal-title="Mol* Molecule Viewer Standalone">
+          <div class="demo-preview-placeholder">
+            <img src="https://molstar.org/img/motor-hook.png"></img>
+          </div>
+          <div class="demo-info">
+            <span class="demo-badge badge-interactive">Interactive</span>
+            <h3>Mol* Molecule Visualization Standalone (editable)</h3>
+            <p>Click in the top right (invisible button until you mouse over) to edit the code. This Mol* viewer implementation is standalone (but still composable) and is fully editable in the browser.</p>
+            <a href="https://js.mtfm.io/j/de760c84d5bfb20ec30dd6c0dcedf7375d10f7a5cc455d2b7383ff36e4920008" target="_blank" class="demo-link">Open in separate browser tab →</a>
+            <div class="demo-tech">
+              <span>Mol*</span>
+              <span>JS</span>
+              <span>PDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 2: OpenThermo Workflow -->
+        <div class="demo-card reveal" data-iframe-src="https://metapage.io/m/77928e24039c4c21ae0c0b817125987d/embed?showBorder=true&showFrameBorders=true&showTitle=true&height=400px" data-modal-title="OpenThermo Workflow">
+          <div class="demo-preview-placeholder">
+            <img src="https://raw.githubusercontent.com/lenhanpham/OpenThermo/refs/heads/main/resources/ot-logo.svg"></img>
+
+            <span>In the browser</span>
+          </div>
+          <div class="demo-info">
+            <span class="demo-badge badge-data">Data Dashboard</span>
+            <h3>OpenThermo workflow</h3>
+            <p>This live workflow is built directly from the github repository, run in the browser (via a public compute grid for containers), with inputs and outputs shown. Algorithms can be tested and experimented with directly.
+
+            </p>
+            <a href="https://metapage.io/m/77928e24039c4c21ae0c0b817125987d" target="_blank" class="demo-link">Open in separate browser tab →</a>
+            <div class="demo-tech">
+              <span>OpenThermo</span>
+              <span>Container</span>
+              <span>Interactive</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 3: Workflow Pipeline -->
+        <div class="demo-card reveal" data-iframe-src="https://metapage.io/m/66c271b465ac4b71b3c734fa0f71f019/embed?showBorder=true&showFrameBorders=true&showTitle=true&height=400px" data-modal-title="OmegaFold Example Workflow">
+          <div class="demo-preview-placeholder">
+
+            <img src="https://bvavsnfexwestptwwupx.storage.us-east-1.nhost.run/v1/files/f5ab34c2-9d7c-4582-978d-6d32291f3337"></img>
+          </div>
+          <div class="demo-info">
+            <span class="demo-badge badge-workflow">Workflow</span>
+            <h3>OmegaFold AI Protein Structure Prediction With Visualization</h3>
+
+            <p>
+              A simple workflow: protein sequence to structure prediction, with the output visualized in a 3D viewer. This workflow is a simple example of a workflow that can be used to predict the structure of a protein. It is built from the OmegaFold repository and runs in the browser via a public compute grid for containers.
+
+            </p>
+            <a href="https://metapage.io/m/66c271b465ac4b71b3c734fa0f71f019" target="_blank" class="demo-link">Edit workflow →</a>
+            <div class="demo-tech">
+              <span>Docker</span>
+              <span>OpenFold</span>
+              <span>metapage</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ARCHITECTURE -->
+    <section id="architecture">
+      <div class="section-tag reveal">Technical Architecture</div>
+      <h2 class="section-title reveal">How Metapages serves molecular science</h2>
+      <p class="section-desc reveal">
+        The metapage architecture maps directly to OMSF's needs: isolated components (websites and connected websites) for security, typed data pipes for interoperability, and URL-portability for open science.
+      </p>
+
+      <p class="section-desc reveal">
+        It also directly integrates with AI tools, allowing for the generation of code from natural language descriptions, and the ability to edit the code in the browser.
+      </p>
+
+      <div class="arch-container reveal">
+        <div class="arch-diagram">
+          <div class="arch-layers">
+            <div class="arch-layer">
+              <div class="arch-label">User Layer</div>
+              <div class="arch-nodes">
+                <div class="arch-node viewer">3D Mol Viewer</div>
+                <div class="arch-node viewer">Data Dashboard</div>
+                <div class="arch-node viewer">Parameter Controls</div>
+              </div>
+            </div>
+            <div class="arch-connector">
+              <div class="line"></div>
+            </div>
+            <div class="arch-layer">
+              <div class="arch-label">Metaframe<br>Pipes</div>
+              <div class="arch-nodes">
+                <div class="arch-node core">JSON / ArrayBuffer / Typed Data Pipes</div>
+              </div>
+            </div>
+            <div class="arch-connector">
+              <div class="line"></div>
+            </div>
+            <div class="arch-layer">
+              <div class="arch-label">Compute</div>
+              <div class="arch-nodes">
+                <div class="arch-node compute">Docker: RDKit</div>
+                <div class="arch-node compute">Docker: OpenMM</div>
+                <div class="arch-node compute">Python Notebook</div>
+              </div>
+            </div>
+            <div class="arch-connector">
+              <div class="line"></div>
+            </div>
+            <div class="arch-layer">
+              <div class="arch-label">Sharing</div>
+              <div class="arch-nodes">
+                <div class="arch-node data">Entire workflow encoded in URL</div>
+                <div class="arch-node data">Embed in any website</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FIT -->
+    <section id="fit">
+      <div class="section-tag reveal">Alignment</div>
+      <h2 class="section-title reveal">What OMSF needs ↔ What I've built</h2>
+      <p class="section-desc reveal">
+        A direct mapping between OMSF's open molecular science mission and the capabilities I bring to the table.
+      </p>
+
+      <div class="fit-grid reveal">
+        <div class="fit-header omsf">OMSF Need</div>
+        <div class="fit-header mine">My Experience</div>
+
+        <div class="fit-row">
+          <div class="fit-cell">Improve UX of molecular modeling tools through rigorous software development</div>
+          <div class="fit-cell">Built a complete browser-based workflow framework from scratch, focused on making complex tools accessible to non-developers</div>
+        </div>
+        <div class="fit-row">
+          <div class="fit-cell">OpenFold3 UI — work underway on user interface for protein structure prediction</div>
+          <div class="fit-cell">Deep experience integrating all existing molecule viewers [3Dmol.js, NGL, Mol*, etc.] into interactive, composable browser applications, for example
+            <a href="https://metapage.io/m/66c271b465ac4b71b3c734fa0f71f019">[re-useable OmegaFold plus UI]</a>
+          </div>
+        </div>
+        <div class="fit-row">
+          <div class="fit-cell">OpenADMET — open predictive models for drug safety/toxicity need accessible interfaces</div>
+          <div class="fit-cell">Can build interactive ADMET dashboards with Plotly/D3 that let researchers explore predictions, compare models, customize via AI/LLMs,and share results via URL</div>
+        </div>
+        <div class="fit-row">
+          <div class="fit-cell">Docker-based deployment — OpenFold3 distributed as containerized Docker images</div>
+          <div class="fit-cell">Metapages natively connects Docker containers to browser UIs, bridging compute and interaction seamlessly</div>
+        </div>
+        <div class="fit-row">
+          <div class="fit-cell">Open source ethos — all work under open licenses, community-driven</div>
+          <div class="fit-cell">Metapages is fully open source (BSD/MIT), URL-portable, no vendor lock-in — aligned with open science principles</div>
+        </div>
+        <div class="fit-row">
+          <div class="fit-cell">Cross-project tooling — OpenFF, OpenFE, OpenADMET need interoperable interfaces</div>
+          <div class="fit-cell">Metapages's composable iframe architecture is purpose-built for connecting independent tools into unified workflows</div>
+        </div>
+        <div class="fit-row">
+          <div class="fit-cell">Remote, distributed collaboration across timezones</div>
+          <div class="fit-cell">Built for remote-first: all workflows shareable as URLs, async-friendly by design</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="section-tag reveal">Get in Touch</div>
+      <h2 class="section-title reveal">Let's build better tools for open science</h2>
+      <p class="section-desc reveal" style="margin-left:auto;margin-right:auto;">
+        I'm excited about the possibility of bringing my framework and UX engineering experience to OMSF's ecosystem of molecular science projects.
+      </p>
+      <div class="contact-links reveal">
+        <a href="https://docs.metapage.io" target="_blank" class="contact-link">📖 Metapage Docs</a>
+        <a href="https://github.com/metapages/metapage" target="_blank" class="contact-link">💻 GitHub</a>
+        <a href="https://js.mtfm.io/#?edit=true&inputs=JTdCJTIycGRiSWQlMjIlM0ElMjIxQ1JOJTIyJTdE&js=aW1wb3J0JTIwJTdCJTIwc2V0SGFzaFBhcmFtVmFsdWVKc29uSW5XaW5kb3clMkMlMjBnZXRIYXNoUGFyYW1WYWx1ZUpzb25Gcm9tV2luZG93JTIwJTdEJTBBJTIwJTIwZnJvbSUyMCdodHRwcyUzQSUyRiUyRmNkbi5qc2RlbGl2ci5uZXQlMkZucG0lMkYlNDBtZXRhcGFnZXMlMkZoYXNoLXF1ZXJ5JTQwMC45LjEyJTJGJTJCZXNtJyUzQiUwQSUwQSUyRiUyRiUyMC0tLSUyMFNldHVwJTIwVUklMjAtLS0lMEFyb290LmlubmVySFRNTCUyMCUzRCUyMCcnJTNCJTBBJTBBY29uc3QlMjBjb250YWluZXIlMjAlM0QlMjBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKSUzQiUwQWNvbnRhaW5lci5zdHlsZS5jc3NUZXh0JTIwJTNEJTIwJ3dpZHRoJTNBMTAwJTI1JTNCaGVpZ2h0JTNBMTAwJTI1JTNCZGlzcGxheSUzQWZsZXglM0JmbGV4LWRpcmVjdGlvbiUzQWNvbHVtbiUzQiclM0IlMEElMEFjb25zdCUyMHRvb2xiYXIlMjAlM0QlMjBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKSUzQiUwQXRvb2xiYXIuc3R5bGUuY3NzVGV4dCUyMCUzRCUyMCdkaXNwbGF5JTNBZmxleCUzQmdhcCUzQThweCUzQnBhZGRpbmclM0E4cHglM0JiYWNrZ3JvdW5kJTNBJTIzMWExYTJlJTNCYWxpZ24taXRlbXMlM0FjZW50ZXIlM0JmbGV4LXNocmluayUzQTAlM0InJTNCJTBBdG9vbGJhci5pbm5lckhUTUwlMjAlM0QlMjAlNjAlMEElMjAlMjAlM0NpbnB1dCUyMGlkJTNEJTIycGRiLWlucHV0JTIyJTIwdHlwZSUzRCUyMnRleHQlMjIlMjBwbGFjZWhvbGRlciUzRCUyMkVudGVyJTIwUERCJTIwSUQlMjAoZS5nLiUyMDFDUk4pJTIyJTIwJTBBJTIwJTIwJTIwJTIwc3R5bGUlM0QlMjJwYWRkaW5nJTNBNnB4JTIwMTBweCUzQmJvcmRlci1yYWRpdXMlM0E0cHglM0Jib3JkZXIlM0ExcHglMjBzb2xpZCUyMCUyMzQ0NCUzQmJhY2tncm91bmQlM0ElMjMyYTJhM2UlM0Jjb2xvciUzQSUyM2ZmZiUzQmZvbnQtc2l6ZSUzQTE0cHglM0J3aWR0aCUzQTE4MHB4JTNCJTIyJTIwJTJGJTNFJTBBJTIwJTIwJTNDYnV0dG9uJTIwaWQlM0QlMjJsb2FkLWJ0biUyMiUyMCUwQSUyMCUyMCUyMCUyMHN0eWxlJTNEJTIycGFkZGluZyUzQTZweCUyMDE0cHglM0JiYWNrZ3JvdW5kJTNBJTIzNGE5MGQ5JTNCY29sb3IlM0ElMjNmZmYlM0Jib3JkZXIlM0Fub25lJTNCYm9yZGVyLXJhZGl1cyUzQTRweCUzQmN1cnNvciUzQXBvaW50ZXIlM0Jmb250LXNpemUlM0ExNHB4JTNCJTIyJTNFJTBBJTIwJTIwJTIwJTIwTG9hZCUwQSUyMCUyMCUzQyUyRmJ1dHRvbiUzRSUwQSUyMCUyMCUzQ3NwYW4lMjBpZCUzRCUyMnN0YXR1cyUyMiUyMHN0eWxlJTNEJTIyY29sb3IlM0ElMjNhYWElM0Jmb250LXNpemUlM0ExM3B4JTNCJTIyJTNFJTNDJTJGc3BhbiUzRSUwQSU2MCUzQiUwQSUwQWNvbnN0JTIwdmlld2VyRGl2JTIwJTNEJTIwZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2JyklM0IlMEF2aWV3ZXJEaXYuaWQlMjAlM0QlMjAnbW9sc3Rhci12aWV3ZXInJTNCJTBBdmlld2VyRGl2LnN0eWxlLmNzc1RleHQlMjAlM0QlMjAnd2lkdGglM0ExMDAlMjUlM0JmbGV4JTNBMSUzQnBvc2l0aW9uJTNBcmVsYXRpdmUlM0InJTNCJTBBJTBBY29udGFpbmVyLmFwcGVuZENoaWxkKHRvb2xiYXIpJTNCJTBBY29udGFpbmVyLmFwcGVuZENoaWxkKHZpZXdlckRpdiklM0IlMEFyb290LmFwcGVuZENoaWxkKGNvbnRhaW5lciklM0IlMEElMEElMkYlMkYlMjAtLS0lMjBMb2FkJTIwTW9sc3RhciUyMC0tLSUwQWNvbnN0JTIwbW9sc3RhclNjcmlwdCUyMCUzRCUyMGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3NjcmlwdCcpJTNCJTBBbW9sc3RhclNjcmlwdC50eXBlJTIwJTNEJTIwJ3RleHQlMkZqYXZhc2NyaXB0JyUzQiUwQW1vbHN0YXJTY3JpcHQuc3JjJTIwJTNEJTIwJ2h0dHBzJTNBJTJGJTJGY2RuLmpzZGVsaXZyLm5ldCUyRm5wbSUyRm1vbHN0YXIlNDA0LjYuMCUyRmJ1aWxkJTJGdmlld2VyJTJGbW9sc3Rhci5qcyclM0IlMEElMEFjb25zdCUyMG1vbHN0YXJMaW5rJTIwJTNEJTIwZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnbGluaycpJTNCJTBBbW9sc3RhckxpbmsucmVsJTIwJTNEJTIwJ3N0eWxlc2hlZXQnJTNCJTBBbW9sc3RhckxpbmsuaHJlZiUyMCUzRCUyMCdodHRwcyUzQSUyRiUyRmNkbi5qc2RlbGl2ci5uZXQlMkZucG0lMkZtb2xzdGFyJTQwNC42LjAlMkZidWlsZCUyRnZpZXdlciUyRm1vbHN0YXIuY3NzJyUzQiUwQSUwQWRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQobW9sc3RhckxpbmspJTNCJTBBZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChtb2xzdGFyU2NyaXB0KSUzQiUwQSUwQWxldCUyMHZpZXdlciUyMCUzRCUyMG51bGwlM0IlMEElMEFjb25zdCUyMHN0YXR1cyUyMCUzRCUyMGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzdGF0dXMnKSUzQiUwQSUwQWFzeW5jJTIwZnVuY3Rpb24lMjBsb2FkU3RydWN0dXJlKHBkYklkKSUyMCU3QiUwQSUyMCUyMGlmJTIwKCF2aWV3ZXIpJTIwcmV0dXJuJTNCJTBBJTIwJTIwcGRiSWQlMjAlM0QlMjBwZGJJZC50cmltKCkudG9VcHBlckNhc2UoKSUzQiUwQSUyMCUyMGlmJTIwKCFwZGJJZCklMjByZXR1cm4lM0IlMEElMjAlMjBzdGF0dXMudGV4dENvbnRlbnQlMjAlM0QlMjAlNjBMb2FkaW5nJTIwJTI0JTdCcGRiSWQlN0QuLi4lNjAlM0IlMEElMjAlMjB0cnklMjAlN0IlMEElMjAlMjAlMjAlMjBhd2FpdCUyMHZpZXdlci5sb2FkU3RydWN0dXJlRnJvbVVybCglMEElMjAlMjAlMjAlMjAlMjAlMjAlNjBodHRwcyUzQSUyRiUyRmZpbGVzLnJjc2Iub3JnJTJGZG93bmxvYWQlMkYlMjQlN0JwZGJJZCU3RC5jaWYlNjAlMkMlMEElMjAlMjAlMjAlMjAlMjAlMjAnbW1jaWYnJTBBJTIwJTIwJTIwJTIwKSUzQiUwQSUyMCUyMCUyMCUyMHN0YXR1cy50ZXh0Q29udGVudCUyMCUzRCUyMCU2MExvYWRlZCUyMCUyNCU3QnBkYklkJTdEJTYwJTNCJTBBJTIwJTIwJTIwJTIwc2V0SGFzaFBhcmFtVmFsdWVKc29uSW5XaW5kb3coJTIyaW5wdXRzJTIyJTJDJTIwJTdCJTIwcGRiSWQlMjAlN0QpJTNCJTBBJTIwJTIwJTdEJTIwY2F0Y2glMjAoZSklMjAlN0IlMEElMjAlMjAlMjAlMjBzdGF0dXMudGV4dENvbnRlbnQlMjAlM0QlMjAlNjBFcnJvciUyMGxvYWRpbmclMjAlMjQlN0JwZGJJZCU3RCU2MCUzQiUwQSUyMCUyMCUyMCUyMGNvbnNvbGUuZXJyb3IoZSklM0IlMEElMjAlMjAlN0QlMEElN0QlMEElMEFtb2xzdGFyU2NyaXB0Lm9ubG9hZCUyMCUzRCUyMGFzeW5jJTIwKCklMjAlM0QlM0UlMjAlN0IlMEElMjAlMjBjb25zdCUyMCU3QiUyMFZpZXdlciUyMCU3RCUyMCUzRCUyMG1vbHN0YXIlM0IlMEElMjAlMjB2aWV3ZXIlMjAlM0QlMjBhd2FpdCUyMFZpZXdlci5jcmVhdGUoJ21vbHN0YXItdmlld2VyJyUyQyUyMCU3QiUwQSUyMCUyMCUyMCUyMGxheW91dElzRXhwYW5kZWQlM0ElMjBmYWxzZSUyQyUwQSUyMCUyMCUyMCUyMGxheW91dFNob3dDb250cm9scyUzQSUyMHRydWUlMkMlMEElMjAlMjAlMjAlMjBsYXlvdXRTaG93UmVtb3RlU3RhdGUlM0ElMjBmYWxzZSUyQyUwQSUyMCUyMCUyMCUyMGxheW91dFNob3dTZXF1ZW5jZSUzQSUyMHRydWUlMkMlMEElMjAlMjAlMjAlMjBsYXlvdXRTaG93TG9nJTNBJTIwZmFsc2UlMkMlMEElMjAlMjAlMjAlMjBsYXlvdXRTaG93TGVmdFBhbmVsJTNBJTIwdHJ1ZSUyQyUwQSUyMCUyMCUyMCUyMHZpZXdwb3J0U2hvd0V4cGFuZCUzQSUyMGZhbHNlJTJDJTBBJTIwJTIwJTIwJTIwY29sbGFwc2VMZWZ0UGFuZWwlM0ElMjBmYWxzZSUyQyUwQSUyMCUyMCU3RCklM0IlMEElMEElMjAlMjAlMkYlMkYlMjBMb2FkJTIwZnJvbSUyMHNhdmVkJTIwc3RhdGUlMjBvciUyMGRlZmF1bHQlMEElMjAlMjBjb25zdCUyMHNhdmVkJTIwJTNEJTIwZ2V0SGFzaFBhcmFtVmFsdWVKc29uRnJvbVdpbmRvdyglMjJpbnB1dHMlMjIpJTNCJTBBJTIwJTIwY29uc3QlMjBwZGJJZCUyMCUzRCUyMHNhdmVkJTNGLnBkYklkJTIwJTdDJTdDJTIwJzFDUk4nJTNCJTBBJTIwJTIwZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3BkYi1pbnB1dCcpLnZhbHVlJTIwJTNEJTIwcGRiSWQlM0IlMEElMjAlMjBhd2FpdCUyMGxvYWRTdHJ1Y3R1cmUocGRiSWQpJTNCJTBBJTdEJTNCJTBBJTBBZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2xvYWQtYnRuJykuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snJTJDJTIwKCklMjAlM0QlM0UlMjAlN0IlMEElMjAlMjBjb25zdCUyMHBkYklkJTIwJTNEJTIwZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3BkYi1pbnB1dCcpLnZhbHVlJTNCJTBBJTIwJTIwbG9hZFN0cnVjdHVyZShwZGJJZCklM0IlMEElN0QpJTNCJTBBJTBBZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3BkYi1pbnB1dCcpLmFkZEV2ZW50TGlzdGVuZXIoJ2tleWRvd24nJTJDJTIwKGUpJTIwJTNEJTNFJTIwJTdCJTBBJTIwJTIwaWYlMjAoZS5rZXklMjAlM0QlM0QlM0QlMjAnRW50ZXInKSUyMGxvYWRTdHJ1Y3R1cmUoZS50YXJnZXQudmFsdWUpJTNCJTBBJTdEKSUzQiUwQSUwQSUyRiUyRiUyMC0tLSUyMEhhbmRsZSUyMGV4dGVybmFsJTIwaW5wdXRzJTIwLS0tJTBBZXhwb3J0JTIwZnVuY3Rpb24lMjBvbklucHV0cyhpbnB1dHMpJTIwJTdCJTBBJTIwJTIwY29uc3QlMjBwZGJJZCUyMCUzRCUyMGlucHV0cyUzRi5wZGJJZCUyMCU3QyU3QyUyMGlucHV0cyUzRi4lNUIncGRiSWQnJTVEJTNCJTBBJTIwJTIwaWYlMjAocGRiSWQlMjAlMjYlMjYlMjB0eXBlb2YlMjBwZGJJZCUyMCUzRCUzRCUzRCUyMCdzdHJpbmcnKSUyMCU3QiUwQSUyMCUyMCUyMCUyMGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdwZGItaW5wdXQnKS52YWx1ZSUyMCUzRCUyMHBkYklkJTNCJTBBJTIwJTIwJTIwJTIwbG9hZFN0cnVjdHVyZShwZGJJZCklM0IlMEElMjAlMjAlN0QlMEElN0QlMEElMEFleHBvcnQlMjBmdW5jdGlvbiUyMG9uUmVzaXplKHdpZHRoJTJDJTIwaGVpZ2h0KSUyMCU3QiUwQSUyMCUyMCUyRiUyRiUyME1vbHN0YXIlMjBoYW5kbGVzJTIwaXRzJTIwb3duJTIwcmVzaXplJTBBJTdEJTBBJTBBZXhwb3J0JTIwZnVuY3Rpb24lMjBjbGVhbnVwKCklMjAlN0IlMEElMjAlMjBpZiUyMCh2aWV3ZXIpJTIwJTdCJTBBJTIwJTIwJTIwJTIwdmlld2VyLmRpc3Bvc2UlM0YuKCklM0IlMEElMjAlMjAlMjAlMjB2aWV3ZXIlMjAlM0QlMjBudWxsJTNCJTBBJTIwJTIwJTdEJTBBJTdE" target="_blank" class="contact-link">⚡ JS Editor</a>
+        <a href="mailto:dion@metapage.io" class="contact-link">Email Dion Whitehead</a>
+      </div>
+    </section>
+
+    <footer>
+      Application for UX Developer Position — Open Molecular Software Foundation · Built with care, 2025
+    </footer>
+
+    <!-- DEMO MODAL (native dialog) -->
+    <dialog id="demo-modal" aria-labelledby="demo-modal-title">
+      <div class="demo-modal-inner">
+        <div class="demo-modal-header">
+          <h2 id="demo-modal-title" class="demo-modal-title">Demo</h2>
+          <button type="button" class="demo-modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="demo-modal-iframe-wrap">
+          <iframe id="demo-modal-iframe" title="Demo content"></iframe>
+        </div>
+        <div class="demo-modal-info" id="demo-modal-info"></div>
+      </div>
+    </dialog>
+
+    <!-- SCROLL REVEAL -->
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 80);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+      document
+        .querySelectorAll('.reveal')
+        .forEach(el => observer.observe(el));
+    </script>
+
+    <!-- DEMO CARD MODAL -->
+    <script>
+      (function () {
+        const dialog = document.getElementById('demo-modal');
+        const iframe = document.getElementById('demo-modal-iframe');
+        const titleEl = document.getElementById('demo-modal-title');
+        const infoContainer = document.getElementById('demo-modal-info');
+        const closeBtn = dialog.querySelector('.demo-modal-close');
+
+        function openModal(src, title, card) {
+          titleEl.textContent = title || 'Demo';
+          iframe.src = src;
+          infoContainer.innerHTML = '';
+          const info = card
+            ? card.querySelector('.demo-info')
+            : null;
+          if (info) {
+            infoContainer.appendChild(info.cloneNode(true));
+          }
+          dialog.showModal();
+        }
+
+        function closeModal() {
+          dialog.close();
+          iframe.src = 'about:blank';
+          infoContainer.innerHTML = '';
+        }
+
+        document
+          .querySelectorAll('.demo-card[data-iframe-src]')
+          .forEach(function (card) {
+            card.addEventListener('click', function (e) {
+              if (e.target.closest('a.demo-link')) 
+                return;
+              const src = card.getAttribute('data-iframe-src');
+              const title = card.getAttribute('data-modal-title') || '';
+              if (src) 
+                openModal(src, title, card);
+              }
+            );
+          });
+
+        closeBtn.addEventListener('click', closeModal);
+        dialog.addEventListener('cancel', closeModal);
+        dialog.addEventListener('click', function (e) {
+          if (e.target === dialog) 
+            closeModal();
+          }
+        );
+      })();
+    </script>
+
+  </body>
+
+</html>

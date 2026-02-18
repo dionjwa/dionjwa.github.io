@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdionjwa_resume_docusaurus=self.webpackChunkdionjwa_resume_docusaurus||[]).push([[535],{5641:s=>{s.exports=JSON.parse('{"title":"Recent posts","items":[]}')}}]);

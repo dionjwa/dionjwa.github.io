@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://evolvedeeptimecomplex.systems/</id>
+    <title>Dion Whitehead Blog</title>
+    <updated>2026-02-18T18:33:30.047Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://evolvedeeptimecomplex.systems/"/>
+    <subtitle>Dion Whitehead Blog</subtitle>
+    <icon>https://evolvedeeptimecomplex.systems/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Resume-OMSF]]></title>
+        <id>https://evolvedeeptimecomplex.systems/resume-omsf</id>
+        <link href="https://evolvedeeptimecomplex.systems/resume-omsf"/>
+        <updated>2026-02-18T18:33:30.047Z</updated>
+        <summary type="html"><![CDATA[I'm passionate about understanding deep time, complex systems using big data and software, advanced collaboration and team structures particularly in scienti...]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Question- can we get whales into space, if they would be better in space than we are?]]></title>
+        <id>https://evolvedeeptimecomplex.systems/feasibility-whales-in-space</id>
+        <link href="https://evolvedeeptimecomplex.systems/feasibility-whales-in-space"/>
+        <updated>2026-02-18T18:33:28.008Z</updated>
+        <summary type="html"><![CDATA[What are the logistical challenges in having whales be the spacefaring race. This makes senes because whales have evolved for low-gravity, which is very harm...]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data room- Tools / Software matched to job]]></title>
+        <id>https://evolvedeeptimecomplex.systems/tools-for-the-job</id>
+        <link href="https://evolvedeeptimecomplex.systems/tools-for-the-job"/>
+        <updated>2026-02-18T18:33:27.139Z</updated>
+        <summary type="html"><![CDATA[See disk space usage]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[A New Kind of Scientific Publishing]]></title>
+        <id>https://evolvedeeptimecomplex.systems/a-new-kind-of-scientific-publishing</id>
+        <link href="https://evolvedeeptimecomplex.systems/a-new-kind-of-scientific-publishing"/>
+        <updated>2026-02-18T18:33:23.551Z</updated>
+        <summary type="html"><![CDATA[Scientific papers are static artifacts. You read them, but that is about the limit of your interaction.]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Metapages- publish, embed, edit, share composable complete applications]]></title>
+        <id>https://evolvedeeptimecomplex.systems/metapages-scientific-embed</id>
+        <link href="https://evolvedeeptimecomplex.systems/metapages-scientific-embed"/>
+        <updated>2026-02-18T18:33:21.952Z</updated>
+        <summary type="html"><![CDATA[This is a deeper dive into an example metapage, that runs python, creates plots using matplotlib.]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How this blog is automated]]></title>
+        <id>https://evolvedeeptimecomplex.systems/how-this-blog-is-automated</id>
+        <link href="https://evolvedeeptimecomplex.systems/how-this-blog-is-automated"/>
+        <updated>2026-02-18T18:33:18.335Z</updated>
+        <summary type="html"><![CDATA[flowchart LR]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The golden trifecta- justfiles, deno, and docker]]></title>
+        <id>https://evolvedeeptimecomplex.systems/the-golden-three-just-deno-docker</id>
+        <link href="https://evolvedeeptimecomplex.systems/the-golden-three-just-deno-docker"/>
+        <updated>2026-02-18T18:33:14.513Z</updated>
+        <summary type="html"><![CDATA[flowchart LR]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Docker and wasm]]></title>
+        <id>https://evolvedeeptimecomplex.systems/docker-wasm-web-containers</id>
+        <link href="https://evolvedeeptimecomplex.systems/docker-wasm-web-containers"/>
+        <updated>2026-02-18T18:33:13.818Z</updated>
+        <summary type="html"><![CDATA[flowchart LR]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deno is part of the golden three]]></title>
+        <id>https://evolvedeeptimecomplex.systems/deno-and-tool-ecosystems</id>
+        <link href="https://evolvedeeptimecomplex.systems/deno-and-tool-ecosystems"/>
+        <updated>2026-02-18T18:33:13.137Z</updated>
+        <summary type="html"><![CDATA[flowchart LR]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Justfiles - universal command control]]></title>
+        <id>https://evolvedeeptimecomplex.systems/one-justfile-to-bind-them-all</id>
+        <link href="https://evolvedeeptimecomplex.systems/one-justfile-to-bind-them-all"/>
+        <updated>2026-02-18T18:33:10.005Z</updated>
+        <summary type="html"><![CDATA[flowchart LR]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Blob storage is a solved problem- what about compute?]]></title>
+        <id>https://evolvedeeptimecomplex.systems/blob-storage-is-solved-but-what-about-compute</id>
+        <link href="https://evolvedeeptimecomplex.systems/blob-storage-is-solved-but-what-about-compute"/>
+        <updated>2023-11-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Cheap and simple data blob storage is widely available and relatively easy to access and use. However, easily applying the right kind of compute is still lab...]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[URL Configured Websites]]></title>
+        <id>https://evolvedeeptimecomplex.systems/url-configured-websites</id>
+        <link href="https://evolvedeeptimecomplex.systems/url-configured-websites"/>
+        <updated>2023-09-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[URLs can safely and effectively store user created code or configuration (even credentials [1]) (access to things). URLs can also . This allows anyone with t...]]></summary>
+        <author>
+            <name>Dion Whitehead</name>
+            <uri>https://evolvedeeptimecomplex.systems/</uri>
+        </author>
+    </entry>
+</feed>
