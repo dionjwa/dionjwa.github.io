@@ -1,2 +1,5 @@
+packages:
+  - '.'
+
 patchedDependencies:
   '@sillsdev/docu-notion@0.16.1': patches/@sillsdev__docu-notion@0.16.1.patch
