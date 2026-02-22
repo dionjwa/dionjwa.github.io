@@ -84,7 +84,7 @@ generate: install (generate-from-notion-blog "") _add-author _extract-og-data
     echo -e "✅ generated blog from notion"
 
 install +args="":
-    # pnpm i {{ args }}
+    pnpm i {{ args }}
 
 _add-author: _cp-authors-yml
     #!/usr/bin/env -S deno run --allow-read={{ justfile_directory() }} --allow-write={{ justfile_directory() }}
