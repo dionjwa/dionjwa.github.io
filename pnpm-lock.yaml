@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   '@sillsdev/docu-notion@0.16.1':
-    hash: dc97cf49eda8488664e16951200f19627aa41f507f7e465785c86869d50fcbca
+    hash: c7204b52989117fd09e9f18323e76938da80d8758f81d3d7b6b50246b9b0ea76
     path: patches/@sillsdev__docu-notion@0.16.1.patch
 
 importers:
@@ -42,7 +42,7 @@ importers:
         version: 3.0.0(@types/react@18.2.21)(react@18.2.0)
       '@metapages/docu-notion-plugins':
         specifier: ^0.3.17
-        version: 0.3.17(@metapages/hash-query@0.8.8(react@18.2.0))(@metapages/metapage@1.8.3(react@18.2.0))(@sillsdev/docu-notion@0.16.1(patch_hash=dc97cf49eda8488664e16951200f19627aa41f507f7e465785c86869d50fcbca)(@types/node@20.6.0)(typescript@5.2.2))(tslib@2.8.1)
+        version: 0.3.17(@metapages/hash-query@0.8.8(react@18.2.0))(@metapages/metapage@1.8.3(react@18.2.0))(@sillsdev/docu-notion@0.16.1(patch_hash=c7204b52989117fd09e9f18323e76938da80d8758f81d3d7b6b50246b9b0ea76)(@types/node@20.6.0)(typescript@5.2.2))(tslib@2.8.1)
       '@metapages/hash-query':
         specifier: ^0.8.8
         version: 0.8.8(react@18.2.0)
@@ -57,7 +57,7 @@ importers:
         version: 2.2.3
       '@sillsdev/docu-notion':
         specifier: 0.16.1
-        version: 0.16.1(patch_hash=dc97cf49eda8488664e16951200f19627aa41f507f7e465785c86869d50fcbca)(@types/node@20.6.0)(typescript@5.2.2)
+        version: 0.16.1(patch_hash=c7204b52989117fd09e9f18323e76938da80d8758f81d3d7b6b50246b9b0ea76)(@types/node@20.6.0)(typescript@5.2.2)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -83,7 +83,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0
       react-dom:
-        specifier: ^18.2.0
+        specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-player:
         specifier: ^2.13.0
@@ -9302,11 +9302,11 @@ snapshots:
       '@types/react': 18.2.21
       react: 18.2.0
 
-  '@metapages/docu-notion-plugins@0.3.17(@metapages/hash-query@0.8.8(react@18.2.0))(@metapages/metapage@1.8.3(react@18.2.0))(@sillsdev/docu-notion@0.16.1(patch_hash=dc97cf49eda8488664e16951200f19627aa41f507f7e465785c86869d50fcbca)(@types/node@20.6.0)(typescript@5.2.2))(tslib@2.8.1)':
+  '@metapages/docu-notion-plugins@0.3.17(@metapages/hash-query@0.8.8(react@18.2.0))(@metapages/metapage@1.8.3(react@18.2.0))(@sillsdev/docu-notion@0.16.1(patch_hash=c7204b52989117fd09e9f18323e76938da80d8758f81d3d7b6b50246b9b0ea76)(@types/node@20.6.0)(typescript@5.2.2))(tslib@2.8.1)':
     dependencies:
       '@metapages/hash-query': 0.8.8(react@18.2.0)
       '@metapages/metapage': 1.8.3(react@18.2.0)
-      '@sillsdev/docu-notion': 0.16.1(patch_hash=dc97cf49eda8488664e16951200f19627aa41f507f7e465785c86869d50fcbca)(@types/node@20.6.0)(typescript@5.2.2)
+      '@sillsdev/docu-notion': 0.16.1(patch_hash=c7204b52989117fd09e9f18323e76938da80d8758f81d3d7b6b50246b9b0ea76)(@types/node@20.6.0)(typescript@5.2.2)
       he: 1.2.0
       marked: 15.0.12
       node-fetch: 3.3.2
@@ -9534,7 +9534,7 @@ snapshots:
 
   '@sideway/pinpoint@2.0.0': {}
 
-  '@sillsdev/docu-notion@0.16.1(patch_hash=dc97cf49eda8488664e16951200f19627aa41f507f7e465785c86869d50fcbca)(@types/node@20.6.0)(typescript@5.2.2)':
+  '@sillsdev/docu-notion@0.16.1(patch_hash=c7204b52989117fd09e9f18323e76938da80d8758f81d3d7b6b50246b9b0ea76)(@types/node@20.6.0)(typescript@5.2.2)':
     dependencies:
       '@notionhq/client': 2.2.3
       axios: 1.13.5

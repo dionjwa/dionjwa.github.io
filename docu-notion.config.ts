@@ -2,12 +2,12 @@ import {
   correctNotionUrlsInMermaid,
   embedToIframe,
   notionColumnsUpgraded,
-} from '@metapages/docu-notion-plugins';
+} from "@metapages/docu-notion-plugins";
 import {
   IDocuNotionConfig,
   IDocuNotionContext,
   IPlugin,
-} from '@sillsdev/docu-notion';
+} from "@sillsdev/docu-notion";
 
 const modifiedStandardInternalLinkConversion: IPlugin = {
   name: "modified standard internal link conversion",
@@ -16,7 +16,7 @@ const modifiedStandardInternalLinkConversion: IPlugin = {
       regex: /\[([^\]]+)?\]\((?!mailto:)(\/?[^),^\/]+)\)/,
       getReplacement: async (
         context: IDocuNotionContext,
-        match: RegExpExecArray
+        match: RegExpExecArray,
       ): Promise<string> => {
         const slugPrefix = context.options.markdownOutputPath.split("/").pop();
         const label = match[1];
@@ -36,13 +36,12 @@ const modifiedStandardInternalLinkConversion: IPlugin = {
   ],
 };
 
-
 const config: IDocuNotionConfig = {
   plugins: [
-    modifiedStandardInternalLinkConversion,
+    // modifiedStandardInternalLinkConversion,
     notionColumnsUpgraded,
-    correctNotionUrlsInMermaid({slugPrefix:""}),
-    embedToIframe, 
+    correctNotionUrlsInMermaid({ slugPrefix: "" }),
+    embedToIframe,
   ],
 };
 export default config;

@@ -1,8 +1,8 @@
 import {
   parseAll,
   stringify as yamlStringify,
-} from 'https://deno.land/std@0.182.0/encoding/yaml.ts';
-import { walk } from 'https://deno.land/std@0.182.0/fs/mod.ts';
+} from "https://deno.land/std@0.182.0/encoding/yaml.ts";
+import { walk } from "https://deno.land/std@0.182.0/fs/mod.ts";
 
 export const applyFrontMatterModification = (
   path: string,
@@ -32,12 +32,10 @@ export const applyFrontMatterModificationToAll = async (args: {
     return;
   }
 
-  for await (
-    const e of walk(path, {
-      includeDirs: false,
-      exts: [".md", ".mdx"],
-    })
-  ) {
+  for await (const e of walk(path, {
+    includeDirs: false,
+    exts: [".md", ".mdx"],
+  })) {
     if (e.isFile) {
       applyFrontMatterModification(e.path, f);
     }
@@ -86,26 +84,22 @@ export const hideTitle = (
   return frontMatter;
 };
 
-export const extractOgDataToFrontMatterAll = async (args: {
-  path: string;
-}) => {
+export const extractOgDataToFrontMatterAll = async (args: { path: string }) => {
   const { path } = args;
   const st = await Deno.stat(path);
   if (st.isFile) {
     applyFrontMatterModification(path, (fm) =>
-      extractOgDataToFrontMatter(fm, path)
+      extractOgDataToFrontMatter(fm, path),
     );
     return;
   }
-  for await (
-    const e of walk(path, {
-      includeDirs: false,
-      exts: ['.md', '.mdx'],
-    })
-  ) {
+  for await (const e of walk(path, {
+    includeDirs: false,
+    exts: [".md", ".mdx"],
+  })) {
     if (e.isFile) {
       applyFrontMatterModification(e.path, (fm) =>
-        extractOgDataToFrontMatter(fm, e.path)
+        extractOgDataToFrontMatter(fm, e.path),
       );
     }
   }
@@ -119,41 +113,40 @@ export const extractOgDataToFrontMatter = (
 
   const text = Deno.readTextFileSync(filePath);
   // Strip frontmatter to get body content
-  const body = text.replace(/^---\n[\s\S]*?\n---\n/, '');
+  const body = text.replace(/^---\n[\s\S]*?\n---\n/, "");
 
   // Extract first image if not already set
-  if (!frontMatter['image']) {
+  if (!frontMatter["image"]) {
     // Match ![alt](url) or [![alt](url)](link)
     const imgMatch = /!\[[^\]]*\]\(([^)]+)\)/.exec(body);
     if (imgMatch?.[1]) {
-      frontMatter['image'] = imgMatch[1];
+      frontMatter["image"] = imgMatch[1];
     }
   }
 
   // Extract description if not already set
-  if (!frontMatter['description']) {
+  if (!frontMatter["description"]) {
     // Find first non-empty paragraph (skip headings, images, blank lines)
-    const lines = body.split('\n');
+    const lines = body.split("\n");
     for (const line of lines) {
       const trimmed = line.trim();
       if (
         trimmed &&
-        !trimmed.startsWith('#') &&
-        !trimmed.startsWith('!') &&
-        !trimmed.startsWith('[!') &&
-        !trimmed.startsWith('[![') &&
-        !trimmed.startsWith('```') &&
-        !trimmed.startsWith('---')
+        !trimmed.startsWith("#") &&
+        !trimmed.startsWith("!") &&
+        !trimmed.startsWith("[!") &&
+        !trimmed.startsWith("[![") &&
+        !trimmed.startsWith("```") &&
+        !trimmed.startsWith("---")
       ) {
         // Strip markdown formatting for a clean description
         const cleaned = trimmed
-          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // links
-          .replace(/[*_~`]/g, '') // bold/italic/strikethrough/code
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // links
+          .replace(/[*_~`]/g, "") // bold/italic/strikethrough/code
           .trim();
         if (cleaned.length > 10) {
-          frontMatter['description'] = cleaned.length > 160
-            ? cleaned.substring(0, 157) + '...'
-            : cleaned;
+          frontMatter["description"] =
+            cleaned.length > 160 ? cleaned.substring(0, 157) + "..." : cleaned;
           break;
         }
       }
@@ -175,12 +168,10 @@ export const highlightSelfInMermaidDiagramsAll = async (args: {
     return;
   }
 
-  for await (
-    const e of walk(path, {
-      includeDirs: false,
-      exts: [".md", ".mdx"],
-    })
-  ) {
+  for await (const e of walk(path, {
+    includeDirs: false,
+    exts: [".md", ".mdx"],
+  })) {
     if (e.isFile) {
       highlightSelfInMermaidDiagrams({ path: e.path, mermaidClass });
     }
@@ -192,8 +183,8 @@ export const highlightSelfInMermaidDiagrams = async (args: {
   mermaidClass?: string;
 }) => {
   let { path, mermaidClass } = args;
-  mermaidClass = mermaidClass ||
-    "fill:#fff,stroke:#999999,stroke-width:2px,color:#000";
+  mermaidClass =
+    mermaidClass || "fill:#fff,stroke:#999999,stroke-width:2px,color:#000";
 
   let output: string = Deno.readTextFileSync(path);
 
@@ -220,81 +211,6 @@ export const highlightSelfInMermaidDiagrams = async (args: {
       mermaidMatch[0],
       `${mermaidMatch[0]}\n  style ${nodeId} ${mermaidClass}`,
     );
-
   });
   Deno.writeTextFileSync(path, lines.join("\n"));
-};
-
-export const markPostsAsUnlistedAll = async (args: {
-  path: string;
-  configPath: string;
-}) => {
-  const { path, configPath } = args;
-
-  let unlistedSlugs: string[] = [];
-  try {
-    const configText = await Deno.readTextFile(configPath);
-    const config = JSON.parse(configText);
-    unlistedSlugs = config.unlistedSlugs || [];
-  } catch (error) {
-    if (error instanceof Deno.errors.NotFound) {
-      console.log(`⚠️  Config file not found at ${configPath}. No posts will be marked as unlisted.`);
-      return;
-    }
-    throw error;
-  }
-
-  if (unlistedSlugs.length === 0) {
-    console.log('ℹ️  No unlisted slugs configured.');
-    return;
-  }
-
-  const st = await Deno.stat(path);
-  if (st.isFile) {
-    applyFrontMatterModification(path, (fm) =>
-      markAsUnlistedIfMatch(fm, unlistedSlugs)
-    );
-    return;
-  }
-
-  let markedCount = 0;
-  for await (
-    const e of walk(path, {
-      includeDirs: false,
-      exts: ['.md', '.mdx'],
-    })
-  ) {
-    if (e.isFile) {
-      const beforeText = Deno.readTextFileSync(e.path);
-      applyFrontMatterModification(e.path, (fm) =>
-        markAsUnlistedIfMatch(fm, unlistedSlugs)
-      );
-      const afterText = Deno.readTextFileSync(e.path);
-      if (beforeText !== afterText) {
-        markedCount++;
-      }
-    }
-  }
-
-  if (markedCount > 0) {
-    console.log(`✅ Marked ${markedCount} post(s) as unlisted`);
-  } else {
-    console.log('ℹ️  No posts matched the unlisted slugs');
-  }
-};
-
-export const markAsUnlistedIfMatch = (
-  frontMatter: Record<string, unknown>,
-  unlistedSlugs: string[],
-): Record<string, unknown> => {
-  if (!frontMatter || !frontMatter['slug']) {
-    return frontMatter;
-  }
-
-  const slug = frontMatter['slug'] as string;
-  if (unlistedSlugs.includes(slug)) {
-    frontMatter['unlisted'] = true;
-  }
-
-  return frontMatter;
 };
