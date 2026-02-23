@@ -41,3 +41,9 @@
 .doc-wrapper .docMainContainer {
   max-width: 100% !important;
 }
+
+/* https://github.com/facebook/docusaurus/issues/9462#issuecomment-2220393332 */
+img {
+  width: auto;
+  height: auto;
+}
