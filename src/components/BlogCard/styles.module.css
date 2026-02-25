@@ -45,7 +45,6 @@
 .cardImagePlaceholder {
   width: 100%;
   height: 180px;
-  background: linear-gradient(135deg, var(--ifm-color-primary-lightest), var(--ifm-color-primary));
 }
 
 .cardBody {

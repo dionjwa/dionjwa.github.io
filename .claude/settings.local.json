@@ -7,15 +7,16 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:docusaurus.io)",
       "Bash(npx docusaurus:*)",
-      "Bash(pnpm exec docusaurus:*)",
+      "Bash(npm exec docusaurus:*)",
       "Bash(python3:*)",
-      "Bash(pnpm swizzle:*)",
-      "Bash(pnpm install:*)",
+      "Bash(npm swizzle:*)",
+      "Bash(npm install:*)",
       "Bash(grep:*)",
-      "Bash(pnpm build:*)",
+      "Bash(npm build:*)",
       "Bash(head:*)",
       "Bash(deno run:*)",
-      "Bash(just _mark-unlisted:*)"
+      "Bash(just _mark-unlisted:*)",
+      "Bash(find:*)"
     ]
   }
 }

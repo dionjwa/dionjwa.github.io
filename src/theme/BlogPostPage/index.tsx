@@ -1,12 +1,22 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import BlogPostPaginator from '@theme/BlogPostPaginator';
+import MDXContent from '@theme/MDXContent';
+import {BlogPostProvider, useBlogPost} from '@docusaurus/plugin-content-blog/client';
 import type {Props} from '@theme/BlogPostPage';
 
-export default function BlogPostPage(props: Props): React.JSX.Element {
-  const BlogPostContent = props.content;
-  const {metadata, frontMatter} = BlogPostContent;
+function BlogPostPageContent({content: BlogPostContent}: Props): React.JSX.Element {
+  const {metadata} = useBlogPost();
   const {nextItem, prevItem} = metadata;
+
+  const dateStr = metadata.date
+    ? new Date(metadata.date as unknown as string).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC',
+      })
+    : undefined;
 
   return (
     <Layout
@@ -22,12 +32,14 @@ export default function BlogPostPage(props: Props): React.JSX.Element {
           <header>
             <h1>{metadata.title}</h1>
             <div style={{color: 'var(--ifm-color-emphasis-600)', marginBottom: '1.5rem'}}>
-              {metadata.formattedDate}
+              {dateStr}
               {metadata.authors?.[0]?.name && ` · ${metadata.authors[0].name}`}
             </div>
           </header>
           <div className="markdown">
-            <BlogPostContent />
+            <MDXContent>
+              <BlogPostContent />
+            </MDXContent>
           </div>
         </article>
         {(nextItem || prevItem) && (
@@ -35,5 +47,13 @@ export default function BlogPostPage(props: Props): React.JSX.Element {
         )}
       </main>
     </Layout>
+  );
+}
+
+export default function BlogPostPage(props: Props): React.JSX.Element {
+  return (
+    <BlogPostProvider content={props.content} isBlogPostPage>
+      <BlogPostPageContent {...props} />
+    </BlogPostProvider>
   );
 }

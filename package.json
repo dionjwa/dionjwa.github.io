@@ -15,15 +15,16 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
+    "postinstall": "patch-package",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "3.1.1",
-    "@docusaurus/preset-classic": "3.1.1",
-    "@docusaurus/theme-live-codeblock": "^3.1.1",
-    "@docusaurus/theme-mermaid": "^3.1.1",
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/preset-classic": "3.9.2",
+    "@docusaurus/theme-live-codeblock": "^3.9.2",
+    "@docusaurus/theme-mermaid": "^3.9.2",
     "@emotion/react": "11.10.5",
     "@mantine/core": "^5.8.3",
     "@mantine/hooks": "^5.8.3",
@@ -49,12 +50,13 @@
     "tslib": "2.8.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.0.0",
-    "@docusaurus/tsconfig": "^3.0.0",
-    "@docusaurus/types": "3.0.0",
+    "@docusaurus/module-type-aliases": "3.9.2",
+    "@docusaurus/tsconfig": "^3.9.2",
+    "@docusaurus/types": "3.9.2",
     "@types/react": "18.2",
     "client": "@types/@notionhq/client",
     "notion-to-md": "^3.1.1",
+    "patch-package": "^8.0.1",
     "typescript": "^5.2.2"
   },
   "browserslist": {
@@ -70,6 +72,6 @@
     ]
   },
   "engines": {
-    "node": ">=18.x"
+    "node": ">=20.x"
   }
 }
