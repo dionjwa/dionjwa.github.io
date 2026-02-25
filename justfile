@@ -52,20 +52,20 @@ open:
 
 # Starts the development server, but without refetching notion.
 @_dev:
-    pnpm start
+    npm run start
 
 # Bundles your website into static files for production. NB: no notion fetch here
 build: install _build
 
 @_build:
-    pnpm build
+    npm run build
 
 # Bundles your website into static files for production. NB: no notion fetch here
 @generate_and_build: install generate _build
 
 # Serves the built website locally.
 @serve: install generate
-    pnpm serve
+    npm run serve
 
 # Publishes the website to GitHub pages.
 @deploy:
@@ -76,7 +76,7 @@ generate: install (generate-from-notion-blog "") _add-author _extract-og-data
     echo -e "✅ generated from notion"
 
 # Build blog from notion https://github.com/sillsdev/docu-notion
-@generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN && (_truncate_after_END_PAGE "blog") (_highlight_self_in_mermaid "blog") (_replace_img_with_markdown "blog")
+@generate-from-notion-blog +args="--log-level=verbose": _require_NOTION_TOKEN && (_rename_md_mdx "blog") (_truncate_after_END_PAGE "blog") (_highlight_self_in_mermaid "blog") (_replace_img_with_markdown "blog")
     mkdir -p blog
     rm -rf blog/*
     {{ DOCU_NOTION }} --notion-token {{ NOTION_TOKEN }} --root-page b617023dad3d4fe6a4ffafabc77f54a7 --status-tag '*' --markdown-output-path $(pwd)/blog {{ args }}
@@ -84,7 +84,7 @@ generate: install (generate-from-notion-blog "") _add-author _extract-og-data
     echo -e "✅ generated blog from notion"
 
 install +args="":
-    pnpm i {{ args }}
+    npm i {{ args }}
 
 _add-author: _cp-authors-yml
     #!/usr/bin/env -S deno run --allow-read={{ justfile_directory() }} --allow-write={{ justfile_directory() }}
@@ -218,3 +218,7 @@ _replace_img_with_markdown path:
     }
     console.log("👍 truncated markdown files after END PAGE")
     Deno.exit(0);
+
+@_rename_md_mdx dir:
+    find {{dir}} -iname '*.md' -exec bash -c 'mv -- "$1" "${1%.md}.mdx"' bash {} \; 
+    echo "👍 renamed .md -> .mdx"

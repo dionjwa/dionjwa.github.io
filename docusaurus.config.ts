@@ -22,7 +22,7 @@ const config: Config = {
   projectName: "dionjwa.github.io", // Usually your repo name.
 
   onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "throw",
+  // onBrokenMarkdownLinks: "throw",
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -32,11 +32,13 @@ const config: Config = {
     locales: ["en"],
   },
 
+  themes: ["@docusaurus/theme-mermaid", "@docusaurus/theme-live-codeblock"],
+
   markdown: {
     mermaid: true,
   },
 
-  themes: ["@docusaurus/theme-mermaid", "@docusaurus/theme-live-codeblock"],
+  
 
   presets: [
     [
@@ -90,7 +92,7 @@ const config: Config = {
       //   src: "dion-profile-github.jpg",
       // },
       items: [
-        { to: "/", label: "Dr Dion Whitehead", position: "left" },
+        { to: "/", label: "Dion Whitehead, PhD", position: "left" },
         {
           href: "https://github.com/dionjwa",
           label: "GitHub",

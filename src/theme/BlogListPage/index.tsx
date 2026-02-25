@@ -20,6 +20,14 @@ export default function BlogListPage(props: Props): React.JSX.Element {
           {listedItems.map(({content: BlogPostContent}) => {
             const {metadata: postMetadata, frontMatter, assets} = BlogPostContent;
             const image = assets?.image ?? frontMatter.image;
+            const formattedDate = postMetadata.date
+              ? new Date(postMetadata.date as unknown as string).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  timeZone: 'UTC',
+                })
+              : '';
 
             return (
               <BlogCard
@@ -27,7 +35,7 @@ export default function BlogListPage(props: Props): React.JSX.Element {
                 title={postMetadata.title}
                 description={postMetadata.description}
                 permalink={postMetadata.permalink}
-                formattedDate={postMetadata.formattedDate}
+                formattedDate={formattedDate}
                 authors={postMetadata.authors}
                 image={image}
               />

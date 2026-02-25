@@ -17,6 +17,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 23.x
+
       - uses: extractions/setup-just@v1
         with:
           just-version: '1.25.2'
@@ -26,10 +30,6 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: '2.5.6'
-
-      - uses: pnpm/action-setup@v4
-        with:
-          version: "10.13.1"
 
       - name: Install dependencies
         run: just install --frozen-lockfile

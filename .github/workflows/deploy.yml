@@ -38,10 +38,6 @@ jobs:
         with:
           deno-version: '2.5.6'
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: '10.13.1'
-
       - name: Install dependencies
         run: just install --frozen-lockfile
 

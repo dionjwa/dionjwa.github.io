@@ -26,11 +26,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8.6.7
+          node-version: 23
   
       - name: Install dependencies
         run: just install --frozen-lockfile
